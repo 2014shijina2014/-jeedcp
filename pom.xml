@@ -44,6 +44,30 @@
         <module>easyreport-data</module>
         <module>easyreport-domain</module>
         <module>easyreport-engine</module>
+        <module>jeedcp-util</module>
+        <module>jeedcp-job</module>
+        <module>jeedcp-dao</module>
+        <module>jeedcp-core</module>
+        <module>jeedcp-web</module>
+        <module>jeedcp-api</module>
+        <module>jeedcp-gen</module>
+        <module>jeedcp-test</module>
+        <module>jeedcp-message</module>
+        <module>jeedcp-log</module>
+        <module>jeedcp-config</module>
+        <module>jeedcp-mq</module>
+        <module>jeedcp-cache</module>
+        <module>jeedcp-sso-client</module>
+        <module>jeedcp-sso-server</module>
+        <module>jeedcp-admin</module>
+        <module>jeedcp-weixin</module>
+        <module>jeedcp-report</module>
+        <module>jeedcp-pay</module>
+        <module>jeedcp-core-static</module>
+        <module>jeedcp-domain</module>
+        <module>jeedcp-exception</module>
+        <module>jeedcp-service</module>
+        <module>jeedcp-service-impl</module>
     </modules>
     <dependencyManagement>
     <dependencies>
