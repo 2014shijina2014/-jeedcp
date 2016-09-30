@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeeplus" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeeplus" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-exception" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-exception" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-pay" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-pay" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-domain" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-domain" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-log" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-log" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-config" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-config" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-service-impl" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-service-impl" />
+      </profile>
+      <profile default="false" name="Annotation profile for easyreport-domain" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-core" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-mq" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-mq" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-weixin" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-weixin" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-report" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-report" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for easyreport-common" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-util" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-util" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-dao" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-dao" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-sso-client" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-sso-client" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-message" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-message" />
+      </profile>
+      <profile default="false" name="Annotation profile for easyreport-engine" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-test" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-test" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-job" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-job" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-cache" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-cache" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-core-static" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-admin" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-admin" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-gen" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-gen" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-sso-server" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-sso-server" />
+      </profile>
+      <profile default="false" name="Annotation profile for easyreport-data" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-common" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-common" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-auth" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-auth" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="easyreport-common" target="1.8" />
+      <module name="easyreport-data" target="1.8" />
+      <module name="easyreport-domain" target="1.8" />
+      <module name="easyreport-engine" target="1.8" />
+      <module name="jeedcp" target="1.5" />
+      <module name="jeedcp-admin" target="1.8" />
+      <module name="jeedcp-api" target="1.8" />
+      <module name="jeedcp-auth" target="1.8" />
+      <module name="jeedcp-cache" target="1.8" />
+      <module name="jeedcp-common" target="1.8" />
+      <module name="jeedcp-config" target="1.8" />
+      <module name="jeedcp-core" target="1.8" />
+      <module name="jeedcp-core-static" target="1.8" />
+      <module name="jeedcp-dao" target="1.8" />
+      <module name="jeedcp-domain" target="1.8" />
+      <module name="jeedcp-exception" target="1.8" />
+      <module name="jeedcp-gen" target="1.8" />
+      <module name="jeedcp-job" target="1.8" />
+      <module name="jeedcp-log" target="1.8" />
+      <module name="jeedcp-message" target="1.8" />
+      <module name="jeedcp-mq" target="1.8" />
+      <module name="jeedcp-pay" target="1.8" />
+      <module name="jeedcp-report" target="1.8" />
+      <module name="jeedcp-service" target="1.8" />
+      <module name="jeedcp-service-impl" target="1.8" />
+      <module name="jeedcp-sso-client" target="1.8" />
+      <module name="jeedcp-sso-server" target="1.8" />
+      <module name="jeedcp-test" target="1.8" />
+      <module name="jeedcp-util" target="1.8" />
+      <module name="jeedcp-web" target="1.8" />
+      <module name="jeedcp-weixin" target="1.8" />
+      <module name="jeeplus" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

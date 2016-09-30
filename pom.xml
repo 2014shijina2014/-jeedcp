@@ -4,11 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>jeedcp</groupId>
+    <groupId>com.dcp.jeedcp</groupId>
     <artifactId>jeedcp</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
+
+        <!-- platform setting -->
+        <dcp.jeedcp.groupId>com.dcp.jeedcp</dcp.jeedcp.groupId>
+        <dcp.jeedcp.version>1.0.0-SNAPSHOT</dcp.jeedcp.version>
+        <dcp.jeedcp.inceptionYear>2014-2016</dcp.jeedcp.inceptionYear>
+
+
+
         <spring.version>4.0.8.RELEASE</spring.version>
         <validator.version>5.1.1.Final</validator.version>
         <mybatis.version>3.2.8</mybatis.version>
@@ -44,9 +52,85 @@
         <module>easyreport-data</module>
         <module>easyreport-domain</module>
         <module>easyreport-engine</module>
+        <module>jeedcp-util</module>
+        <module>jeedcp-job</module>
+        <module>jeedcp-dao</module>
+        <module>jeedcp-core</module>
+        <module>jeedcp-web</module>
+        <module>jeedcp-api</module>
+        <module>jeedcp-gen</module>
+        <module>jeedcp-test</module>
+        <module>jeedcp-message</module>
+        <module>jeedcp-log</module>
+        <module>jeedcp-config</module>
+        <module>jeedcp-mq</module>
+        <module>jeedcp-cache</module>
+        <module>jeedcp-sso-client</module>
+        <module>jeedcp-sso-server</module>
+        <module>jeedcp-admin</module>
+        <module>jeedcp-weixin</module>
+        <module>jeedcp-report</module>
+        <module>jeedcp-pay</module>
+        <module>jeedcp-domain</module>
+        <module>jeedcp-exception</module>
+        <module>jeedcp-service</module>
+        <module>jeedcp-service-impl</module>
+        <module>jeedcp-common</module>
+        <module>jeedcp-auth</module>
     </modules>
     <dependencyManagement>
     <dependencies>
+        <!-- Jeedcp声明聚合各模块的依赖配置 -->
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-common</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-domain</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-util</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-service</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-web</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-exception</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-dao</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-auth</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>jar</type>
+        </dependency>
         <!-- log -->
         <dependency>
             <groupId>ch.qos.logback</groupId>

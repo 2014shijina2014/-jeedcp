@@ -3,13 +3,46 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <groupId>com.dcp.jeedcp</groupId>
         <artifactId>jeedcp</artifactId>
-        <groupId>jeedcp</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <!-- 子项目：代码生成 -->
     <artifactId>jeedcp-gen</artifactId>
+    <packaging>war</packaging>
+    <name>jeesite-gen</name>
+    <url>https://git.oschina.net/smarter56.com/jeedcp/jeedcp-gen</url>
+    <description>jeedcp的代码生成模块Web工程。 </description>
+
+    <!--
+    1、这个工程的packaging类型是war，而不是jar。
+        但是最终它不会独立打出war包来，其src/main/webapp里的所有文件，
+        都会被最外围的web-dist工程聚合成一个总的war
+    2、这个工程的WEB-INF目录下，没有web.xml（有也没用，最终会被覆盖）。
+        默认情况下，packaging类型为war的项目，如果没有web.xml，则构建会失败，
+        因此需要在pom里做一个failOnMissingWebXml配置
+    3、【普通的模块】除了jeedcp-common工程无额外依赖，
+        直接packagingExcludes过滤所有jar
+    4、【服务模块】有自主依赖jeedcp-common之外的jar的模块，
+        通过packagingIncludes过滤打包非共通的jar，
+        注意！引入WEB-INF/classes和views等本模块的文件夹
+ -->
 
 
+    <dependencies>
+        <!--继承父模块的jar包 -->
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
