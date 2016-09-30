@@ -48,10 +48,8 @@
     </properties>
     <modules>
         <module>jeeplus</module>
-        <module>easyreport-common</module>
-        <module>easyreport-data</module>
-        <module>easyreport-domain</module>
-        <module>easyreport-engine</module>
+        <module>jeedcp-file-core</module>
+        <module>jeedcp-file-web</module>
         <module>jeedcp-util</module>
         <module>jeedcp-job</module>
         <module>jeedcp-dao</module>
