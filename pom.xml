@@ -56,7 +56,7 @@
         <module>jeedcp-core</module>
         <module>jeedcp-web</module>
         <module>jeedcp-api</module>
-        <module>jeedcp-gen</module>
+        <module>jeedcp-gen-mybaits</module>
         <module>jeedcp-test</module>
         <module>jeedcp-message</module>
         <module>jeedcp-log</module>
@@ -75,6 +75,7 @@
         <module>jeedcp-service-impl</module>
         <module>jeedcp-common</module>
         <module>jeedcp-auth</module>
+        <module>jeedcp-gen-mongo</module>
     </modules>
     <dependencyManagement>
     <dependencies>
@@ -680,6 +681,12 @@
             <groupId>jeedcp</groupId>
             <artifactId>easyreport-engine</artifactId>
             <version>${project.version} </version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.0.3</version>
         </dependency>
     </dependencies>
     </dependencyManagement>
