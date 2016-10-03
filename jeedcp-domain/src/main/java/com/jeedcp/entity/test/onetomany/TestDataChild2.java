@@ -4,7 +4,7 @@ package com.jeedcp.entity.test.onetomany;
 
 import javax.validation.constraints.NotNull;
 
-import com.jeedcp.entity.excel.annotation.ExcelField;
+import com.jeedcp.entity.annotation.ExcelField;
 import org.hibernate.validator.constraints.Length;
 
 import com.jeedcp.entity.base.DataEntity;

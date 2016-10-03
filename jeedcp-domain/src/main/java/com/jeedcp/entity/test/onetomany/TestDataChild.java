@@ -2,13 +2,10 @@ package com.jeedcp.entity.test.onetomany;
 
 
 import javax.validation.constraints.NotNull;
-
-import com.jeedcp.entity.excel.annotation.ExcelField;
-import org.hibernate.validator.constraints.Length;
-
+import com.jeedcp.entity.annotation.ExcelField;
 import com.jeedcp.entity.base.DataEntity;
 import com.jeedcp.entity.sys.Area;
-
+import org.hibernate.validator.constraints.Length;
 /**
  * 票务代理Entity
  * @author andy

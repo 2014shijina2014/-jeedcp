@@ -4,7 +4,8 @@
 package com.jeedcp.entity.sys;
 
 import com.jeedcp.entity.base.DataEntity;
-import com.jeedcp.entity.excel.annotation.ExcelField;
+
+import com.jeedcp.entity.annotation.ExcelField;
 import org.hibernate.validator.constraints.Length;
 
 /**

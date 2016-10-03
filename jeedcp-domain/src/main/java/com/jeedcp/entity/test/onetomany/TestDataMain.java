@@ -2,7 +2,6 @@ package com.jeedcp.entity.test.onetomany;
 
 
 
-import com.jeedcp.entity.excel.annotation.ExcelField;
 import org.hibernate.validator.constraints.Length;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -10,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import com.google.common.collect.Lists;
 import com.jeedcp.entity.base.DataEntity;
-
+import com.jeedcp.entity.annotation.ExcelField;
 
 /**
  * 票务代理Entity

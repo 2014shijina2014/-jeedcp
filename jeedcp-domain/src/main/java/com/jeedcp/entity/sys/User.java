@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.entity.base.DataEntity;
-import com.jeedcp.entity.excel.annotation.ExcelField;
+import com.jeedcp.entity.annotation.ExcelField;
 import com.jeedcp.util.Collections3;
 
 import org.hibernate.validator.constraints.Email;

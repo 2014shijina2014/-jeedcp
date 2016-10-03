@@ -5,8 +5,10 @@ package com.jeedcp.entity.test.one;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jeedcp.entity.annotation.ExcelField;
 import com.jeedcp.entity.base.DataEntity;
-import com.jeedcp.entity.excel.annotation.ExcelField;
+import org.hibernate.validator.constraints.Length;
+
 import com.jeedcp.entity.sys.Area;
 import com.jeedcp.entity.sys.Office;
 import com.jeedcp.entity.sys.User;
