@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jeedcp-gen-mybaits:war">
+    <output-path>$PROJECT_DIR$/jeedcp-gen-mybaits/target</output-path>
+    <root id="archive" name="jeedcp-gen-mybaits-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jeedcp-gen-mybaits:war exploded" />
+    </root>
+  </artifact>
+</component>

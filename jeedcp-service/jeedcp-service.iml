@@ -74,6 +74,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
     <orderEntry type="module" module-name="jeedcp-exception" />
+    <orderEntry type="module" module-name="jeedcp-auth" />
     <orderEntry type="module" module-name="jeedcp-dao" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" level="project" />

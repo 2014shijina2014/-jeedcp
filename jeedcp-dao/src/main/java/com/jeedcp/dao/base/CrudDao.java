@@ -31,9 +31,6 @@ public interface CrudDao<T> extends BaseDao {
 	
 	/**
 	 * 根据实体名称和字段名称和字段值获取唯一记录
-	 * 
-	 * @param <T>
-	 * @param entityClass
 	 * @param propertyName
 	 * @param value
 	 * @return

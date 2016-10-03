@@ -229,6 +229,39 @@
         <processorPath useClasspath="true" />
         <module name="jeedcp-auth" />
       </profile>
+      <profile default="false" name="Annotation profile for jeedcp-file-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-file-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-gen-mybaits" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-gen-mybaits" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-gen-mongo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for jeedcp-sys" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jeedcp-sys" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="easyreport-common" target="1.8" />
@@ -247,7 +280,11 @@
       <module name="jeedcp-dao" target="1.8" />
       <module name="jeedcp-domain" target="1.8" />
       <module name="jeedcp-exception" target="1.8" />
+      <module name="jeedcp-file-core" target="1.8" />
+      <module name="jeedcp-file-web" target="1.5" />
       <module name="jeedcp-gen" target="1.8" />
+      <module name="jeedcp-gen-mongo" target="1.8" />
+      <module name="jeedcp-gen-mybaits" target="1.8" />
       <module name="jeedcp-job" target="1.8" />
       <module name="jeedcp-log" target="1.8" />
       <module name="jeedcp-message" target="1.8" />
@@ -258,6 +295,7 @@
       <module name="jeedcp-service-impl" target="1.8" />
       <module name="jeedcp-sso-client" target="1.8" />
       <module name="jeedcp-sso-server" target="1.8" />
+      <module name="jeedcp-sys" target="1.8" />
       <module name="jeedcp-test" target="1.8" />
       <module name="jeedcp-util" target="1.8" />
       <module name="jeedcp-web" target="1.8" />

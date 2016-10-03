@@ -4,6 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-admin" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-gen" />
     <file type="web" url="file://$PROJECT_DIR$/jeeplus" />
   </component>
@@ -19,6 +20,7 @@
         <option value="$PROJECT_DIR$/easyreport-data/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-domain/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-engine/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-gen-mongo/pom.xml" />
       </set>
     </option>
   </component>

@@ -13,7 +13,10 @@
       <module fileurl="file://$PROJECT_DIR$/jeedcp-dao/jeedcp-dao.iml" filepath="$PROJECT_DIR$/jeedcp-dao/jeedcp-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-domain/jeedcp-domain.iml" filepath="$PROJECT_DIR$/jeedcp-domain/jeedcp-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-exception/jeedcp-exception.iml" filepath="$PROJECT_DIR$/jeedcp-exception/jeedcp-exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-file-core/jeedcp-file-core.iml" filepath="$PROJECT_DIR$/jeedcp-file-core/jeedcp-file-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-file-web/jeedcp-file-web.iml" filepath="$PROJECT_DIR$/jeedcp-file-web/jeedcp-file-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-gen/jeedcp-gen.iml" filepath="$PROJECT_DIR$/jeedcp-gen/jeedcp-gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-gen/jeedcp-gen-mybaits.iml" filepath="$PROJECT_DIR$/jeedcp-gen/jeedcp-gen-mybaits.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-job/jeedcp-job.iml" filepath="$PROJECT_DIR$/jeedcp-job/jeedcp-job.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-log/jeedcp-log.iml" filepath="$PROJECT_DIR$/jeedcp-log/jeedcp-log.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-message/jeedcp-message.iml" filepath="$PROJECT_DIR$/jeedcp-message/jeedcp-message.iml" />
@@ -24,6 +27,7 @@
       <module fileurl="file://$PROJECT_DIR$/jeedcp-service-impl/jeedcp-service-impl.iml" filepath="$PROJECT_DIR$/jeedcp-service-impl/jeedcp-service-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-sso-client/jeedcp-sso-client.iml" filepath="$PROJECT_DIR$/jeedcp-sso-client/jeedcp-sso-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-sso-server/jeedcp-sso-server.iml" filepath="$PROJECT_DIR$/jeedcp-sso-server/jeedcp-sso-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-sys/jeedcp-sys.iml" filepath="$PROJECT_DIR$/jeedcp-sys/jeedcp-sys.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-test/jeedcp-test.iml" filepath="$PROJECT_DIR$/jeedcp-test/jeedcp-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" filepath="$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" filepath="$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" />

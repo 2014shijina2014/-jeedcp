@@ -17,5 +17,14 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-dao</artifactId>
+        </dependency>
     </dependencies>
 </project>

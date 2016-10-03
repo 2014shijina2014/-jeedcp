@@ -8,10 +8,11 @@ package com.jeedcp.web.base;
 import com.google.common.net.HttpHeaders;
 import com.jeedcp.common.config.Global;
 
+import com.jeedcp.security.SystemAuthorizingRealm;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.Encodes;
 import com.jeedcp.util.StringUtils;
-import com.jeedcp.web.security.SystemAuthorizingRealm;
-import com.jeedcp.web.util.UserUtils;
+
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
