@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  * 用户Controller
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-8-29
  */
 @Controller

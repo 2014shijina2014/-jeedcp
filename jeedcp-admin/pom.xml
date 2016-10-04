@@ -14,14 +14,6 @@
     <dependencies>
         <!--继承父模块的jar包 -->
         <dependency>
-        <groupId>com.dcp.jeedcp</groupId>
-        <artifactId>jeedcp-common</artifactId>
-    </dependency>
-        <dependency>
-            <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-service</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-web</artifactId>
         </dependency>
@@ -29,14 +21,12 @@
         <dependency>
         <groupId>com.dcp.jeedcp</groupId>
         <artifactId>jeedcp-gen</artifactId>
-    </dependency>
-        <dependency>
-        <groupId>com.dcp.jeedcp</groupId>
-        <artifactId>jeedcp-sys</artifactId>
-    </dependency>
+      </dependency>
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+
     </dependencies>
 </project>

@@ -6,8 +6,6 @@ package com.jeedcp.entity.base;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jeedcp.entity.sys.User;
-import com.jeedcp.util.IdGen;
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;

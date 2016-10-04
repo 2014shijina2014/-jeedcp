@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.security;
 
@@ -41,14 +41,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 /**
  * 系统安全认证实现类
- * @author jeeplus
+ * @author jeedcp
  * @version 2014-7-5
  */
 @Service
@@ -57,7 +56,6 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	@Autowired
 	private SystemService systemService;
 
 	@Autowired
@@ -225,6 +223,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 //		}
 	}
 
+
 	/**
 	 * 获取系统业务对象
 	 */
@@ -234,7 +233,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		}
 		return systemService;
 	}
-	
+
 	public static boolean isValidateCodeLogin(String useruame, boolean isFail, boolean clean){
 		Map<String, Integer> loginFailMap = (Map<String, Integer>) CacheUtils.get("loginFailMap");
 		if (loginFailMap==null){

@@ -13,8 +13,8 @@ package ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModule
 import ${i};
 </#list>
 
-import com.jeeplus.common.persistence.DataEntity;
-import com.jeeplus.common.utils.excel.annotation.ExcelField;
+import com.jeedcp.common.persistence.DataEntity;
+import com.jeedcp.common.utils.excel.annotation.ExcelField;
 
 /**
  * ${functionName}Entity

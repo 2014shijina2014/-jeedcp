@@ -31,7 +31,6 @@
       <module fileurl="file://$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" filepath="$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" filepath="$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-weixin/jeedcp-weixin.iml" filepath="$PROJECT_DIR$/jeedcp-weixin/jeedcp-weixin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jeeplus/jeeplus.iml" filepath="$PROJECT_DIR$/jeeplus/jeeplus.iml" />
     </modules>
   </component>
 </project>

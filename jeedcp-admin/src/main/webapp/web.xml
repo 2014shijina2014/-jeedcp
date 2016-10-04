@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>JeePlus</display-name>
+  <display-name>Jeedcp</display-name>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring-context*.xml</param-value>
   </context-param>
-  <listener>
-    <listener-class>com.jeeplus.modules.sys.listener.WebContextListener</listener-class>
-  </listener>
   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
@@ -37,10 +34,10 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
-  <filter>
-    <filter-name>startFilter</filter-name>
-    <filter-class>com.jeeplus.common.websocket.WebSockertFilter</filter-class>
-  </filter>
+  <!--<filter>-->
+    <!--<filter-name>startFilter</filter-name>-->
+    <!--<filter-class>com.jeedcp.common.websocket.WebSockertFilter</filter-class>-->
+  <!--</filter>-->
   <filter-mapping>
     <filter-name>shiroFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -75,7 +72,7 @@
     <servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
     <init-param>
       <param-name>org.restlet.application</param-name>
-      <param-value>com.jeeplus.modules.act.rest.ActRestApplication</param-value>
+      <param-value>com.jeedcp.modules.act.rest.ActRestApplication</param-value>
     </init-param>
   </servlet>
 
@@ -98,7 +95,7 @@
 
   <servlet>
     <servlet-name>ValidateCodeServlet</servlet-name>
-    <servlet-class>com.jeeplus.common.servlet.ValidateCodeServlet</servlet-class>
+    <servlet-class>com.jeedcp.common.servlet.ValidateCodeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ValidateCodeServlet</servlet-name>

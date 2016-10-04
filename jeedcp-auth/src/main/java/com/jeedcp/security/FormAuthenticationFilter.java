@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.security;
 
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 表单验证（包含验证码）过滤类
- * @author jeeplus
+ * @author jeedcp
  * @version 2014-5-19
  */
 @Service

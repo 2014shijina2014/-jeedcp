@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.dao.oa;
 
@@ -9,7 +9,7 @@ import com.jeedcp.persistence.annotation.MyBatisDao;
 
 /**
  * 通知通告DAO接口
- * @author jeeplus
+ * @author jeedcp
  * @version 2014-05-16
  */
 @MyBatisDao

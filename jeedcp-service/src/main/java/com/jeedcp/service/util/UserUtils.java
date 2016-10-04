@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.service.util;
 
@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * 用户工具类
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-12-05
  */
 public class UserUtils {

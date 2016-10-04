@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.service.sys;
 
@@ -31,7 +31,7 @@ import java.util.List;
 
 /**
  * 系统管理，安全相关实体的管理类,包括用户、角色、菜单.
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-12-05
  */
 @Service

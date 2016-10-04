@@ -50,7 +50,7 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 	<#list table.columnList as c>
 			<#if c.showType?? && c.showType == "umeditor">
 			<#assign x=1 />
-    	<result column="${c.name}" property="${c.simpleJavaField}"   typeHandler="com.jeeplus.common.mapper.ConvertBlobTypeHandler"/>
+    	<result column="${c.name}" property="${c.simpleJavaField}"   typeHandler="com.jeedcp.common.mapper.ConvertBlobTypeHandler"/>
 			</#if>
 	</#list>
 	<#list table.columnList as c>

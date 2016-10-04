@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.entity.sys;
 
@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * 日志Entity
- * @author jeeplus
+ * @author jeedcp
  * @version 2014-8-19
  */
 public class Log extends DataEntity<Log> {

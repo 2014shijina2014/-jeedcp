@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.web.sys;
 
@@ -12,13 +12,13 @@ import com.jeedcp.common.servlet.ValidateCodeServlet;
 import com.jeedcp.entity.oa.OaNotify;
 import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.security.FormAuthenticationFilter;
+import com.jeedcp.security.IdGen;
 import com.jeedcp.security.SystemAuthorizingRealm;
 import com.jeedcp.security.shiro.session.SessionDAO;
 import com.jeedcp.service.oa.OaNotifyService;
 import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.CacheUtils;
 import com.jeedcp.util.CookieUtils;
-import com.jeedcp.util.IdGen;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -40,7 +40,7 @@ import java.util.Map;
 
 /**
  * 登录Controller
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-5-31
  */
 @Controller
@@ -220,8 +220,8 @@ public class LoginController extends BaseController {
 
 //		System.out.println("==========================a");
 //		try {
-//			byte[] bytes = com.jeeplus.common.utils.FileUtils.readFileToByteArray(
-//					com.jeeplus.common.utils.FileUtils.getFile("c:\\sxt.dmp"));
+//			byte[] bytes = com.jeedcp.common.utils.FileUtils.readFileToByteArray(
+//					com.jeedcp.common.utils.FileUtils.getFile("c:\\sxt.dmp"));
 //			UserUtils.getSession().setAttribute("kkk", bytes);
 //			UserUtils.getSession().setAttribute("kkk2", bytes);
 //		} catch (Exception e) {
@@ -233,30 +233,30 @@ public class LoginController extends BaseController {
 ////		}
 //		System.out.println("==========================b");
 		//
-		OaNotify oaNotify = new OaNotify();
-		oaNotify.setSelf(true);
-		oaNotify.setReadFlag("0");
-		Page<OaNotify> page = oaNotifyService.find(new Page<OaNotify>(request, response), oaNotify); 
-		request.setAttribute("page", page);
-		request.setAttribute("count", page.getList().size());//未读通知条数
+//		OaNotify oaNotify = new OaNotify();
+//		oaNotify.setSelf(true);
+//		oaNotify.setReadFlag("0");
+//		Page<OaNotify> page = oaNotifyService.find(new Page<OaNotify>(request, response), oaNotify);
+//		request.setAttribute("page", page);
+//		request.setAttribute("count", page.getList().size());//未读通知条数
 		
 
-		// 默认风格
-		String indexStyle = "default";
-		Cookie[] cookies = request.getCookies();
-		for (Cookie cookie : cookies) {
-			if (cookie == null || StringUtils.isEmpty(cookie.getName())) {
-				continue;
-			}
-			if (cookie.getName().equalsIgnoreCase("theme")) {
-				indexStyle = cookie.getValue();
-			}
-		}
-		// 要添加自己的风格，复制下面三行即可
-		if (StringUtils.isNotEmpty(indexStyle)
-				&& indexStyle.equalsIgnoreCase("ace")) {
-			return "modules/sys/sysIndex-ace";
-		}
+//		// 默认风格
+//		String indexStyle = "default";
+//		Cookie[] cookies = request.getCookies();
+//		for (Cookie cookie : cookies) {
+//			if (cookie == null || StringUtils.isEmpty(cookie.getName())) {
+//				continue;
+//			}
+//			if (cookie.getName().equalsIgnoreCase("theme")) {
+//				indexStyle = cookie.getValue();
+//			}
+//		}
+//		// 要添加自己的风格，复制下面三行即可
+//		if (StringUtils.isNotEmpty(indexStyle)
+//				&& indexStyle.equalsIgnoreCase("ace")) {
+//			return "modules/sys/sysIndex-ace";
+//		}
 
 		return "modules/sys/sysIndex";
 	}

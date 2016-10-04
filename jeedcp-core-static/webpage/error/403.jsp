@@ -16,7 +16,7 @@ if (Servlets.isAjaxRequest(request)) {
 //输出异常信息页面
 else {
 %>
-<%@page import="com.jeeplus.common.web.Servlets"%>
+<%@page import="com.jeedcp.common.web.Servlets"%>
 <%@page import="com.jeedcp.util.Exceptions"%>
 <%@page import="com.jeedcp.util.StringUtils"%>
 <%@page contentType="text/html;charset=UTF-8" isErrorPage="true"%>

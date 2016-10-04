@@ -41,7 +41,7 @@ else {
 <%@page import="org.springframework.validation.ObjectError"%>
 <%@page import="org.springframework.validation.FieldError"%>
 <%@page import="org.slf4j.Logger,org.slf4j.LoggerFactory"%>
-<%@page import="com.jeeplus.common.web.Servlets"%>
+<%@page import="com.jeedcp.common.web.Servlets"%>
 <%@page import="com.jeedcp.util.Exceptions"%>
 <%@page import="com.jeedcp.util.StringUtils"%>
 <%@page contentType="text/html;charset=UTF-8" isErrorPage="true"%>

@@ -51,7 +51,7 @@
   <function>
     <description>获取当前用户对象</description>
     <name>getUser</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>com.jeedcp.entity.sys.User getUser()</function-signature>
     <example>${fns:getUser()}</example>  
   </function>
@@ -59,7 +59,7 @@
   <function>
     <description>根据编码获取用户对象</description>
     <name>getUserById</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>com.jeedcp.entity.sys.User get(java.lang.String)</function-signature>
     <example>${fns:getUserById(id)}</example>  
   </function>
@@ -67,7 +67,7 @@
   <function>
     <description>获取授权用户信息</description>
     <name>getPrincipal</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>com.jeedcp.security.SystemAuthorizingRealm.Principal getPrincipal()</function-signature>
     <example>${fns:getPrincipal()}</example>  
   </function>
@@ -75,7 +75,7 @@
   <function>
     <description>获取当前用户的菜单对象列表</description>
     <name>getMenuList</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>java.util.List getMenuList()</function-signature>
     <example>${fns:getMenuList()}</example>  
   </function>
@@ -83,21 +83,21 @@
     <function>
     <description>获取当前用户的菜单对象列表</description>
     <name>getTopMenu</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>com.jeedcp.entity.sys.Menu getTopMenu()</function-signature>
     <example>${fns:getTopMenu()}</example>  
   </function>
    <function>
     <description>获取当前时间与指定时间的差值</description>
     <name>getTime</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>java.lang.String getTime(java.util.Date)</function-signature>
     <example>${fns:getTime(java.util.Date)}</example>  
   </function>
   <function>
     <description>获取当前用户的区域对象列表</description>
     <name>getAreaList</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>java.util.List getAreaList()</function-signature>
     <example>${fns:getAreaList()}</example>  
   </function>
@@ -105,7 +105,7 @@
   <function>
     <description>获取当前用户的部门对象列表</description>
     <name>getOfficeList</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>java.util.List getOfficeList()</function-signature>
     <example>${fns:getOfficeList()}</example>  
   </function>
@@ -113,7 +113,7 @@
   <function>
     <description>获取当前用户缓存</description>
     <name>getCache</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>java.lang.Object getCache(java.lang.String, java.lang.Object)</function-signature>
     <example>${fns:getCache(cacheName, defaultValue)}</example>  
   </function>
@@ -122,7 +122,7 @@
   <function>
     <description>获取字典标签</description>
     <name>getDictLabel</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.lang.String getDictLabel(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictLabel(value, type, defaultValue)}</example>  
   </function>
@@ -130,7 +130,7 @@
   <function>
     <description>获取字典标签(多个)</description>
     <name>getDictLabels</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.lang.String getDictLabels(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictLabels(values, type, defaultValue)}</example>  
   </function>
@@ -138,7 +138,7 @@
   <function>
     <description>获取字典值</description>
     <name>getDictValue</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.lang.String getDictValue(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictValue(label, type, defaultValue)}</example>  
   </function>
@@ -146,7 +146,7 @@
   <function>
     <description>获取字典对象列表</description>
     <name>getDictList</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
     <example>${fns:getDictList(type)}</example>  
   </function>
@@ -154,7 +154,7 @@
   <function>
     <description>获取字典对象列表</description>
     <name>getDictListJson</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.lang.String getDictListJson(java.lang.String)</function-signature>
     <example>${fns:getDictListJson(type)}</example>  
   </function>
@@ -162,7 +162,7 @@
   <function>
     <description>获取对象的属性值</description>
     <name>getValue</name>
-    <function-class>com.jeedcp.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.service.util.DictUtils</function-class>
     <function-signature>java.lang.String getValue(java.lang.Object, java.lang.String)</function-signature>
     <example>${fns:getValue(obj, name)}</example>  
   </function>
@@ -275,7 +275,7 @@
   <function>
     <description>根据编码获取用户对象</description>
     <name>getByLoginName</name>
-    <function-class>com.jeedcp.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.service.util.UserUtils</function-class>
     <function-signature>com.jeedcp.entity.sys.User getByLoginName(java.lang.String)</function-signature>
     <example>${fns:getByLoginName(loginName)}</example>  
   </function>

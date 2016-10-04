@@ -7,6 +7,9 @@
           <element id="module-output" name="jeedcp-admin" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="jeedcp-web-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="jeedcp-web" />
+          </element>
           <element id="archive" name="jeedcp-common-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-common" />
           </element>
@@ -45,11 +48,6 @@
           <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.9" />
           <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" />
           <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
-          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.3" />
-          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.2.3" />
-          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.3" />
-          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cas:1.2.3" />
-          <element id="library" level="project" name="Maven: org.jasig.cas.client:cas-client-core:3.2.1" />
           <element id="library" level="project" name="Maven: net.sf.dozer:dozer:5.5.1" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-email:1.4" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
@@ -62,7 +60,6 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.8" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.0.8.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: cglib:cglib:3.1" />
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.2" />
           <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.4.7" />
@@ -82,20 +79,28 @@
           <element id="archive" name="jeedcp-exception-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-exception" />
           </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cas:1.2.3" />
+          <element id="library" level="project" name="Maven: org.jasig.cas.client:cas-client-core:3.2.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.3" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-ehcache:1.2.3" />
           <element id="archive" name="jeedcp-dao-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-dao" />
           </element>
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.8.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" />
-          <element id="archive" name="jeedcp-web-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-web" />
-          </element>
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.11" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.0.8.RELEASE" />
           <element id="archive" name="jeedcp-auth-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-auth" />
           </element>
           <element id="archive" name="jeedcp-cache-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-cache" />
           </element>
+          <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.0.8.RELEASE" />
           <element id="archive" name="jeedcp-gen-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-gen" />
           </element>

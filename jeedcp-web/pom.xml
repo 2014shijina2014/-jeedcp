@@ -32,5 +32,15 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-auth</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>opensymphony</groupId>
+            <artifactId>sitemesh</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
     </dependencies>
 </project>

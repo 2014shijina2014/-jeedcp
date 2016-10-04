@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.service.excel.annotation;
 
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * Excel注解定义
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-03-10
  */
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})

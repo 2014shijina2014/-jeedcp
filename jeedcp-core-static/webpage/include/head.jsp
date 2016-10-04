@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="author" content="http://www.jeeplus.org/"/>
+<%@ page contentType="text/html;charset=UTF-8" %><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="author" content="http://www.jeedcp.org/"/>
 <meta name="renderer" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=9,IE=10" />
 <meta http-equiv="Expires" content="0"><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Cache-Control" content="no-store">
 <!-- 引入jquery插件 -->
@@ -29,9 +29,9 @@
 
 
 
-<!-- jeeplus -->
-<link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
-<script src="${ctxStatic}/common/jeeplus.js" type="text/javascript"></script>
+<!-- jeedcp -->
+<link href="${ctxStatic}/common/jeedcp.css" type="text/css" rel="stylesheet" />
+<script src="${ctxStatic}/common/jeedcp.js" type="text/javascript"></script>
 
 <!-- jquery ui -->
 <script src="${ctxStatic}/jquery-ui/jquery-ui.min.js"></script>

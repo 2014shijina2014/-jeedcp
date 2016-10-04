@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeeplus.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  */
 package com.jeedcp.entity.sys;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 机构Entity
- * @author jeeplus
+ * @author jeedcp
  * @version 2013-05-15
  */
 public class Office extends TreeEntity<Office> {

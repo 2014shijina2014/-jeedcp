@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/webpage/include/taglib.jsp"%>
-<%@page import="com.jeeplus.common.web.Servlets"%>
+<%@page import="com.jeedcp.common.web.Servlets"%>
 <%
 response.setStatus(404);
 

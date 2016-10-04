@@ -1,9 +1,9 @@
 package com.jeedcp.entity.oa;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.jeedcp.util.Collections3;
-import com.jeedcp.util.IdGen;
 import com.jeedcp.util.StringUtils;
 import org.hibernate.validator.constraints.Length;
 import com.google.common.collect.Lists;
@@ -116,7 +116,7 @@ public class OaNotify extends DataEntity<OaNotify> {
 	public String getOaNotifyRecordIds() {
 		return Collections3.extractToString(oaNotifyRecordList, "user.id", ",") ;
 	}
-	
+
 	/**
 	 * 设置通知发送记录用户ID
 	 * @return
@@ -125,7 +125,7 @@ public class OaNotify extends DataEntity<OaNotify> {
 		this.oaNotifyRecordList = Lists.newArrayList();
 		for (String id : StringUtils.split(oaNotifyRecord, ",")){
 			OaNotifyRecord entity = new OaNotifyRecord();
-			entity.setId(IdGen.uuid());
+			entity.setId(UUID.randomUUID().toString().replaceAll("-", ""));
 			entity.setOaNotify(this);
 			entity.setUser(new User(id));
 			entity.setReadFlag("0");

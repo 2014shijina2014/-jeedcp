@@ -13,7 +13,7 @@ package ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModule
 import ${i};
 </#list>
 
-import com.jeeplus.common.persistence.TreeEntity;
+import com.jeedcp.common.persistence.TreeEntity;
 
 /**
  * ${functionName}Entity
