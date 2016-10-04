@@ -83,4 +83,3 @@ jeedcp-sso-server 基于shiro的sso服务端，待实现
 jeedcp-sso-client 基于shiro的sso客户端，待实现
 jeedcp-test 单元测试框架，待实现
 jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
-jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
