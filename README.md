@@ -78,8 +78,7 @@ jeedcp-report 在线配置报表模块，支持编辑SQL直接生成报表表格
 jeedcp-mq  消息队列模块，所有平台相关模块要使用消息队列时必需遵从这个mq模块标准，配置必需采用动态加载，当网络出现闪断时必需重连接；
 jeedcp-weixin 微信模块
 jeedcp-job 分布式任务调度模块
-jeedcp-log 遵从log4j，目前实现是logback，对logback，对slf4j进行了封装，所有日志必需使用com.tower.service.log.LoggerFactory;com.tower.service.log.Logger;
-，所有log配置都是采用logback， 所有模块的日志文件必需包含错误与信息两个文件。未来会用mongo记录log内容
+jeedcp-log 遵从log4j，目前实现是logback，对logback，对slf4j进行了封装，所有log配置都是采用logback， 所有模块的日志文件必需包含错误与信息两个文件。未来会用mongo记录log内容
 jeedcp-sso-server 基于shiro的sso服务端，待实现
 jeedcp-sso-client 基于shiro的sso客户端，待实现
 jeedcp-test 单元测试框架，待实现
