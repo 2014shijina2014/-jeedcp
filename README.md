@@ -45,7 +45,7 @@ Jeedcp 技术点总结:
 技术点七：此框架采用前后台分开，前后台都可以单独部署
 技术点八：动态报表功能（用户输入一个sql，系统自动解析生成报表）
 技术点九：数据权限（精细化数据权限控制，控制到行级，列表级，表单字段级，实现不同人看不同数据，不同人对同一个页面操作不同字段）
-技术点十：国际化（支持多语言，国际化的封装为多语言做了便捷支持）
+技术点十：封装支付宝和微信支付API，拿来即用
 技术点十一：多数据源（在线配置数据源，数据源工作类封装）
 技术点十二：微信模块封装开发，拿来即用
 技术点十三：分布式定时任务，采用dangdang的Elastic-Job，具体文档请看https://github.com/archlevel/elastic-job
@@ -57,3 +57,31 @@ Jeedcp 技术点总结:
 基础权限: 用户，角色，菜单权限，按钮权限，数据权限
 即将推出功能：分布式部署，云平台，移动平台开发，规则引擎
 要求JDK1.6+
+
+
+项目说明
+jeedcp-common 主要是一些基础的数据结构和工具类。
+jeedcp-api 接口API
+e-core-ext 一些如日志，数据字典等功能；其它系统如果需要可以重用。
+jeedcp-auth  安全方面的API 如果用户信息，授权等。
+jeedcp-core-static 前端html公共页，js ,css.会采用nginx做反向代理
+jeedcp-core 框架主要实现
+jeedcp-gen 代码生成模块
+jeedcp-file-web 图片服务器操作模块
+jeedcp-util 工具类模块
+jeedcp-service 服务模块，所有(基本逻辑服务)、资源(数据库)层操作只能通过数据服务进行访问，组合服务可以调用数据服务、组合服务、流程服务；流程服务可以调用数据服务、组合服务、流程服务；前端可以调用数据服务、组合服务、流程服务；
+jeedcp-exception 异常模块
+jeedcp-domain 模型模块 所有查询结果必需继承实现 com.jeedcp.entity.base.DataEntity
+jeedcp-cache 缓存模块，实现了memcache和redis封装
+jeedcp-pay 支付模块（包含微信支付和支付宝支付SDK）
+jeedcp-report 在线配置报表模块，支持编辑SQL直接生成报表表格，含导出excel功能，可以随意切换表格和图表，图表采用echarts
+jeedcp-mq  消息队列模块，所有平台相关模块要使用消息队列时必需遵从这个mq模块标准，配置必需采用动态加载，当网络出现闪断时必需重连接；
+jeedcp-weixin 微信模块
+jeedcp-job 分布式任务调度模块
+jeedcp-log 遵从log4j，目前实现是logback，对logback，对slf4j进行了封装，所有日志必需使用com.tower.service.log.LoggerFactory;com.tower.service.log.Logger;
+，所有log配置都是采用logback， 所有模块的日志文件必需包含错误与信息两个文件。未来会用mongo记录log内容
+jeedcp-sso-server 基于shiro的sso服务端，待实现
+jeedcp-sso-client 基于shiro的sso客户端，待实现
+jeedcp-test 单元测试框架，待实现
+jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
+jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
