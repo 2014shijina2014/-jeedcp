@@ -7,9 +7,11 @@ package com.jeedcp.security;
 import com.google.common.collect.Maps;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.common.servlet.ValidateCodeServlet;
+import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.entity.sys.Menu;
 import com.jeedcp.entity.sys.Role;
 import com.jeedcp.entity.sys.User;
+import com.jeedcp.security.shiro.session.SessionDAO;
 import com.jeedcp.service.sys.SystemService;
 import com.jeedcp.service.util.LogUtils;
 import com.jeedcp.service.util.UserUtils;
@@ -54,9 +56,12 @@ import java.util.Map;
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
-	
+
+	@Autowired
 	private SystemService systemService;
 
+	@Autowired
+	private SessionDAO sessionDAO;
 	@Autowired
 	HttpServletRequest request;
 
@@ -67,7 +72,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
 		
-		int activeSessionSize = getSystemService().getSessionDao().getActiveSessions(false).size();
+		int activeSessionSize =sessionDAO.getActiveSessions(false).size();
 		if (logger.isDebugEnabled()){
 			logger.debug("login submit, active session size: {}, username: {}", activeSessionSize, token.getUsername());
 		}
@@ -89,7 +94,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 				throw new AuthenticationException("msg:该已帐号禁止登录.");
 			}
 			byte[] salt = Encodes.decodeHex(user.getPassword().substring(0,16));
-			return new SimpleAuthenticationInfo(new Principal(user, token.isMobileLogin()), 
+			return new SimpleAuthenticationInfo(new Principal(user, token.isMobileLogin()),
 					user.getPassword().substring(16), ByteSource.Util.bytes(salt), getName());
 		} else {
 			return null;
@@ -104,12 +109,12 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		Principal principal = (Principal) getAvailablePrincipal(principals);
 		// 获取当前已登录的用户
 		if (!Global.TRUE.equals(Global.getConfig("user.multiAccountLogin"))){
-			Collection<Session> sessions = getSystemService().getSessionDao().getActiveSessions(true, principal, UserUtils.getSession());
+			Collection<Session> sessions =sessionDAO.getActiveSessions(true, principal, UserUtils.getSession());
 			if (sessions.size() > 0){
 				// 如果是登录进来的，则踢出已在线用户
 				if (UserUtils.getSubject().isAuthenticated()){
 					for (Session session : sessions){
-						getSystemService().getSessionDao().delete(session);
+						sessionDAO.delete(session);
 					}
 				}
 				// 记住我进来的，并且当前用户已登录，则退出当前用户提示信息。
@@ -230,71 +235,6 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		return systemService;
 	}
 	
-	/**
-	 * 授权用户信息
-	 */
-	public static class Principal implements Serializable {
-
-		private static final long serialVersionUID = 1L;
-		
-		private String id; // 编号
-		private String loginName; // 登录名
-		private String name; // 姓名
-		private boolean mobileLogin; // 是否手机登录
-		
-//		private Map<String, Object> cacheMap;
-
-		public Principal(User user, boolean mobileLogin) {
-			this.id = user.getId();
-			this.loginName = user.getLoginName();
-			this.name = user.getName();
-			this.mobileLogin = mobileLogin;
-		}
-
-		public String getId() {
-			return id;
-		}
-
-		public String getLoginName() {
-			return loginName;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public boolean isMobileLogin() {
-			return mobileLogin;
-		}
-
-//		@JsonIgnore
-//		public Map<String, Object> getCacheMap() {
-//			if (cacheMap==null){
-//				cacheMap = new HashMap<String, Object>();
-//			}
-//			return cacheMap;
-//		}
-
-		/**
-		 * 获取SESSIONID
-		 */
-		public String getSessionid() {
-			try{
-				return (String) UserUtils.getSession().getId();
-			}catch (Exception e) {
-				return "";
-			}
-		}
-		
-		@Override
-		public String toString() {
-			return id;
-		}
-
-
-
-	}
-
 	public static boolean isValidateCodeLogin(String useruame, boolean isFail, boolean clean){
 		Map<String, Integer> loginFailMap = (Map<String, Integer>) CacheUtils.get("loginFailMap");
 		if (loginFailMap==null){

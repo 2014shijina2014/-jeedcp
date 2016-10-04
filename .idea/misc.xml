@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/easyreport-domain/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-engine/pom.xml" />
         <option value="$PROJECT_DIR$/jeedcp-gen-mongo/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-sys/pom.xml" />
       </set>
     </option>
   </component>

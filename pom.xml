@@ -75,7 +75,6 @@
         <module>jeedcp-service-impl</module>
         <module>jeedcp-common</module>
         <module>jeedcp-auth</module>
-        <module>jeedcp-sys</module>
     </modules>
     <dependencyManagement>
     <dependencies>

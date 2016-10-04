@@ -6,12 +6,15 @@ package com.jeedcp.security;
 
 import com.jeedcp.common.json.AjaxJson;
 import com.jeedcp.common.json.PrintJSON;
+import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.StringUtils;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.stereotype.Service;
 
@@ -79,7 +82,8 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 	@Override
 	protected void issueSuccessRedirect(ServletRequest request,
 			ServletResponse response) throws Exception {
-		SystemAuthorizingRealm.Principal p = UserUtils.getPrincipal();
+		Subject subject = SecurityUtils.getSubject();
+		Principal p = (Principal)subject.getPrincipal();
 		if (p != null && !p.isMobileLogin()){
 			 WebUtils.issueRedirect(request, response, getSuccessUrl(), null, true);
 		}else{
@@ -90,7 +94,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 			j.put("username", p.getLoginName());
 			j.put("name", p.getName());
 			j.put("mobileLogin", p.isMobileLogin());
-			j.put("JSESSIONID", p.getSessionid());
+			j.put("JSESSIONID", UserUtils.getSession().getId());
 			PrintJSON.write((HttpServletResponse)response, j.getJsonStr());
 		}
 	}

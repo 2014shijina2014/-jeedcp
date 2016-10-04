@@ -11,7 +11,7 @@ import com.jeedcp.common.model.Page;
 import com.jeedcp.entity.sys.SystemConfig;
 import com.jeedcp.service.excel.ExportExcel;
 import com.jeedcp.service.excel.ImportExcel;
-import com.jeedcp.sys.service.SystemConfigService;
+import com.jeedcp.service.sys.SystemConfigService;
 import com.jeedcp.util.DateUtils;
 import com.jeedcp.util.MyBeanUtils;
 import com.jeedcp.util.StringUtils;

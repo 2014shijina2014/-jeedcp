@@ -7,7 +7,7 @@ package com.jeedcp.web.sys;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.common.model.Page;
 import com.jeedcp.entity.sys.Log;
-import com.jeedcp.sys.service.LogService;
+import com.jeedcp.service.sys.LogService;
 import com.jeedcp.web.base.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;

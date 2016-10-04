@@ -93,12 +93,13 @@
           <element id="archive" name="jeedcp-auth-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-auth" />
           </element>
+          <element id="archive" name="jeedcp-cache-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="jeedcp-cache" />
+          </element>
           <element id="archive" name="jeedcp-gen-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-gen" />
           </element>
-          <element id="archive" name="jeedcp-sys-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-sys" />
-          </element>
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

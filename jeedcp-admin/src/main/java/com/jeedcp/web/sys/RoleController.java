@@ -10,9 +10,10 @@ import com.jeedcp.common.model.Page;
 import com.jeedcp.entity.sys.Office;
 import com.jeedcp.entity.sys.Role;
 import com.jeedcp.entity.sys.User;
-import com.jeedcp.sys.service.OfficeService;
-import com.jeedcp.sys.service.SystemService;
-import com.jeedcp.sys.utils.UserUtils;
+
+import com.jeedcp.service.sys.OfficeService;
+import com.jeedcp.service.sys.SystemService;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.Collections3;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;

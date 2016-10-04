@@ -4,8 +4,8 @@
 package com.jeedcp.security.shiro.cache;
 
 import com.google.common.collect.Sets;
-import com.jeedcp.common.utils.JedisUtils;
-import com.jeedcp.common.web.Servlets;
+import com.jeedcp.cache.redis.JedisUtils;
+import com.jeedcp.security.Servlets;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.apache.shiro.cache.CacheManager;

@@ -4,7 +4,7 @@
 package com.jeedcp.security.shiro.cache;
 
 import com.google.common.collect.Sets;
-import com.jeedcp.common.web.Servlets;
+import com.jeedcp.security.Servlets;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.cache.Cache;

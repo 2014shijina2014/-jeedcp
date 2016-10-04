@@ -3,8 +3,8 @@
  */
 package com.jeedcp.security;
 
-import com.jeedcp.common.utils.Encodes;
-import com.jeedcp.common.utils.Exceptions;
+import com.jeedcp.util.Encodes;
+import com.jeedcp.util.Exceptions;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

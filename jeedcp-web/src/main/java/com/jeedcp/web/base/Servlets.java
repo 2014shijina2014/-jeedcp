@@ -8,7 +8,7 @@ package com.jeedcp.web.base;
 import com.google.common.net.HttpHeaders;
 import com.jeedcp.common.config.Global;
 
-import com.jeedcp.security.SystemAuthorizingRealm;
+import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.Encodes;
 import com.jeedcp.util.StringUtils;
@@ -21,7 +21,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
-import java.security.Principal;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -211,7 +210,7 @@ public class Servlets {
 		
 		String accept = request.getHeader("accept");
 		String xRequestedWith = request.getHeader("X-Requested-With");
-		SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+		Principal principal = UserUtils.getPrincipal();
 
 		// 如果是异步请求或是手机端，则直接返回信息
 		return ((accept != null && accept.indexOf("application/json") != -1 

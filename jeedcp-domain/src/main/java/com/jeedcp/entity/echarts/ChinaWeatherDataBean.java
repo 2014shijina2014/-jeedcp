@@ -4,8 +4,8 @@
 package com.jeedcp.entity.echarts;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jeedcp.entity.annotation.ExcelField;
 import com.jeedcp.entity.base.DataEntity;
-import com.jeedcp.entity.excel.annotation.ExcelField;
 
 
 import java.util.Date;

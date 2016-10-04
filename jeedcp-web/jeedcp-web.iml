@@ -80,5 +80,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" level="project" />
     <orderEntry type="module" module-name="jeedcp-dao" />
     <orderEntry type="module" module-name="jeedcp-auth" />
+    <orderEntry type="module" module-name="jeedcp-cache" />
   </component>
 </module>

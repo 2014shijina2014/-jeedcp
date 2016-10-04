@@ -26,5 +26,12 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-dao</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-cache</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+
     </dependencies>
 </project>

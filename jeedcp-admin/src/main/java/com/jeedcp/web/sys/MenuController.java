@@ -8,8 +8,8 @@ import com.google.common.collect.Maps;
 
 import com.jeedcp.common.config.Global;
 import com.jeedcp.entity.sys.Menu;
-import com.jeedcp.sys.service.SystemService;
-import com.jeedcp.sys.utils.UserUtils;
+import com.jeedcp.service.sys.SystemService;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;
 import org.apache.shiro.authz.annotation.Logical;

@@ -5,6 +5,8 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="jeedcp-gen" />
+          <element id="module-output" name="jeedcp-sys" />
+          <element id="module-output" name="jeedcp-cache" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="jeedcp-common-1.0.0-SNAPSHOT.jar">

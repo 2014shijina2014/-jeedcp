@@ -3,7 +3,7 @@
  */
 package com.jeedcp.security.shiro.session;
 
-import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.util.StringUtils;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;

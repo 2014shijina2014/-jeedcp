@@ -3,7 +3,7 @@
  */
 package com.jeedcp.security;
 
-import com.jeedcp.common.utils.Exceptions;
+import com.jeedcp.util.Exceptions;
 import org.apache.commons.lang3.Validate;
 
 import java.io.IOException;

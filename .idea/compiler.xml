@@ -260,7 +260,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jeedcp-sys" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

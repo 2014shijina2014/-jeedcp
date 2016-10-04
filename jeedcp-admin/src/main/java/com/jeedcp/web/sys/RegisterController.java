@@ -4,16 +4,16 @@ package com.jeedcp.web.sys;
 import com.google.common.collect.Lists;
 
 import com.jeedcp.common.json.AjaxJson;
+import com.jeedcp.dao.sys.UserDao;
 import com.jeedcp.entity.sys.Office;
 import com.jeedcp.entity.sys.Role;
 import com.jeedcp.entity.sys.SystemConfig;
 import com.jeedcp.entity.sys.User;
-import com.jeedcp.sys.dao.UserDao;
 
-import com.jeedcp.sys.service.OfficeService;
-import com.jeedcp.sys.service.SystemConfigService;
-import com.jeedcp.sys.service.SystemService;
-import com.jeedcp.sys.utils.UserUtils;
+import com.jeedcp.service.sys.OfficeService;
+import com.jeedcp.service.sys.SystemConfigService;
+import com.jeedcp.service.sys.SystemService;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;

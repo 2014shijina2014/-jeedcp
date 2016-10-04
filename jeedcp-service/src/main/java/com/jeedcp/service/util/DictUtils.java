@@ -64,7 +64,7 @@ public class DictUtils {
 	
 	public static List<Dict> getDictList(String type){
 		@SuppressWarnings("unchecked")
-		Map<String, List<Dict>> dictMap = (Map<String, List<Dict>>) CacheUtils.get(CACHE_DICT_MAP);
+		Map<String, List<Dict>> dictMap = (Map<String, List<Dict>>)CacheUtils.get(CACHE_DICT_MAP);
 		if (dictMap==null){
 			dictMap = Maps.newHashMap();
 			for (Dict dict : dictDao.findAllList(new Dict())){

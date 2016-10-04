@@ -9,8 +9,8 @@ import com.jeedcp.common.config.Global;
 import com.jeedcp.common.json.AjaxJson;
 import com.jeedcp.common.model.Page;
 import com.jeedcp.common.servlet.ValidateCodeServlet;
-import com.jeedcp.entity.iim.MailBox;
 import com.jeedcp.entity.oa.OaNotify;
+import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.security.FormAuthenticationFilter;
 import com.jeedcp.security.SystemAuthorizingRealm;
 import com.jeedcp.security.shiro.session.SessionDAO;
@@ -61,7 +61,7 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value = "${adminPath}/login")
 	public String login(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+           Principal principal = UserUtils.getPrincipal();
 
 //		// 默认页签模式
 //		String tabmode = CookieUtils.getCookie(request, "tabmode");
@@ -106,7 +106,7 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.POST)
 	public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) {
-		SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+		Principal principal = UserUtils.getPrincipal();
 		
 		// 如果已经登录，则跳转到管理首页
 		if(principal != null){
@@ -163,7 +163,7 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping(value = "${adminPath}/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
-		SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+		Principal principal = UserUtils.getPrincipal();
 		// 如果已经登录，则跳转到管理首页
 		if(principal != null){
 			UserUtils.getSubject().logout();
@@ -185,7 +185,7 @@ public class LoginController extends BaseController {
 	@RequiresPermissions("user")
 	@RequestMapping(value = "${adminPath}")
 	public String index(HttpServletRequest request, HttpServletResponse response) {
-		SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+		Principal principal = UserUtils.getPrincipal();
 		// 登录成功后，验证码计算器清零
 		isValidateCodeLogin(principal.getLoginName(), false, true);
 		

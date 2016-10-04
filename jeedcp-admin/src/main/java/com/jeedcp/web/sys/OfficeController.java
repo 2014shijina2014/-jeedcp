@@ -9,9 +9,10 @@ import com.google.common.collect.Maps;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.entity.sys.Office;
 import com.jeedcp.entity.sys.User;
-import com.jeedcp.sys.service.OfficeService;
-import com.jeedcp.sys.utils.DictUtils;
-import com.jeedcp.sys.utils.UserUtils;
+
+import com.jeedcp.service.sys.OfficeService;
+import com.jeedcp.service.util.DictUtils;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;
 import org.apache.shiro.authz.annotation.Logical;

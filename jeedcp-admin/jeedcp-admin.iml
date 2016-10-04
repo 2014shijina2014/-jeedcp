@@ -97,7 +97,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" level="project" />
     <orderEntry type="module" module-name="jeedcp-web" />
     <orderEntry type="module" module-name="jeedcp-auth" />
+    <orderEntry type="module" module-name="jeedcp-cache" />
     <orderEntry type="module" module-name="jeedcp-gen" />
-    <orderEntry type="module" module-name="jeedcp-sys" />
+    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
   </component>
 </module>

@@ -8,7 +8,7 @@
 	<uri>/echarts</uri>
 	<tag>
 		<name>line</name>
-		<tag-class>com.jeeplus.common.tag.echarts.EChartsLineTag</tag-class>
+		<tag-class>com.jeedcp.web.tag.echarts.EChartsLineTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>id</name>
@@ -64,7 +64,7 @@
 	</tag>
 	<tag>
 		<name>lineDoubleNum</name>
-		<tag-class>com.jeeplus.common.tag.echarts.EChartsLineDoubleNumTag</tag-class>
+		<tag-class>com.jeedcp.web.tag.echarts.EChartsLineDoubleNumTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>id</name>
@@ -114,7 +114,7 @@
 	</tag>
 	<tag>
 		<name>lineTimeLine</name>
-		<tag-class>com.jeeplus.common.tag.echarts.EChartsLineTimeLineTag</tag-class>
+		<tag-class>com.jeedcp.web.tag.echarts.EChartsLineTimeLineTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>id</name>
@@ -185,7 +185,7 @@
 	</tag>
 	<tag>
 		<name>bar</name>
-		<tag-class>com.jeeplus.common.tag.echarts.EChartsBarTag</tag-class>
+		<tag-class>com.jeedcp.web.tag.echarts.EChartsBarTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>id</name>
@@ -241,7 +241,7 @@
 	</tag>
 	<tag>
 		<name>pie</name>
-		<tag-class>com.jeeplus.common.tag.echarts.EChartsPieTag</tag-class>
+		<tag-class>com.jeedcp.web.tag.echarts.EChartsPieTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>id</name>
@@ -271,7 +271,7 @@
 	</tag>
 	    <tag>
         <name>radar</name>
-        <tag-class>com.jeeplus.common.tag.echarts.EChartsRadarTag</tag-class>
+        <tag-class>com.jeedcp.web.tag.echarts.EChartsRadarTag</tag-class>
         <body-content>scriptless</body-content>
         <attribute>
 			<name>id</name>

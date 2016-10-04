@@ -13,7 +13,6 @@
     <packaging>jar</packaging>
     <name>jeesite-gen</name>
     <url>https://git.oschina.net/smarter56.com/jeedcp/jeedcp-gen</url>
-    <description>jeedcp的代码生成模块Web工程。 </description>
 
     <!--
     1、这个工程的packaging类型是war，而不是jar。

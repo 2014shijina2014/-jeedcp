@@ -8,7 +8,7 @@ import com.google.common.collect.Maps;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.common.model.Page;
 import com.jeedcp.entity.sys.Dict;
-import com.jeedcp.sys.service.DictService;
+import com.jeedcp.service.sys.DictService;
 import com.jeedcp.util.StringUtils;
 import com.jeedcp.web.base.BaseController;
 import org.apache.shiro.authz.annotation.Logical;

@@ -27,7 +27,6 @@
       <module fileurl="file://$PROJECT_DIR$/jeedcp-service-impl/jeedcp-service-impl.iml" filepath="$PROJECT_DIR$/jeedcp-service-impl/jeedcp-service-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-sso-client/jeedcp-sso-client.iml" filepath="$PROJECT_DIR$/jeedcp-sso-client/jeedcp-sso-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-sso-server/jeedcp-sso-server.iml" filepath="$PROJECT_DIR$/jeedcp-sso-server/jeedcp-sso-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jeedcp-sys/jeedcp-sys.iml" filepath="$PROJECT_DIR$/jeedcp-sys/jeedcp-sys.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-test/jeedcp-test.iml" filepath="$PROJECT_DIR$/jeedcp-test/jeedcp-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" filepath="$PROJECT_DIR$/jeedcp-util/jeedcp-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" filepath="$PROJECT_DIR$/jeedcp-web/jeedcp-web.iml" />

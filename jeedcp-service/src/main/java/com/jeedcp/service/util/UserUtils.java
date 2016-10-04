@@ -5,8 +5,8 @@ package com.jeedcp.service.util;
 
 
 import com.jeedcp.dao.sys.*;
+import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.entity.sys.*;
-import com.jeedcp.security.SystemAuthorizingRealm;
 import com.jeedcp.service.base.BaseService;
 import com.jeedcp.util.CacheUtils;
 import com.jeedcp.util.SpringContextHolder;
@@ -16,6 +16,7 @@ import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -111,7 +112,7 @@ public class UserUtils {
 	 * @return 取不到返回 new User()
 	 */
 	public static User getUser(){
-		SystemAuthorizingRealm.Principal principal = getPrincipal();
+		Principal principal = getPrincipal();
 		if (principal!=null){
 			User user = get(principal.getId());
 			if (user != null){
@@ -231,10 +232,10 @@ public class UserUtils {
 	/**
 	 * 获取当前登录者对象
 	 */
-	public static SystemAuthorizingRealm.Principal getPrincipal(){
+	public static Principal getPrincipal(){
 		try{
 			Subject subject = SecurityUtils.getSubject();
-			SystemAuthorizingRealm.Principal principal = (SystemAuthorizingRealm.Principal)subject.getPrincipal();
+			Principal principal = (Principal)subject.getPrincipal();
 			if (principal != null){
 				return principal;
 			}
@@ -306,23 +307,6 @@ public class UserUtils {
 	}
 
 
-//	//发送注册码
-//	public static String sendRandomCode(String uid, String pwd, String tel, String randomCode) throws IOException {
-//		//发送内容
-//		String content = "您的验证码是："+randomCode+"，有效期30分钟，请在有效期内使用。";
-//
-//		return SMSUtils.send(uid, pwd, tel, content);
-//
-//	}
-//
-//	//注册用户重置密码
-//	public static String sendPass(String uid, String pwd, String tel, String password) throws IOException {
-//		//发送内容
-//		String content = "您的新密码是："+password+"，请登录系统，重新设置密码。";
-//		return SMSUtils.send(uid, pwd, tel, content);
-//
-//	}
-	
 	/**
 	 * 导出Excel调用,根据姓名转换为ID
 	 */
@@ -362,5 +346,22 @@ public class UserUtils {
 			return new Area();
 		}
 	}
-	
+	//发送注册码
+	public static String sendRandomCode(String uid, String pwd, String tel, String randomCode) throws IOException {
+		//发送内容
+		String content = "您的验证码是："+randomCode+"，有效期30分钟，请在有效期内使用。";
+
+		//return SMSUtils.send(uid, pwd, tel, content);
+return null;
+	}
+
+	//注册用户重置密码
+	public static String sendPass(String uid, String pwd, String tel, String password) throws IOException {
+		//发送内容
+		String content = "您的新密码是："+password+"，请登录系统，重新设置密码。";
+		//return SMSUtils.send(uid, pwd, tel, content);
+		return null;
+
+	}
+
 }

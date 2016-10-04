@@ -34,6 +34,9 @@
         <groupId>com.dcp.jeedcp</groupId>
         <artifactId>jeedcp-sys</artifactId>
     </dependency>
-
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
     </dependencies>
 </project>
