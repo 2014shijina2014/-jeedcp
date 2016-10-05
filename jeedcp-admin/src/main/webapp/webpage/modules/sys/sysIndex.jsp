@@ -65,10 +65,7 @@
                                 </li>
                                 <li><a class="J_menuItem" href="${ctx }/iim/mailBox/list">信箱</a>
                                 </li> 
-                                 <li class="divider"></li>
-                                <li><a onclick="changeStyle()" href="#">切换到ACE模式</a>
-                                </li> 
-                                 
+
                                 <li class="divider"></li>
                                 <li><a href="${ctx}/logout">安全退出</a>
                                 </li>
@@ -287,24 +284,21 @@ $(document).ready(function(){
 
 });
 
-function changeStyle(){
-   $.get('${pageContext.request.contextPath}/theme/ace?url='+window.top.location.href,function(result){   window.location.reload();});
-}
 
 </script>
 
 
 
 <!-- 即时聊天插件 -->
-<link href="${ctxStatic}/layer-v2.3/layim/layim.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript">
-	var currentId = '${fns:getUser().loginName}';
-	var currentName = '${fns:getUser().name}';
-	var currentFace ='${fns:getUser().photo}';
-	var url="${ctx}";
-	var wsServer = 'ws://'+window.document.domain+':8668';
-</script>
-<script src="${ctxStatic}/layer-v2.3/layim/layer.min.js"></script>
-<script src="${ctxStatic}/layer-v2.3/layim/layim.js"></script>
+<%--<link href="${ctxStatic}/layer-v2.3/layim/layim.css" type="text/css" rel="stylesheet"/>--%>
+<%--<script type="text/javascript">--%>
+	<%--var currentId = '${fns:getUser().loginName}';--%>
+	<%--var currentName = '${fns:getUser().name}';--%>
+	<%--var currentFace ='${fns:getUser().photo}';--%>
+	<%--var url="${ctx}";--%>
+	<%--var wsServer = 'ws://'+window.document.domain+':8668';--%>
+<%--</script>--%>
+<%--<script src="${ctxStatic}/layer-v2.3/layim/layer.min.js"></script>--%>
+<%--<script src="${ctxStatic}/layer-v2.3/layim/layim.js"></script>--%>
 
 </html>

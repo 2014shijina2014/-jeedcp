@@ -282,7 +282,7 @@
                     <div class="ibox-content">
                         <p><i class="fa fa-send-o"></i> 网址：<a href="http://www.jeedcp.org" target="_blank">http://www.jeedcp.org</a>
                         </p>
-                        <p><i class="fa fa-qq"></i> QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=873738400&site=qq&menu=yes" target="_blank">873738400</a>
+                        <p><i class="fa fa-qq"></i> QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=631079326&site=qq&menu=yes" target="_blank">631079326</a>
                         </p>
                         <p><i class="fa fa-weixin"></i> 微信：<a href="javascript:;">bookast</a>
                         </p>
