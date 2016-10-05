@@ -137,7 +137,7 @@ public class UserUtils {
 				roleList = roleDao.findAllList(new Role());
 			}else{
 				Role role = new Role();
-				role.getSqlMap().put("dsf", BaseService.dataScopeFilter(user.getCurrentUser(), "o", "u"));
+				role.getSqlMap().put("dsf", BaseService.dataScopeFilter(UserUtils.getUser(), "o", "u"));
 				roleList = roleDao.findList(role);
 			}
 			putCache(CACHE_ROLE_LIST, roleList);

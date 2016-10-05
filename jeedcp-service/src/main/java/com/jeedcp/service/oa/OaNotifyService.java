@@ -10,6 +10,7 @@ import com.jeedcp.dao.oa.OaNotifyRecordDao;
 import com.jeedcp.entity.oa.OaNotify;
 import com.jeedcp.entity.oa.OaNotifyRecord;
 import com.jeedcp.service.base.CrudService;
+import com.jeedcp.service.util.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,7 +76,7 @@ public class OaNotifyService extends CrudService<OaNotifyDao, OaNotify> {
 	@Transactional(readOnly = false)
 	public void updateReadFlag(OaNotify oaNotify) {
 		OaNotifyRecord oaNotifyRecord = new OaNotifyRecord(oaNotify);
-		oaNotifyRecord.setUser(oaNotifyRecord.getCurrentUser());
+		oaNotifyRecord.setUser(UserUtils.getUser());
 		oaNotifyRecord.setReadDate(new Date());
 		oaNotifyRecord.setReadFlag("1");
 		oaNotifyRecordDao.update(oaNotifyRecord);

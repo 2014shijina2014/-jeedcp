@@ -40,7 +40,7 @@ public class OaNotifyRecord extends DataEntity<OaNotifyRecord> {
 	public void setOaNotify(OaNotify oaNotify) {
 		this.oaNotify = oaNotify;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -48,7 +48,7 @@ public class OaNotifyRecord extends DataEntity<OaNotifyRecord> {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	@Length(min=0, max=1, message="阅读标记（0：未读；1：已读）长度必须介于 0 和 1 之间")
 	public String getReadFlag() {
 		return readFlag;

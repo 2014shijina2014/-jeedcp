@@ -68,7 +68,7 @@
     <description>获取授权用户信息</description>
     <name>getPrincipal</name>
     <function-class>com.jeedcp.service.util.UserUtils</function-class>
-    <function-signature>com.jeedcp.security.SystemAuthorizingRealm.Principal getPrincipal()</function-signature>
+    <function-signature>com.jeedcp.entity.rbac.Principal getPrincipal()</function-signature>
     <example>${fns:getPrincipal()}</example>  
   </function>
   
@@ -163,7 +163,7 @@
     <description>获取对象的属性值</description>
     <name>getValue</name>
     <function-class>com.jeedcp.service.util.DictUtils</function-class>
-    <function-signature>java.lang.String getValue(java.lang.Object, java.lang.String)</function-signature>
+    <function-signature>java.lang.String getValue(java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getValue(obj, name)}</example>  
   </function>
   

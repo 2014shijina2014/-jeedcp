@@ -5,6 +5,7 @@ package com.jeedcp.service.util;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.jeedcp.common.mapper.JsonMapper;
 import com.jeedcp.dao.sys.DictDao;
 import com.jeedcp.entity.sys.Dict;
 import com.jeedcp.util.CacheUtils;
@@ -61,7 +62,24 @@ public class DictUtils {
 		}
 		return defaultLabel;
 	}
-	
+/**
+ +	 * 返回字典列表（JSON）
+ +	 * @param type
+ +	 * @return
+ +	 */
+		public static String getDictListJson(String type){
+				return JsonMapper.toJsonString(getDictList(type));
+			}
+	public static String getValue(String label, String type){
+		if (StringUtils.isNotBlank(type) && StringUtils.isNotBlank(label)){
+			for (Dict dict : getDictList(type)){
+				if (type.equals(dict.getType()) && label.equals(dict.getLabel())){
+					return dict.getValue();
+				}
+			}
+		}
+		return null;
+	}
 	public static List<Dict> getDictList(String type){
 		@SuppressWarnings("unchecked")
 		Map<String, List<Dict>> dictMap = (Map<String, List<Dict>>)CacheUtils.get(CACHE_DICT_MAP);

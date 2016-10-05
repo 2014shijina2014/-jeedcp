@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ include file="/webpage/include/taglib.jsp"%>
-<%@ attribute name="page" type="com.jeedcp.common.persistence.Page" required="true"%>
+<%@ attribute name="page" type="com.jeedcp.common.model.Page" required="true"%>
 <%-- 表格分页工具栏，使用方法： 原样输出page --%>
 ${page}
 <!-- pagination的css样式设定-->

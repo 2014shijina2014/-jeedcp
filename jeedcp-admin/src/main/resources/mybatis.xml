@@ -11,7 +11,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.jeedcp"/>
         <property name="typeAliasesSuperType" value="com.jeedcp.entity.base.BaseEntity"/>
-        <property name="mapperLocations" value="classpath:/modules/**/*.xml"/>
+        <property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
     </bean>
 

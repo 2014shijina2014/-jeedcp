@@ -73,7 +73,8 @@ public class UserController extends BaseController {
 
 	@RequiresPermissions("sys:user:index")
 	@RequestMapping(value = {"list", ""})
-	public String list(User user, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String list( HttpServletRequest request, HttpServletResponse response, Model model) {
+		User user = UserUtils.getUser();
 		Page<User> page = systemService.findUser(new Page<User>(request, response), user);
         model.addAttribute("page", page);
 		return "modules/sys/userList";
@@ -97,6 +98,7 @@ public class UserController extends BaseController {
 	@RequiresPermissions(value={"sys:user:add","sys:user:edit"},logical=Logical.OR)
 	@RequestMapping(value = "save")
 	public String save(User user, HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) {
+		user = UserUtils.getUser();
 		if(Global.isDemoMode()){
 			addMessage(redirectAttributes, "演示模式，不允许操作！");
 			return "redirect:" + adminPath + "/sys/user/list?repage";
@@ -139,6 +141,8 @@ public class UserController extends BaseController {
 	@RequiresPermissions("sys:user:del")
 	@RequestMapping(value = "delete")
 	public String delete(User user, RedirectAttributes redirectAttributes) {
+		user = UserUtils.getUser();
+
 		if(Global.isDemoMode()){
 			addMessage(redirectAttributes, "演示模式，不允许操作！");
 			return "redirect:" + adminPath + "/sys/user/list?repage";
@@ -191,6 +195,7 @@ public class UserController extends BaseController {
     @RequestMapping(value = "export", method=RequestMethod.POST)
     public String exportFile(User user, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes) {
 		try {
+			user = UserUtils.getUser();
             String fileName = "用户数据"+ DateUtils.getDate("yyyyMMddHHmmss")+".xlsx";
             Page<User> page = systemService.findUser(new Page<User>(request, response, -1), user);
     		new ExportExcel("用户数据", User.class).setDataList(page.getList()).write(response, fileName).dispose();

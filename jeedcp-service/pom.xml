@@ -65,7 +65,6 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-ehcache</artifactId>
         </dependency>
-
         <!-- SECURITY end -->
     </dependencies>
 </project>

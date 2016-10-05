@@ -9,6 +9,7 @@ import com.jeedcp.entity.base.BaseEntity;
 
 import com.jeedcp.entity.sys.Role;
 import com.jeedcp.entity.sys.User;
+import com.jeedcp.service.util.UserUtils;
 import com.jeedcp.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,9 +116,7 @@ public abstract class BaseService {
 	 * 		dataScopeFilter(entity, "dsf", "code=a.jgdm", "no=a.cjr"); // 适应于业务表关联不同字段时使用，如果关联的不是机构id是code。
 	 */
 	public static void dataScopeFilter(BaseEntity<?> entity, String sqlMapKey, String officeWheres, String userWheres) {
-
-		User user = entity.getCurrentUser();
-		
+		User user   = UserUtils.getUser();
 		// 如果是超级管理员，则不过滤数据
 		if (user.isAdmin()) {
 			return;

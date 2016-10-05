@@ -19,14 +19,16 @@ public  class Principal implements Serializable {
     private String loginName; // 登录名
     private String name; // 姓名
     private boolean mobileLogin; // 是否手机登录
+    private String sessionid;
 
 //		private Map<String, Object> cacheMap;
 
-    public Principal(User user, boolean mobileLogin) {
+    public Principal(User user, boolean mobileLogin,String sessionid) {
         this.id = user.getId();
         this.loginName = user.getLoginName();
         this.name = user.getName();
         this.mobileLogin = mobileLogin;
+        this.sessionid = sessionid;
     }
 
     public String getId() {
@@ -45,13 +47,7 @@ public  class Principal implements Serializable {
         return mobileLogin;
     }
 
-//		@JsonIgnore
-//		public Map<String, Object> getCacheMap() {
-//			if (cacheMap==null){
-//				cacheMap = new HashMap<String, Object>();
-//			}
-//			return cacheMap;
-//		}
+
 
 
     @Override
@@ -59,4 +55,11 @@ public  class Principal implements Serializable {
         return id;
     }
 
+    public String getSessionid() {
+        return sessionid;
+    }
+
+    public void setSessionid(String sessionid) {
+        this.sessionid = sessionid;
+    }
 }
