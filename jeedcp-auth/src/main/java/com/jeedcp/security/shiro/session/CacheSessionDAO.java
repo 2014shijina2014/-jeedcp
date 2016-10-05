@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * 系统安全认证实现类
  * @author jeedcp
- * @version 2014-7-24
+ * @version 2016-7-24
  */
 public class CacheSessionDAO extends EnterpriseCacheSessionDAO implements SessionDAO {
 
