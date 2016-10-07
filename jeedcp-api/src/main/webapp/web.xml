@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <!-- 两个不能同时加载 -->
+    <!-- 测试webservice时打开 -->
+    <!-- <param-value>classpath:cxf-ws-servlet.xml</param-value> -->
+    <!-- 测试restfull时打开 -->
+    <param-value>classpath:cxf-rs-servlet.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>cxf</servlet-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <!-- 两个可以一起配置，为了清晰，只配一个 -->
+  <!-- <servlet-mapping>
+      <servlet-name>cxf</servlet-name>
+      <url-pattern>/ws/*</url-pattern>
+  </servlet-mapping> -->
+  <servlet-mapping>
+    <servlet-name>cxf</servlet-name>
+    <url-pattern>/rs/*</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
