@@ -61,7 +61,7 @@ Jeedcp 技术点总结:
 
 项目说明
 jeedcp-common 主要是一些基础的数据结构和工具类。
-jeedcp-api 接口API
+jeedcp-api 适用于开发对外接口项目，无需关心接口验证，它让开发者不在关心接口验证,只需要关注自身业务代码即可.
 jeedcp-auth  安全方面的API 如果用户信息，授权等。
 jeedcp-core-static 前端html公共页，js ,css.会采用nginx做反向代理
 jeedcp-core 框架主要实现
