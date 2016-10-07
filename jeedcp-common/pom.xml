@@ -79,6 +79,11 @@
             <artifactId>xstream</artifactId>
             <version>1.4.7</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
         <!-- TEST end -->
     </dependencies>
 </project>

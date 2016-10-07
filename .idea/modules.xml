@@ -3,13 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jeedcp.iml" filepath="$PROJECT_DIR$/jeedcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-act-web/jeedcp-act-web.iml" filepath="$PROJECT_DIR$/jeedcp-act-web/jeedcp-act-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-admin/jeedcp-admin.iml" filepath="$PROJECT_DIR$/jeedcp-admin/jeedcp-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-api/jeedcp-api.iml" filepath="$PROJECT_DIR$/jeedcp-api/jeedcp-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-auth/jeedcp-auth.iml" filepath="$PROJECT_DIR$/jeedcp-auth/jeedcp-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-base-persistence-nosql/jeedcp-base-persistence-nosql.iml" filepath="$PROJECT_DIR$/jeedcp-base-persistence-nosql/jeedcp-base-persistence-nosql.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-cache/jeedcp-cache.iml" filepath="$PROJECT_DIR$/jeedcp-cache/jeedcp-cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-common/jeedcp-common.iml" filepath="$PROJECT_DIR$/jeedcp-common/jeedcp-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-config/jeedcp-config.iml" filepath="$PROJECT_DIR$/jeedcp-config/jeedcp-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-core/jeedcp-core.iml" filepath="$PROJECT_DIR$/jeedcp-core/jeedcp-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-core-act/jeedcp-core-act.iml" filepath="$PROJECT_DIR$/jeedcp-core-act/jeedcp-core-act.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-dao/jeedcp-dao.iml" filepath="$PROJECT_DIR$/jeedcp-dao/jeedcp-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-domain/jeedcp-domain.iml" filepath="$PROJECT_DIR$/jeedcp-domain/jeedcp-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-exception/jeedcp-exception.iml" filepath="$PROJECT_DIR$/jeedcp-exception/jeedcp-exception.iml" />
