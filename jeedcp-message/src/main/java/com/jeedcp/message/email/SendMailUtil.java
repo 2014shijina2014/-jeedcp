@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">jeedcp</a> All rights reserved.
  */
-package com.jeedcp.util;
+package com.jeedcp.message.email;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

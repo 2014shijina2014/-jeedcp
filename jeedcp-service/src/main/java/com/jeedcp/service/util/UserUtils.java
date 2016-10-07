@@ -7,6 +7,7 @@ package com.jeedcp.service.util;
 import com.jeedcp.dao.sys.*;
 import com.jeedcp.entity.rbac.Principal;
 import com.jeedcp.entity.sys.*;
+import com.jeedcp.message.sms.SMSUtils;
 import com.jeedcp.service.base.BaseService;
 import com.jeedcp.util.CacheUtils;
 import com.jeedcp.util.SpringContextHolder;
@@ -351,16 +352,14 @@ public class UserUtils {
 		//发送内容
 		String content = "您的验证码是："+randomCode+"，有效期30分钟，请在有效期内使用。";
 
-		//return SMSUtils.send(uid, pwd, tel, content);
-return null;
+		return SMSUtils.send(uid, pwd, tel, content);
 	}
 
 	//注册用户重置密码
 	public static String sendPass(String uid, String pwd, String tel, String password) throws IOException {
 		//发送内容
 		String content = "您的新密码是："+password+"，请登录系统，重新设置密码。";
-		//return SMSUtils.send(uid, pwd, tel, content);
-		return null;
+		return SMSUtils.send(uid, pwd, tel, content);
 
 	}
 

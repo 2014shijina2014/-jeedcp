@@ -1,4 +1,4 @@
-package com.jeedcp.common.sms;
+package com.jeedcp.message.sms;
 
 
 import com.jeedcp.util.Digests;
