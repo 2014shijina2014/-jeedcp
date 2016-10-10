@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
 /**
- * Created by Zach on 15/9/23.
+ * Created by Jeedcp on 15/9/23.
  */
 public class I18nMessageServiceBean {
     /**

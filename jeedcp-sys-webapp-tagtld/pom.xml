@@ -13,4 +13,18 @@
     <artifactId>jeedcp-sys-webapp-tagtld</artifactId>
     <packaging>war</packaging>
 
+
+    <!-- 依赖项定义 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>

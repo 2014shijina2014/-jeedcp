@@ -1117,11 +1117,11 @@ $.fn.jqGrid = function( pin ) {
 		cellVal =  function (val) {
 			return val == null || val === "" ? "&#160;" : (ts.p.autoencode ? $.jgrid.htmlEncode(val) : String(val));
 		},
-		formatter = function (rowId, cellval , colpos, rwdat, _act, irow){ // Zach add irow
+		formatter = function (rowId, cellval , colpos, rwdat, _act, irow){ // Jeedcp add irow
 			var cm = ts.p.colModel[colpos],v;
 			if(cm.formatter !== undefined) {
 				rowId = String(ts.p.idPrefix) !== "" ? $.jgrid.stripPref(ts.p.idPrefix, rowId) : rowId;
-				var opts= {rowId: rowId, colModel:cm, gid:ts.p.id, pos:colpos, irow:irow }; // Zach add irow
+				var opts= {rowId: rowId, colModel:cm, gid:ts.p.id, pos:colpos, irow:irow }; // Jeedcp add irow
 				if($.isFunction( cm.formatter ) ) {
 					v = cm.formatter.call(ts,cellval,opts,rwdat,_act);
 				} else if($.fmatter){
@@ -1136,7 +1136,7 @@ $.fn.jqGrid = function( pin ) {
 		},
 		addCell = function(rowId,cell,pos,irow, srvr, rdata) {
 			var v,prp;
-			v = formatter(rowId,cell,pos,srvr,'add',irow); // Zach add irow
+			v = formatter(rowId,cell,pos,srvr,'add',irow); // Jeedcp add irow
 			prp = formatCol( pos,irow, v, srvr, rowId, rdata);
 			return "<td role=\"gridcell\" "+prp+">"+v+"</td>";
 		},

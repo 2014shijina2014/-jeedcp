@@ -7,7 +7,7 @@
         </encoder>
     </appender>
     <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Users/Zach/dev/tmp/logs/mylog.txt</file>
+        <file>/Users/Jeedcp/dev/tmp/logs/mylog.txt</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
             <fileNamePattern>demo-log-%d{yyyy-MM-dd_HH-mm}.%i.log</fileNamePattern>

@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import java.util.UUID;
 
 /**
- * Created by Zach on 15/9/23.
+ * Created by Jeedcp on 15/9/23.
  */
 public class IdUtils {
 

@@ -438,7 +438,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		if (!StringUtils.endsWithAny(p, "/") && StringUtils.endsWithAny(path, "\\", "/")){
 			p = p + "/";
 		}
-//		针对linux加/  add by Zach
+//		针对linux加/  add by Jeedcp
 		if (StringUtils.startsWithAny(path,"/")){
 			p = "/"+p;
 		}

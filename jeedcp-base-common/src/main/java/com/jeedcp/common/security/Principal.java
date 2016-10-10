@@ -9,7 +9,7 @@ import org.apache.shiro.subject.Subject;
 import java.io.Serializable;
 
 /**
- * Created by Zach on 15/8/5.
+ * Created by Jeedcp on 15/8/5.
  */
 public class Principal implements Serializable{
 

@@ -2,7 +2,7 @@
  * Copyright &copy; 2015-2015  Metinform All rights reserved.
  * 
  * 通用公共方法
- * @author Zach Xu
+ * @author Jeedcp Xu
  * @version 2014-4-29
  */
 $(document).ready(function() {

@@ -7,7 +7,7 @@ import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.subject.Subject;
 
 /**
- * Created by Zach on 15/10/8.
+ * Created by Jeedcp on 15/10/8.
  */
 public class PrincipalUtil {
 

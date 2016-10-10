@@ -1,7 +1,7 @@
 package com.jeedcp.common.config;
 
 /**
- * Created by Zach on 15/10/3.
+ * Created by Jeedcp on 15/10/3.
  */
 public class Constants {
 

@@ -1,7 +1,7 @@
 package com.jeedcp.common.dto;
 
 /**
- * Created by Zach on 15/9/9.
+ * Created by Jeedcp on 15/9/9.
  */
 public abstract class BaseMongoDto implements BaseDto {
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Zach on 15/9/25.
+ * Created by Jeedcp on 15/9/25.
  */
 public class Pagination<T> extends PageInfo<T> {
 

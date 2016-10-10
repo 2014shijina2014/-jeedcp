@@ -8,7 +8,7 @@ import com.jeedcp.common.utils.IdUtils;
 import java.util.Date;
 
 /**
- * Created by Zach on 15/9/24.
+ * Created by Jeedcp on 15/9/24.
  */
 public class EntityUtils {
 

@@ -6,6 +6,17 @@
         <element id="directory" name="classes">
           <element id="module-output" name="jeedcp-sys-webapp-tagtld" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/jeedcp-sys-webapp-tagtld/target/jeedcp-sys-webapp-tagtld-1.0.0-SNAPSHOT/META-INF/MANIFEST.MF" />

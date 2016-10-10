@@ -6,7 +6,7 @@ import com.jeedcp.common.dto.BaseMongoDto;
 import java.util.Date;
 
 /**
- * Created by Zach on 15/9/9.
+ * Created by Jeedcp on 15/9/9.
  */
 public class MongoLogDto extends BaseMongoDto {
 

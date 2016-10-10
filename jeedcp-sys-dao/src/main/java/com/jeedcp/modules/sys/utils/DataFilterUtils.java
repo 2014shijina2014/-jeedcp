@@ -9,7 +9,7 @@ import com.jeedcp.modules.sys.entity.User;
 import java.util.List;
 
 /**
- * Created by Zach on 15/10/3.
+ * Created by Jeedcp on 15/10/3.
  */
 public class DataFilterUtils {
     public static String dataScopeFilter(User user, String officeAlias, String userAlias) {

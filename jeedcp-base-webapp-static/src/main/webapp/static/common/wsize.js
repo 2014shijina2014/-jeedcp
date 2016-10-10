@@ -2,7 +2,7 @@
  * Copyright &copy; 2015-2015  Metinform All rights reserved.
  * 
  * 主框架窗口大小调整
- * @author Zach Xu
+ * @author Jeedcp Xu
  * @version 2013-11-09
  */
 

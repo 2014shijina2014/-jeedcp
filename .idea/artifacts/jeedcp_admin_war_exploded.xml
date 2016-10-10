@@ -30,9 +30,6 @@
           <element id="archive" name="jeedcp-sys-webapp-security-cas-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-sys-webapp-security-cas" />
           </element>
-          <element id="archive" name="jeedcp-base-webapp-support-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-base-webapp-support" />
-          </element>
           <element id="archive" name="jeedcp-sys-dao-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-sys-dao" />
           </element>
@@ -41,6 +38,9 @@
           </element>
           <element id="archive" name="jeedcp-sys-service-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-sys-service" />
+          </element>
+          <element id="archive" name="jeedcp-base-webapp-support-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="jeedcp-base-webapp-support" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" />

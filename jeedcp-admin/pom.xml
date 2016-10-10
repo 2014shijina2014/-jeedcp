@@ -67,6 +67,10 @@
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-webapp-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-webapp</artifactId>
             <type>war</type>
         </dependency>
