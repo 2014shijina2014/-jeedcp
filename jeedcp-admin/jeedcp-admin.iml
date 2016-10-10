@@ -45,6 +45,7 @@
     <orderEntry type="module" module-name="jeedcp-sys-webapp-security-cas" />
     <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-base-webapp-commonjsp:war:1.0.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-webapp-static" />
+    <orderEntry type="module" module-name="jeedcp-sys-dao-xml" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />
     <orderEntry type="module" module-name="jeedcp-sys-entity" />
     <orderEntry type="module" module-name="jeedcp-sys-service" />
@@ -98,7 +99,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:4.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: opensymphony:sitemesh:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
-    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet.jsp:jsp-api:2.2" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" level="project" />

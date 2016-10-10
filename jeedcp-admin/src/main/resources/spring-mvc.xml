@@ -41,10 +41,10 @@
 				        </property>
 				        <property name="annotatedClasses">
 				            <list>
-				                <!--<value>com.metinform.common.persistence.BaseEntity</value>-->
-				                <!--<value>com.metinform.common.supcan.treelist.TreeList</value>-->
-				                <!--<value>com.metinform.common.supcan.treelist.cols.Col</value>-->
-				                <!--<value>com.metinform.common.supcan.treelist.cols.Group</value>-->
+				                <!--<value>com.jeedcp.common.persistence.BaseEntity</value>-->
+				                <!--<value>com.jeedcp.common.supcan.treelist.TreeList</value>-->
+				                <!--<value>com.jeedcp.common.supcan.treelist.cols.Col</value>-->
+				                <!--<value>com.jeedcp.common.supcan.treelist.cols.Group</value>-->
 				            </list>
 				        </property>
 				    </bean>
@@ -90,7 +90,7 @@
 			<!--<mvc:exclude-mapping path="${adminPath}/login"/>-->
 			<!--<mvc:exclude-mapping path="${adminPath}/sys/menu/tree"/>-->
 			<!--<mvc:exclude-mapping path="${adminPath}/sys/menu/treeData"/>-->
-			<!--<bean class="com.metinform.modules.sys.interceptor.LogInterceptor" />-->
+			<!--<bean class="com.jeedcp.modules.sys.interceptor.LogInterceptor" />-->
 		<!--</mvc:interceptor>-->
 		<!-- 手机视图拦截器 -->
 		<mvc:interceptor>

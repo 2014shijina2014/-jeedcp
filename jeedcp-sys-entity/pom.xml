@@ -58,82 +58,18 @@
 
     </dependencies>
 
+    <!--  打包时把resources下包内的XML配置文件也包含 -->
     <build>
-
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>sql-maven-plugin</artifactId>
-                <version>1.5</version>
-
-
-                <dependencies>
-                    <!-- specify the dependent JDBC driver here -->
-                    <dependency>
-                        <groupId>com.oracle</groupId>
-                        <artifactId>ojdbc14</artifactId>
-                        <version>${oracle.driver.version}</version>
-                    </dependency>
-                </dependencies>
-
-                <!-- common configuration shared by all executions -->
-                <configuration>
-                    <driver>oracle.jdbc.driver.OracleDriver</driver>
-                    <url>jdbc:oracle:thin:@10.211.55.3:1521:xe</url>
-                    <username>demo2</username>
-                    <password>1</password>
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <id>create-schema</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <!-- specific configuration for this execution -->
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>db/oracle/sys.sql</srcFile>
-                                <srcFile>db/oracle/sys-data.sql</srcFile>
-                            </srcFiles>
-                            <onError>continue</onError>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-
-            <!--源代码插件-->
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <!-- explicitly define maven-deploy-plugin after other to force exec order -->
-                <artifactId>maven-deploy-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
-
 </project>
 

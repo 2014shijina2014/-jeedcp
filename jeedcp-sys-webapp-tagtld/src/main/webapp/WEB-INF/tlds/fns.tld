@@ -51,7 +51,7 @@
   <function>
     <description>获取当前用户对象</description>
     <name>getUser</name>
-    <function-class>com.jeedcp.common.sys.utils.CurrentUserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>com.jeedcp.common.sys.entity.User getUser()</function-signature>
     <example>${fns:getUser()}</example>  
   </function>
@@ -67,7 +67,7 @@
   <function>
     <description>获取授权用户信息</description>
     <name>getPrincipal</name>
-    <function-class>com.jeedcp.common.sys.utils.CurrentUserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>com.jeedcp.common.security.Principal getPrincipal()</function-signature>
     <example>${fns:getPrincipal()}</example>  
   </function>
@@ -75,7 +75,7 @@
   <function>
     <description>获取当前用户的菜单对象列表</description>
     <name>getMenuList</name>
-    <function-class>com.jeedcp.modules.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>java.util.List getMenuList()</function-signature>
     <example>${fns:getMenuList()}</example>  
   </function>
@@ -83,7 +83,7 @@
   <function>
     <description>获取当前用户的区域对象列表</description>
     <name>getAreaList</name>
-    <function-class>com.jeedcp.modules.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>java.util.List getAreaList()</function-signature>
     <example>${fns:getAreaList()}</example>  
   </function>
@@ -91,7 +91,7 @@
   <function>
     <description>获取当前用户的部门对象列表</description>
     <name>getOfficeList</name>
-    <function-class>com.jeedcp.modules.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>java.util.List getOfficeList()</function-signature>
     <example>${fns:getOfficeList()}</example>  
   </function>
@@ -99,7 +99,7 @@
   <function>
     <description>获取当前用户缓存</description>
     <name>getCache</name>
-    <function-class>com.jeedcp.modules.sys.utils.UserUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
     <function-signature>java.lang.Object getCache(java.lang.String, java.lang.Object)</function-signature>
     <example>${fns:getCache(cacheName, defaultValue)}</example>  
   </function>
@@ -108,7 +108,7 @@
   <function>
     <description>获取字典标签</description>
     <name>getDictLabel</name>
-    <function-class>com.jeedcp.common.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictLabel(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictLabel(value, type, defaultValue)}</example>  
   </function>
@@ -116,7 +116,7 @@
   <function>
     <description>获取字典标签(多个)</description>
     <name>getDictLabels</name>
-    <function-class>com.jeedcp.common.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictLabels(java.lang.String, java.lang.String, java.lang.String)</function-signature>
     <example>${fns:getDictLabels(values, type, defaultValue)}</example>  
   </function>
@@ -132,7 +132,7 @@
   <function>
     <description>获取字典对象列表</description>
     <name>getDictList</name>
-    <function-class>com.jeedcp.common.sys.utils.DictUtils</function-class>
+    <function-class>com.jeedcp.modules.sys.utils.DictUtils</function-class>
     <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
     <example>${fns:getDictList(type)}</example>  
   </function>
@@ -141,7 +141,7 @@
   <function>
     <description>URL编码</description>
     <name>urlEncode</name>
-    <function-class>com.jeedcp.common.utils.Encodes</function-class>
+    <function-class>com.jeedcp.modules.utils.Encodes</function-class>
     <function-signature>java.lang.String urlEncode(java.lang.String)</function-signature>
     <example>${fns:urlEncode(part)}</example>  
   </function>

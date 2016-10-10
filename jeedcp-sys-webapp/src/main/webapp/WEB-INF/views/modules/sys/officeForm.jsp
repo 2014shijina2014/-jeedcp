@@ -40,7 +40,7 @@
 
                 <sys:treeselect id="office" name="parent.id" value="${office.parent.id}" labelName="parent.name" labelValue="${office.parent.name}"
 					title="机构" url="/sys/office/treeData" extId="${office.id}" cssClass=""
-                                allowClear="<%= SecurityUtils.getSubject().getPrincipals().oneByType(com.metinform.common.security.cas.Principal.class).getUser().isAdmin() %>"/>
+                                allowClear="<%= SecurityUtils.getSubject().getPrincipals().oneByType(com.jeedcp.common.security.cas.Principal.class).getUser().isAdmin() %>"/>
                 <%--<sys:treeselect id="office" name="parent.id" value="${office.parent.id}" labelName="parent.name" labelValue="${office.parent.name}"--%>
 					<%--title="机构" url="/sys/office/treeData" extId="${office.id}" cssClass="" allowClear="${office.currentUser.admin}"/>--%>
 			</div>

@@ -32,6 +32,8 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-base-service</artifactId>
         </dependency>
+
+
         <!--<dependency>-->
             <!--<groupId>com.dcp.jeedcp</groupId>-->
             <!--<artifactId>jeedcp-test</artifactId>-->
@@ -52,7 +54,11 @@
             <type>war</type>
         </dependency>
         <!-- jeedcp-base end-->
-
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-sys-dao-xml</artifactId>
+            <type>war</type>
+        </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-dao</artifactId>
@@ -228,7 +234,7 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>jstl</groupId>
+            <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <type>jar</type>
         </dependency>
@@ -486,7 +492,7 @@
         <!-- 定义resource-->
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
@@ -647,7 +653,7 @@
                 <!-- 定义dev环境的 resources-->
                 <resources>
                     <resource>
-                        <directory>src/main/java</directory>
+                        <directory>src/main/resources</directory>
                         <includes>
                             <include>**/*.properties</include>
                             <include>**/*.xml</include>

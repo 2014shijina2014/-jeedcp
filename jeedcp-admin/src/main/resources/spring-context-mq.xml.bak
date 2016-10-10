@@ -68,7 +68,7 @@
 
 
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageListener" class="com.metinform.modules.mq.ConsumerMessageListener"/>
+	<bean id="consumerMessageListener" class="com.jeedcp.modules.mq.ConsumerMessageListener"/>
 
 	<!-- 消息监听容器 -->
 	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
@@ -80,7 +80,7 @@
 
 
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageListener2" class="com.metinform.modules.mq.ConsumerMessageListener2"/>
+	<bean id="consumerMessageListener2" class="com.jeedcp.modules.mq.ConsumerMessageListener2"/>
 
 	<!-- 消息监听容器 -->
 	<bean id="jmsContainer2" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
@@ -93,7 +93,7 @@
 
 
     <!-- 消息监听器 -->
-    <bean id="consumerMessageListener3" class="com.metinform.modules.mq.ConsumerMessageListener3"/>
+    <bean id="consumerMessageListener3" class="com.jeedcp.modules.mq.ConsumerMessageListener3"/>
 
     <!-- 消息监听容器 -->
     <bean id="jmsContainer3" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
@@ -106,7 +106,7 @@
     <amq:redeliveryPolicy id="activeMQRedeliveryPolicy" destination="#defaultDestination" redeliveryDelay="100" maximumRedeliveries="4" />
 
 	<!--&lt;!&ndash; 消息监听器 &ndash;&gt;-->
-	<!--<bean id="consumerMessageTopicListener" class="com.metinform.modules.mq.ConsumerTopicMessageListener"/>-->
+	<!--<bean id="consumerMessageTopicListener" class="com.jeedcp.modules.mq.ConsumerTopicMessageListener"/>-->
 
 	<!--&lt;!&ndash; 消息监听容器 &ndash;&gt;-->
 	<!--<bean id="jmsTopicContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
@@ -116,7 +116,7 @@
 	<!--</bean>-->
 
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageTopicListener2" class="com.metinform.modules.mq.ConsumerTopicMessageListener2"/>
+	<bean id="consumerMessageTopicListener2" class="com.jeedcp.modules.mq.ConsumerTopicMessageListener2"/>
 
 	<!-- 消息监听容器 -->
 	<bean id="jmsTopicContainer2" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
@@ -126,7 +126,7 @@
 	</bean>
 
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageTopicListener3" class="com.metinform.modules.mq.ConsumerTopicMessageListener3"/>
+	<bean id="consumerMessageTopicListener3" class="com.jeedcp.modules.mq.ConsumerTopicMessageListener3"/>
 
 	<!-- 消息监听容器 -->
 	<bean id="jmsTopicContainer3" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
@@ -137,7 +137,7 @@
 
 
 	<!-- 消息监听器 -->
-	<bean id="consumerActiveMQAdvisoryConsumerQueueMessageListener1" class="com.metinform.modules.mq.ConsumerActiveMQAdvisoryConsumerQueueMessageListener1"/>
+	<bean id="consumerActiveMQAdvisoryConsumerQueueMessageListener1" class="com.jeedcp.modules.mq.ConsumerActiveMQAdvisoryConsumerQueueMessageListener1"/>
 
 	<!-- 消息监听容器 -->
 	<!--<bean id="jmsTopicContainer3" class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->

@@ -91,6 +91,7 @@
         <module>jeedcp-sys-webapp</module>
         <module>jeedcp-sys-entity</module>
         <module>jeedcp-sys-dao</module>
+        <module>jeedcp-sys-dao-xml</module>
         <module>jeedcp-sys-service</module>
         <module>jeedcp-base-webapp-commonjsp</module>
         <module>jeedcp-sys-webapp-tagtld</module>
@@ -184,6 +185,13 @@
         <dependency>
             <groupId>${dcp.jeedcp.groupId}</groupId>
             <artifactId>jeedcp-sys-webapp-tagtld</artifactId>
+            <version>${dcp.jeedcp.version}</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>${dcp.jeedcp.groupId}</groupId>
+            <artifactId>jeedcp-sys-dao-xml</artifactId>
             <version>${dcp.jeedcp.version}</version>
             <type>war</type>
         </dependency>

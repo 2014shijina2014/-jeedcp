@@ -69,7 +69,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
-          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.9" />
           <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-web:2.0.4" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.5.1" />
@@ -127,6 +127,7 @@
       </element>
       <element id="javaee-facet-resources" facet="jeedcp-admin/web/Web" />
       <element id="artifact" artifact-name="jeedcp-base-webapp-static:war exploded" />
+      <element id="artifact" artifact-name="jeedcp-sys-dao-xml:war exploded" />
       <element id="artifact" artifact-name="jeedcp-sys-webapp:war exploded" />
       <element id="artifact" artifact-name="jeedcp-sys-webapp-tagtld:war exploded" />
       <element id="artifact" artifact-name="jeedcp-log:war exploded" />

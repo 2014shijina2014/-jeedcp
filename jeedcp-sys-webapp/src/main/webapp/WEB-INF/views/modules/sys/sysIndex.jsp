@@ -208,7 +208,7 @@
 				</div>
 			</div>
 		    <div id="footer" class="row-fluid">
-	            Copyright &copy; 2012-${fns:getConfig('copyrightYear')} ${fns:getConfig('productName')} - Powered By <a href="http://metinform.cn" target="_blank">Metinform</a> ${fns:getConfig('version')}
+	            Copyright &copy; 2012-${fns:getConfig('copyrightYear')} ${fns:getConfig('productName')} - Powered By <a href="http://jeedcp.cn" target="_blank">Metinform</a> ${fns:getConfig('version')}
 			</div>
 		</div>
 	</div>
