@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 业务表Service
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 @Service

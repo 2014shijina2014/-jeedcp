@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * DAO支持类实现
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  * @param <T>
  */

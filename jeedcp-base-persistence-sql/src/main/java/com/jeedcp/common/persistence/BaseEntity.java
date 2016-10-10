@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * Entity支持类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  */
 //@SupTreeList

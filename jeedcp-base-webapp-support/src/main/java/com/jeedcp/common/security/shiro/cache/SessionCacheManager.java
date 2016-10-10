@@ -23,7 +23,7 @@ import java.util.Set;
 
 /**
  * 自定义授权缓存管理类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-7-21
  */
 public class SessionCacheManager implements CacheManager {

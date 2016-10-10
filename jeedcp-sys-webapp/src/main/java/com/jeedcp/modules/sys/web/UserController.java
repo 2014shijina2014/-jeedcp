@@ -44,7 +44,7 @@ import com.jeedcp.common.config.Global;
 
 /**
  * 用户Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-8-29
  */
 @Controller

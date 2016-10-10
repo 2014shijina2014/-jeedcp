@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 /**
  * 对象操作工具类, 继承org.apache.commons.lang3.ObjectUtils类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-6-29
  */
 public class ObjectUtils extends org.apache.commons.lang3.ObjectUtils {

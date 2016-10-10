@@ -17,7 +17,7 @@ import com.google.common.collect.Lists;
 
 /**
  * 生成方案Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 @XmlRootElement(name="template")

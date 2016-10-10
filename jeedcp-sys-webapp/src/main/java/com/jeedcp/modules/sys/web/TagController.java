@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 标签Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-3-23
  */
 @Controller

@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.model.Page;
-import com.jeedcp.util.StringUtils;
-import com.jeedcp.web.base.BaseController;
+
+import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.common.web.BaseController;
 import com.jeedcp.weixin.entity.WeixinAccount;
 import com.jeedcp.weixin.service.WeixinAccountService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -50,7 +51,7 @@ public class WeixinAccountController extends BaseController {
 	@RequiresPermissions("weixin:weixinAccount:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinAccount weixinAccount, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<WeixinAccount> page = weixinAccountService.findPage(new Page<WeixinAccount>(request, response), weixinAccount);
+		Pagination<WeixinAccount> page = weixinAccountService.findPage(new Pagination<WeixinAccount>(request, response), weixinAccount);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinAccountList";
 	}

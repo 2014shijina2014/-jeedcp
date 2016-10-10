@@ -13,7 +13,7 @@ import com.google.common.collect.Lists;
 
 /**
  * 业务表字段Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 public class GenTableColumn extends DataEntity<GenTableColumn> {

@@ -9,7 +9,7 @@ import com.jeedcp.common.persistence.DataEntity;
 
 /**
  * 生成方案Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 public class GenScheme extends DataEntity<GenScheme> {

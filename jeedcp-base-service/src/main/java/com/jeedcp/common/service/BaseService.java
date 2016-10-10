@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Service基类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  */
 @Transactional(readOnly = true)

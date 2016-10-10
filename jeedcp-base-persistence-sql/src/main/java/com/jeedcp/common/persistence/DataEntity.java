@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * 数据Entity类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  */
 public abstract class DataEntity<T> extends BaseEntity<T> {

@@ -13,7 +13,7 @@ import com.jeedcp.common.persistence.DataEntity;
 
 /**
  * 业务表Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 public class GenTable extends DataEntity<GenTable> {

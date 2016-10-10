@@ -22,7 +22,7 @@ import java.util.Date;
 
 /**
  * 用户工具类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-12-05
  */
 public class CurrentUserUtils extends PrincipalUtil {

@@ -5,7 +5,7 @@ package com.jeedcp.modules.sys.utils;
 
 /**
  * 用户工具类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-12-05
  */
 public class UserUtils {

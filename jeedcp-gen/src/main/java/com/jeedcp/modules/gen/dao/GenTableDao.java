@@ -10,7 +10,7 @@ import com.jeedcp.modules.gen.entity.GenTable;
 
 /**
  * 业务表DAO接口
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 @MyBatisDao

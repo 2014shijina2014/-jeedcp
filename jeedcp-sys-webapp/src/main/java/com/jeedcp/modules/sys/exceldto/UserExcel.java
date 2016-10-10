@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 用户Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-12-05
  */
 public class UserExcel extends User {

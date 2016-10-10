@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 手机端视图拦截器
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-9-1
  */
 public class MobileInterceptor implements HandlerInterceptor {

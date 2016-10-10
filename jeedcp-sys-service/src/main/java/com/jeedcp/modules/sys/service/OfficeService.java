@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 机构Service
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  */
 @Service

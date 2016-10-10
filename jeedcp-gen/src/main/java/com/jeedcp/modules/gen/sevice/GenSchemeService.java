@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 生成方案Service
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 @Service

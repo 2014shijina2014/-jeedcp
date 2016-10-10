@@ -32,7 +32,7 @@ import com.google.common.collect.Maps;
 
 /**
  * 字典Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2014-05-16
  */
 @Controller

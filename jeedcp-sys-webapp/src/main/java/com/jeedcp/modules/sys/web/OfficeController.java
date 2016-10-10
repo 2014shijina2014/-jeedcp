@@ -35,7 +35,7 @@ import com.jeedcp.common.config.Constants;
 
 /**
  * 机构Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-5-15
  */
 @Controller

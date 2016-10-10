@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 机构Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-05-15
  */
 public class Office extends TreeEntity<Office> {

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * 字典Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-05-15
  */
 public class Dict extends DataEntity<Dict> {

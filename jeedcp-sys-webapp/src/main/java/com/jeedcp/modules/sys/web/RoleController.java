@@ -39,7 +39,7 @@ import com.google.common.collect.Maps;
 
 /**
  * 角色Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-12-05
  */
 @Controller

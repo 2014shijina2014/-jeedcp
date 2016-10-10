@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 生成方案Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-10-15
  */
 @XmlRootElement(name="config")

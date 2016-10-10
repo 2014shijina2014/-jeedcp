@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * 用户Entity
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-12-05
  */
 public class User extends DataEntity<User> {

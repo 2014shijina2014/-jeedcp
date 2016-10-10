@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * 封装各种生成唯一性ID算法的工具类.
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-01-15
  */
 @Service

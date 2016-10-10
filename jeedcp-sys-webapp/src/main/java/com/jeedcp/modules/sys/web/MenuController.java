@@ -32,7 +32,7 @@ import com.google.common.collect.Maps;
 
 /**
  * 菜单Controller
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-3-23
  */
 @Controller

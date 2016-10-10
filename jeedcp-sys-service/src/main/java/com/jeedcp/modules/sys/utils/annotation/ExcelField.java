@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * Excel注解定义
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-03-10
  */
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})

@@ -37,7 +37,7 @@ import com.google.common.collect.Maps;
 
 /**
  * 代码生成工具类
- * @author Zach Xu
+ * @author jeedcp
  * @version 2013-11-16
  */
 public class GenUtils {
