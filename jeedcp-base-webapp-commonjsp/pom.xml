@@ -24,7 +24,10 @@
 
     <!-- 依赖项定义 -->
     <dependencies>
-
+        <dependency>
+            <groupId>opensymphony</groupId>
+            <artifactId>sitemesh</artifactId>
+        </dependency>
 
     </dependencies>
 

@@ -1,8 +1,8 @@
 /*!
- * Copyright &copy; 2015-2020 <a href="http://taoyuanwangluo.com/">taoyuanwangluo</a> All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  * 
  * 主框架窗口大小调整
- * @author taoyuan
+ * @author Zach Xu
  * @version 2013-11-09
  */
 

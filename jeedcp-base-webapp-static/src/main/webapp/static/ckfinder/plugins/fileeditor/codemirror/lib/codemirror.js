@@ -1,4 +1,4 @@
-﻿﻿// CodeMirror version 2.24
+﻿// CodeMirror version 2.24
 //
 // All functions that need access to the editor's state live inside
 // the CodeMirror function. Below that, at the bottom of the file,
