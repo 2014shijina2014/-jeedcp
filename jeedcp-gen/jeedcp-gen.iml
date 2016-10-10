@@ -74,7 +74,7 @@
     <orderEntry type="library" name="Maven: com.google.zxing:javase:2.2" level="project" />
     <orderEntry type="library" name="Maven: bitwalker:UserAgentUtils:1.13" level="project" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />
-    <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-sys-entity:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="jeedcp-sys-entity" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.0.8.RELEASE" level="project" />

@@ -1,12 +1,12 @@
 package com.jeedcp.weixin.web.front.process;
 
 
-import com.thinkgem.jeesite.modules.weixin.entity.WeixinMsgNews;
-import com.thinkgem.jeesite.modules.weixin.entity.WeixinMsgText;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.Article;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.MsgRequest;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.MsgResponseNews;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.MsgResponseText;
+import com.jeedcp.modules.weixin.entity.WeixinMsgNews;
+import com.jeedcp.modules.weixin.entity.WeixinMsgText;
+import com.jeedcp.modules.weixin.web.front.vo.Article;
+import com.jeedcp.modules.weixin.web.front.vo.MsgRequest;
+import com.jeedcp.modules.weixin.web.front.vo.MsgResponseNews;
+import com.jeedcp.modules.weixin.web.front.vo.MsgResponseText;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 

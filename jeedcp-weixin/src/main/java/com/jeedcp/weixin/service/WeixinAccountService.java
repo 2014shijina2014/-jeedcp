@@ -6,7 +6,7 @@ package com.jeedcp.weixin.service;
 import java.util.List;
 
 import com.jeedcp.common.persistence.Pagination;
-import com.jeedcp.service.base.CrudService;
+import com.jeedcp.common.service.CrudService;
 import com.jeedcp.weixin.dao.WeixinAccountDao;
 import com.jeedcp.weixin.entity.WeixinAccount;
 import org.springframework.stereotype.Service;

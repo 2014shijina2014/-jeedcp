@@ -3,7 +3,7 @@
  */
 package com.jeedcp.weixin.entity;
 
-import com.jeedcp.entity.base.TreeEntity;
+import com.jeedcp.common.persistence.TreeEntity;
 import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

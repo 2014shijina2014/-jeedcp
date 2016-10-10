@@ -3,7 +3,7 @@
  */
 package com.jeedcp.weixin.entity;
 
-import com.jeedcp.entity.base.DataEntity;
+import com.jeedcp.common.persistence.DataEntity;
 import org.hibernate.validator.constraints.Length;
 
 

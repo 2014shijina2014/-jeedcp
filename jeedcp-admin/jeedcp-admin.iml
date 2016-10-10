@@ -47,7 +47,7 @@
     <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-base-webapp-commonjsp:war:1.0.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-webapp-static" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />
-    <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-sys-entity:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="jeedcp-sys-entity" />
     <orderEntry type="module" module-name="jeedcp-sys-service" />
     <orderEntry type="module" module-name="jeedcp-sys-webapp" />
     <orderEntry type="module" module-name="jeedcp-sys-webapp-tagtld" />

@@ -1,14 +1,14 @@
 package com.jeedcp.weixin.web.front.service.impl;
 
 
-import com.thinkgem.jeesite.common.utils.DateUtils;
-import com.thinkgem.jeesite.common.utils.IdGen;
-import com.thinkgem.jeesite.modules.weixin.dao.*;
-import com.thinkgem.jeesite.modules.weixin.entity.*;
-import com.thinkgem.jeesite.modules.weixin.web.front.process.*;
-import com.thinkgem.jeesite.modules.weixin.web.front.service.MyService;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.Matchrule;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.MsgRequest;
+import com.jeedcp.common.utils.DateUtils;
+import com.jeedcp.common.utils.IdGen;
+import com.jeedcp.modules.weixin.dao.*;
+import com.jeedcp.modules.weixin.entity.*;
+import com.jeedcp.modules.weixin.web.front.process.*;
+import com.jeedcp.modules.weixin.web.front.service.MyService;
+import com.jeedcp.modules.weixin.web.front.vo.Matchrule;
+import com.jeedcp.modules.weixin.web.front.vo.MsgRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.CollectionUtils;

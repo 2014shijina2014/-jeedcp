@@ -5,8 +5,9 @@ package com.jeedcp.weixin.service;
 
 import java.util.List;
 
-import com.jeedcp.service.base.TreeService;
-import com.jeedcp.util.StringUtils;
+
+import com.jeedcp.common.service.TreeService;
+import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.weixin.dao.WeixinMenuDao;
 import com.jeedcp.weixin.entity.WeixinMenu;
 import org.springframework.stereotype.Service;

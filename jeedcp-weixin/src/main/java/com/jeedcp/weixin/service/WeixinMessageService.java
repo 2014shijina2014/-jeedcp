@@ -5,8 +5,7 @@ package com.jeedcp.weixin.service;
 
 import java.util.List;
 
-import com.jeedcp.common.model.Page;
-import com.jeedcp.service.base.CrudService;
+import com.jeedcp.common.service.CrudService;
 import com.jeedcp.weixin.dao.WeixinMessageDao;
 import com.jeedcp.weixin.entity.WeixinMessage;
 import org.springframework.stereotype.Service;
@@ -31,9 +30,7 @@ public class WeixinMessageService extends CrudService<WeixinMessageDao, WeixinMe
 		return super.findList(weixinMessage);
 	}
 	
-	public Page<WeixinMessage> findPage(Page<WeixinMessage> page, WeixinMessage weixinMessage) {
-		return super.findPage(page, weixinMessage);
-	}
+
 	
 	@Transactional(readOnly = false)
 	public void save(WeixinMessage weixinMessage) {

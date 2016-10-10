@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.common.web.BaseController;
 import com.jeedcp.weixin.entity.WeixinMenu;
 import com.jeedcp.weixin.entity.WeixinMenuGroup;
 import com.jeedcp.weixin.service.WeixinMenuGroupService;
@@ -28,9 +30,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.model.Page;
-import com.jeedcp.util.StringUtils;
-import com.jeedcp.web.base.BaseController;
+
 /**
  * 微信菜单Controller
  * @author jeedcp

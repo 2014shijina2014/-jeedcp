@@ -6,6 +6,8 @@ package com.jeedcp.weixin.service;
 import java.util.List;
 
 
+import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.service.CrudService;
 import com.jeedcp.weixin.dao.WeixinMenuDao;
 import com.jeedcp.weixin.dao.WeixinMenuGroupDao;
 import com.jeedcp.weixin.entity.WeixinMenu;
@@ -13,9 +15,6 @@ import com.jeedcp.weixin.entity.WeixinMenuGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.jeedcp.common.model.Page;
-import com.jeedcp.service.base.CrudService;
 
 
 /**
@@ -38,7 +37,7 @@ public class WeixinMenuGroupService extends CrudService<WeixinMenuGroupDao, Weix
 		return super.findList(weixinMenuGroup);
 	}
 	
-	public Page<WeixinMenuGroup> findPage(Page<WeixinMenuGroup> page, WeixinMenuGroup weixinMenuGroup) {
+	public Pagination<WeixinMenuGroup> findPage(Pagination<WeixinMenuGroup> page, WeixinMenuGroup weixinMenuGroup) {
 		return super.findPage(page, weixinMenuGroup);
 	}
 	

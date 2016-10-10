@@ -6,6 +6,9 @@ package com.jeedcp.weixin.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.common.web.BaseController;
 import com.jeedcp.weixin.entity.WeixinMsgBase;
 import com.jeedcp.weixin.entity.WeixinMsgText;
 import com.jeedcp.weixin.service.WeixinMsgBaseService;
@@ -20,9 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.model.Page;
-import com.jeedcp.util.StringUtils;
-import com.jeedcp.common.base.BaseController;
+
 
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class WeixinMsgTextController extends BaseController {
 	@RequiresPermissions("weixin:weixinMsgText:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinMsgText weixinMsgText, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<WeixinMsgText> page = weixinMsgTextService.findPage(new Page<WeixinMsgText>(request, response), weixinMsgText); 
+		Pagination<WeixinMsgText> page = weixinMsgTextService.findPage(new Pagination<WeixinMsgText>(request, response), weixinMsgText);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinMsgTextList";
 	}

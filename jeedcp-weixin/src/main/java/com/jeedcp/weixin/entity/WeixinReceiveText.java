@@ -5,7 +5,7 @@ package com.jeedcp.weixin.entity;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.jeedcp.entity.base.DataEntity;
+import com.jeedcp.common.persistence.DataEntity;
 
 /**
  * 微信接收信息Entity

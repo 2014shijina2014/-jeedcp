@@ -55,7 +55,7 @@
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.2.2" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-service" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />
-    <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-sys-entity:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="jeedcp-sys-entity" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" level="project" />

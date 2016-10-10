@@ -23,6 +23,8 @@ public class IdGen implements SessionIdGenerator {
 	public Serializable generateId(Session session) {
 		return IdUtils.uuid();
 	}
-	
 
+	public static String uuid() {
+		return IdUtils.uuid();
+	}
 }

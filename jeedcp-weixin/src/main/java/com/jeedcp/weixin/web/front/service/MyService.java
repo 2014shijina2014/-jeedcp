@@ -1,7 +1,7 @@
 package com.jeedcp.weixin.web.front.service;
 
-import com.thinkgem.jeesite.modules.weixin.entity.WeixinAccount;
-import com.thinkgem.jeesite.modules.weixin.web.front.vo.MsgRequest;
+import com.jeedcp.modules.weixin.entity.WeixinAccount;
+import com.jeedcp.modules.weixin.web.front.vo.MsgRequest;
 import net.sf.json.JSONObject;
 
 /**

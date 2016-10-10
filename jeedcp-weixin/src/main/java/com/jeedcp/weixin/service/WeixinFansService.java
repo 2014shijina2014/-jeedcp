@@ -5,8 +5,9 @@ package com.jeedcp.weixin.service;
 
 import java.util.List;
 
-import com.jeedcp.common.model.Page;
-import com.jeedcp.service.base.CrudService;
+import com.jeedcp.common.persistence.Pagination;
+
+import com.jeedcp.common.service.CrudService;
 import com.jeedcp.weixin.dao.WeixinFansDao;
 import com.jeedcp.weixin.entity.WeixinFans;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class WeixinFansService extends CrudService<WeixinFansDao, WeixinFans> {
 		return super.findList(weixinFans);
 	}
 	
-	public Page<WeixinFans> findPage(Page<WeixinFans> page, WeixinFans weixinFans) {
+	public Pagination<WeixinFans> findPage(Pagination<WeixinFans> page, WeixinFans weixinFans) {
 		return super.findPage(page, weixinFans);
 	}
 	

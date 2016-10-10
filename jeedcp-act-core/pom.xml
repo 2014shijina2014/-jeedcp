@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jeedcp</artifactId>
+        <groupId>com.dcp.jeedcp</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dcp.jeedcp</groupId>
+    <artifactId>jeedcp-act-core</artifactId>
+    <dependencies>
+    <!-- Activiti -->
+    <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-explorer</artifactId>
+        <version>${activiti.version}</version>
+        <exclusions>
+            <exclusion>
+                <artifactId>vaadin</artifactId>
+                <groupId>com.vaadin</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>dcharts-widget</artifactId>
+                <groupId>org.vaadin.addons</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>activiti-simple-workflow</artifactId>
+                <groupId>org.activiti</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-modeler</artifactId>
+        <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-diagram-rest</artifactId>
+        <version>${activiti.version}</version>
+    </dependency>
+        <!--继承父模块的jar包 -->
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-persistence-sql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-sys-entity</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-sys-service</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

@@ -3,7 +3,7 @@
  */
 package com.jeedcp.weixin.dao;
 
-import com.jeedcp.dao.base.TreeDao;
+import com.jeedcp.common.persistence.TreeDao;
 import com.jeedcp.common.persistence.annotation.MyBatisDao;
 import com.jeedcp.weixin.entity.WeixinMenu;
 

@@ -6,6 +6,10 @@ package com.jeedcp.weixin.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.github.pagehelper.Page;
+import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.common.web.BaseController;
 import com.jeedcp.weixin.entity.WeixinAccount;
 import com.jeedcp.weixin.entity.WeixinFans;
 import com.jeedcp.weixin.service.WeixinAccountService;
@@ -19,9 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.model.Page;
-import com.jeedcp.util.StringUtils;
-import com.jeedcp.web.base.BaseController;
+
 
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class WeixinFansController extends BaseController {
 	@RequiresPermissions("weixin:weixinFans:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinFans weixinFans, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<WeixinFans> page = weixinFansService.findPage(new Page<WeixinFans>(request, response), weixinFans); 
+		Pagination<WeixinFans> page = weixinFansService.findPage(new Pagination<>(request, response), weixinFans);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinFansList";
 	}

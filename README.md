@@ -69,7 +69,7 @@ jeedcp-file-web 图片服务器操作模块
 jeedcp-base-util 工具类模块
 jeedcp-base-service 服务模块，所有(基本逻辑服务)、资源(数据库)层操作只能通过数据服务进行访问，组合服务可以调用数据服务、组合服务、流程服务；流程服务可以调用数据服务、组合服务、流程服务；前端可以调用数据服务、组合服务、流程服务；
 jeedcp-exception 异常模块
-jeedcp-domain 模型模块 所有查询结果必需继承实现 com.jeedcp.entity.base.DataEntity
+jeedcp-domain 模型模块 所有查询结果必需继承实现 com.jeedcp.common.persistence.DataEntity
 jeedcp-cache 缓存模块，实现了memcache和redis封装
 jeedcp-pay 支付模块（包含微信支付和支付宝支付SDK）
 jeedcp-report 在线配置报表模块，支持编辑SQL直接生成报表表格，含导出excel功能，可以随意切换表格和图表，图表采用echarts

@@ -5,13 +5,13 @@ package com.jeedcp.weixin.service;
 
 import java.util.List;
 
+import com.jeedcp.common.service.CrudService;
 import com.jeedcp.weixin.dao.WeixinReceiveTextDao;
 import com.jeedcp.weixin.entity.WeixinReceiveText;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jeedcp.common.model.Page;
-import com.jeedcp.service.base.CrudService;
+
 
 
 /**
@@ -31,10 +31,7 @@ public class WeixinReceiveTextService extends CrudService<WeixinReceiveTextDao, 
 		return super.findList(weixinReceiveText);
 	}
 	
-	public Page<WeixinReceiveText> findPage(Page<WeixinReceiveText> page, WeixinReceiveText weixinReceiveText) {
-		return super.findPage(page, weixinReceiveText);
-	}
-	
+
 	@Transactional(readOnly = false)
 	public void save(WeixinReceiveText weixinReceiveText) {
 		super.save(weixinReceiveText);

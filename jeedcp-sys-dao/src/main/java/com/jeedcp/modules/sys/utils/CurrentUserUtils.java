@@ -6,10 +6,13 @@ package com.jeedcp.modules.sys.utils;
 
 import com.jeedcp.common.persistence.DataEntity;
 import com.jeedcp.common.security.Principal;
+import com.jeedcp.common.utils.CacheUtils;
 import com.jeedcp.common.utils.IdUtils;
 import com.jeedcp.common.utils.PrincipalUtil;
 import com.jeedcp.common.utils.SpringContextHolder;
+import com.jeedcp.modules.sys.dao.RoleDao;
 import com.jeedcp.modules.sys.dao.UserDao;
+import com.jeedcp.modules.sys.entity.Role;
 import com.jeedcp.modules.sys.entity.User;
 
 import org.apache.commons.lang3.StringUtils;
@@ -26,9 +29,18 @@ import java.util.Date;
  * @version 2013-12-05
  */
 public class CurrentUserUtils extends PrincipalUtil {
-
+	private static RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
     private static UserDao userDao = (UserDao) SpringContextHolder.getBean(UserDao.class);
+	public static final String USER_CACHE = "userCache";
+	public static final String USER_CACHE_ID_ = "id_";
+	public static final String USER_CACHE_LOGIN_NAME_ = "ln";
+	public static final String USER_CACHE_LIST_BY_OFFICE_ID_ = "oid_";
 
+	public static final String CACHE_ROLE_LIST = "roleList";
+	public static final String CACHE_MENU_LIST = "menuList";
+	public static final String CACHE_AREA_LIST = "areaList";
+	public static final String CACHE_OFFICE_LIST = "officeList";
+	public static final String CACHE_OFFICE_ALL_LIST = "officeAllList";
 	/**
 	 * 获取当前用户
 	 * @return 取不到返回 new User()
@@ -116,6 +128,54 @@ public class CurrentUserUtils extends PrincipalUtil {
 //		getCacheMap().remove(key);
 		getSession().removeAttribute(key);
 	}
-	
+	/**
+	 * 根据ID获取用户
+	 * @param id
+	 * @return 取不到返回null
+	 */
+	public static User get(String id){
+		User user = (User)CacheUtils.get(USER_CACHE, USER_CACHE_ID_ + id);
+		if (user ==  null){
+			user = userDao.get(id);
+			if (user == null){
+				return null;
+			}
+			user.setRoleList(roleDao.findList(new Role(user)));
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+		}
+		return user;
+	}
+	/**
+	 * 根据登录名获取用户
+	 * @param loginName
+	 * @return 取不到返回null
+	 */
+	public static User getByLoginName(String loginName){
+		User user = (User) CacheUtils.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
+		if (user == null){
+			user = userDao.getByLoginName(new User(null, loginName));
+			if (user == null){
+				return null;
+			}
+			user.setRoleList(roleDao.findList(new Role(user)));
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+		}
+		return user;
+	}
+
+	/**
+	 * 清除指定用户缓存
+	 * @param user
+	 */
+	public static void clearCache(User user){
+		CacheUtils.remove(USER_CACHE, USER_CACHE_ID_ + user.getId());
+		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName());
+		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getOldLoginName());
+		if (user.getOffice() != null && user.getOffice().getId() != null){
+			CacheUtils.remove(USER_CACHE, USER_CACHE_LIST_BY_OFFICE_ID_ + user.getOffice().getId());
+		}
+	}
 
 }

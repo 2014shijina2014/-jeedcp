@@ -24,9 +24,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:1.7.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.10.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:2.13.0" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-persistence-nosql" />
     <orderEntry type="module" module-name="jeedcp-base-common" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.0.1" level="project" />

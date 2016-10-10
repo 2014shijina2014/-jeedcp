@@ -4,6 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-act" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-admin" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-api" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-base-webapp-commonjsp" />
@@ -11,6 +12,7 @@
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-config/jeedcp-config-web" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-gen" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-log" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-oa" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-sso-server" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-sys-webapp" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-sys-webapp-tagtld" />

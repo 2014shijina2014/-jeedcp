@@ -36,7 +36,9 @@
           <element id="archive" name="jeedcp-sys-dao-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-sys-dao" />
           </element>
-          <element id="library" level="project" name="Maven: com.dcp.jeedcp:jeedcp-sys-entity:1.0.0-SNAPSHOT" />
+          <element id="archive" name="jeedcp-sys-entity-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="jeedcp-sys-entity" />
+          </element>
           <element id="archive" name="jeedcp-sys-service-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-sys-service" />
           </element>

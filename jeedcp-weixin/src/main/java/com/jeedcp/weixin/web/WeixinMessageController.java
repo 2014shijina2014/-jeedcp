@@ -6,8 +6,12 @@ package com.jeedcp.weixin.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.thinkgem.jeesite.modules.weixin.entity.WeixinAccount;
-import com.thinkgem.jeesite.modules.weixin.service.WeixinAccountService;
+
+import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.weixin.entity.WeixinAccount;
+import com.jeedcp.weixin.entity.WeixinMessage;
+import com.jeedcp.weixin.service.WeixinAccountService;
+import com.jeedcp.weixin.service.WeixinMessageService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.thinkgem.jeesite.common.config.Global;
-import com.thinkgem.jeesite.common.persistence.Page;
-import com.thinkgem.jeesite.common.web.BaseController;
-import com.thinkgem.jeesite.common.utils.StringUtils;
-import com.thinkgem.jeesite.modules.weixin.entity.WeixinMessage;
-import com.thinkgem.jeesite.modules.weixin.service.WeixinMessageService;
+import com.jeedcp.common.config.Global;
+import com.jeedcp.common.web.BaseController;
+import com.jeedcp.common.utils.StringUtils;
+
 
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class WeixinMessageController extends BaseController {
 	@RequiresPermissions("weixin:weixinMessage:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinMessage weixinMessage, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Page<WeixinMessage> page = weixinMessageService.findPage(new Page<WeixinMessage>(request, response), weixinMessage); 
+		Pagination<WeixinMessage> page = weixinMessageService.findPage(new Pagination<WeixinMessage>(request, response), weixinMessage);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinMessageList";
 	}

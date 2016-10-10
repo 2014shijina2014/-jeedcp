@@ -4,8 +4,8 @@
 package com.jeedcp.weixin.dao;
 
 
-import com.jeedcp.persistence.CrudDao;
-import com.jeedcp.persistence.annotation.MyBatisDao;
+import com.jeedcp.common.persistence.CrudDao;
+import com.jeedcp.common.persistence.annotation.MyBatisDao;
 import com.jeedcp.weixin.entity.WeixinFans;
 
 /**
