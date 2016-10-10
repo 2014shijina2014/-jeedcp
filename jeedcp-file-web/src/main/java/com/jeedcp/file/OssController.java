@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 /**
- * @author Jun
+ * @author Jeedcp
  */
 @Controller
 public class OssController {
