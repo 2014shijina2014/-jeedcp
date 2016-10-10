@@ -43,7 +43,7 @@
     <orderEntry type="module" module-name="jeedcp-base-persistence-sql" />
     <orderEntry type="module" module-name="jeedcp-base-service" />
     <orderEntry type="module" module-name="jeedcp-sys-webapp-security-cas" />
-    <orderEntry type="library" name="Maven: com.dcp.jeedcp:jeedcp-base-webapp-commonjsp:war:1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="jeedcp-base-webapp-commonjsp" />
     <orderEntry type="module" module-name="jeedcp-base-webapp-static" />
     <orderEntry type="module" module-name="jeedcp-sys-dao-xml" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jeedcp-sys-dao-xml:war">
+    <output-path>$PROJECT_DIR$/jeedcp-sys-dao-xml/target</output-path>
+    <root id="archive" name="jeedcp-sys-dao-xml-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jeedcp-sys-dao-xml:war exploded" />
+    </root>
+  </artifact>
+</component>

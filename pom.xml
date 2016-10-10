@@ -88,12 +88,13 @@
         <module>jeedcp-base-webapp-support</module>
         <module>jeedcp-base-webapp-static</module>
         <module>jeedcp-base-webapp-static-frontend</module>
+        <module>jeedcp-base-webapp-commonjsp</module>
         <module>jeedcp-sys-webapp</module>
         <module>jeedcp-sys-entity</module>
         <module>jeedcp-sys-dao</module>
         <module>jeedcp-sys-dao-xml</module>
         <module>jeedcp-sys-service</module>
-        <module>jeedcp-base-webapp-commonjsp</module>
+
         <module>jeedcp-sys-webapp-tagtld</module>
         <module>jeedcp-sys-webapp-security-cas</module>
         <module>jeedcp-job</module>
