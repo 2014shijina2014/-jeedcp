@@ -18,6 +18,7 @@
             <groupId>opensymphony</groupId>
             <artifactId>sitemesh</artifactId>
         </dependency>
+
     </dependencies>
 </project>
 

@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.utils;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * 封装各种生成唯一性ID算法的工具类.
- * @author jeedcp
+ * @author Zach Xu
  * @version 2013-01-15
  */
 @Service
@@ -23,8 +23,6 @@ public class IdGen implements SessionIdGenerator {
 	public Serializable generateId(Session session) {
 		return IdUtils.uuid();
 	}
+	
 
-	public static String uuid() {
-		return IdUtils.uuid();
-	}
 }
