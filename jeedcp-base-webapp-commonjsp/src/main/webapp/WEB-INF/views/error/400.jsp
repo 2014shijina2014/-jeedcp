@@ -50,7 +50,7 @@ else {
 <html>
 <head>
 	<title>400 - 请求出错</title>
-	<%@include file="/WEB-INF/views/include/head.jsp" %>
+	<%@include file="/WEB-INF/views/include/adminlte.jsp" %>
 </head>
 <body>
 	<div class="container-fluid">

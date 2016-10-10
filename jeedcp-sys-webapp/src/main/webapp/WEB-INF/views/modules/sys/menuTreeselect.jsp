@@ -6,7 +6,7 @@
 	var menuTreeselectSetting = {view:{selectedMulti:false,dblClickExpand:false,nameIsHTML:true,showIcon:false,showTitle:false}, data:{simpleData:{enable:true}},
 			callback:{onClick:function(event, treeId, treeNode){menuTreeselect.expandNode(treeNode);if (!treeNode.isParent){cookie('menuId', treeNode.id, {path:'/'});}}}};
 	var menuTreeselectNodes=[
-			<c:forEach items="${menuList}" var="menu"><c:if test="${menu.isShow eq '1'}">{id:"${menu.id}", pId:"${not empty menu.parent.id ? menu.parent.id : 0}", name:"<i class=\"icon-${not empty menu.icon ? menu.icon : 'file'}\"></i>&nbsp;${not empty menu.parent.id ? menu.name : ''}", url:"${not empty menu.href && fn:indexOf(menu.href, '://') eq -1 ? ctx : ''}${not empty menu.href ? menu.href : 'javascript:'}", target:"${not empty menu.target ? menu.target:'_self'}"},
+			<c:forEach items="${fns:getMenuList()}" var="menu"><c:if test="${menu.isShow eq '1'}">{id:"${menu.id}", pId:"${not empty menu.parent.id ? menu.parent.id : 0}", name:"<i class=\"icon-${not empty menu.icon ? menu.icon : 'file'}\"></i>&nbsp;${not empty menu.parent.id ? menu.name : ''}", url:"${not empty menu.href && fn:indexOf(menu.href, '://') eq -1 ? ctx : ''}${not empty menu.href ? menu.href : 'javascript:'}", target:"${not empty menu.target ? menu.target:'_self'}"},
 			</c:if></c:forEach>{id:new Date().getTime(), pId:"0", name:"<i class=\"icon-home\"></i>&nbsp;进入主页", url:"${ctx}", target:"_self"},
 			{id:new Date().getTime(), pId:"0", name:"<i class=\"icon-share\"></i>&nbsp;退出登录", url:"${ctx}/logout", target:"_self"}];
 	var menuTreeselect = $.fn.zTree.init($("#menuTreeselect"), menuTreeselectSetting, menuTreeselectNodes);//<c:if test="${empty parentId}">

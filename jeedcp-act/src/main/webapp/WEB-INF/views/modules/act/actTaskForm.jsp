@@ -5,16 +5,7 @@
 	<title>任务表单</title>
 	<meta name="decorator" content="default"/>
 	<script type="text/javascript">
-		$(document).ready(function() {/*
-			loading('正在加载表单，请稍等...');
-			$.get("${formUrl}", function(data){
-				top.$.jBox.closeTip();
-				$("#formContent").html(data==""?"<h4>没有找到表单数据。</h4><br/>表单地址：${formUrl}<br/>":data);
-			}).fail(function() {
-				top.$.jBox.closeTip();
-				$("#formContent").html("<h4>加载表单失败！</h4>表单地址：${formUrl}<br/>");
-			});*/
-		});
+
 	</script>
 </head>
 <body>

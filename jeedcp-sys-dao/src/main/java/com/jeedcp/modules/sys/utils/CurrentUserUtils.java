@@ -10,18 +10,18 @@ import com.jeedcp.common.utils.CacheUtils;
 import com.jeedcp.common.utils.IdUtils;
 import com.jeedcp.common.utils.PrincipalUtil;
 import com.jeedcp.common.utils.SpringContextHolder;
-import com.jeedcp.modules.sys.dao.RoleDao;
-import com.jeedcp.modules.sys.dao.UserDao;
-import com.jeedcp.modules.sys.entity.Role;
-import com.jeedcp.modules.sys.entity.User;
+import com.jeedcp.modules.sys.dao.*;
+import com.jeedcp.modules.sys.entity.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户工具类
@@ -29,8 +29,12 @@ import java.util.Date;
  * @version 2013-12-05
  */
 public class CurrentUserUtils extends PrincipalUtil {
+	private static UserDao userDao = SpringContextHolder.getBean(UserDao.class);
 	private static RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
-    private static UserDao userDao = (UserDao) SpringContextHolder.getBean(UserDao.class);
+	private static MenuDao menuDao = SpringContextHolder.getBean(MenuDao.class);
+	private static AreaDao areaDao = SpringContextHolder.getBean(AreaDao.class);
+	private static OfficeDao officeDao = SpringContextHolder.getBean(OfficeDao.class);
+
 	public static final String USER_CACHE = "userCache";
 	public static final String USER_CACHE_ID_ = "id_";
 	public static final String USER_CACHE_LOGIN_NAME_ = "ln";
@@ -41,15 +45,83 @@ public class CurrentUserUtils extends PrincipalUtil {
 	public static final String CACHE_AREA_LIST = "areaList";
 	public static final String CACHE_OFFICE_LIST = "officeList";
 	public static final String CACHE_OFFICE_ALL_LIST = "officeAllList";
+
+	/**
+	 * 根据ID获取用户
+	 *
+	 * @param id
+	 * @return 取不到返回null
+	 */
+	public static User get(String id) {
+		User user = (User) CacheUtils.get(USER_CACHE, USER_CACHE_ID_ + id);
+		if (user == null) {
+			user = userDao.get(id);
+			if (user == null) {
+				return null;
+			}
+			user.setRoleList(roleDao.findList(new Role(user)));
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+		}
+		return user;
+	}
+
+	/**
+	 * 根据登录名获取用户
+	 *
+	 * @param loginName
+	 * @return 取不到返回null
+	 */
+	public static User getByLoginName(String loginName) {
+		User user = (User) CacheUtils.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
+		if (user == null) {
+			user = userDao.getByLoginName(new User(null, loginName));
+			if (user == null) {
+				return null;
+			}
+			user.setRoleList(roleDao.findList(new Role(user)));
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+		}
+		return user;
+	}
+
+	/**
+	 * 清除当前用户缓存
+	 */
+	public static void clearCache() {
+		removeCache(CACHE_ROLE_LIST);
+		removeCache(CACHE_MENU_LIST);
+		removeCache(CACHE_AREA_LIST);
+		removeCache(CACHE_OFFICE_LIST);
+		removeCache(CACHE_OFFICE_ALL_LIST);
+		clearCache(getUser());
+	}
+
+	/**
+	 * 清除指定用户缓存
+	 *
+	 * @param user
+	 */
+	public static void clearCache(User user) {
+		CacheUtils.remove(USER_CACHE, USER_CACHE_ID_ + user.getId());
+		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName());
+		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getOldLoginName());
+		if (user.getOffice() != null && user.getOffice().getId() != null) {
+			CacheUtils.remove(USER_CACHE, USER_CACHE_LIST_BY_OFFICE_ID_ + user.getOffice().getId());
+		}
+	}
+
 	/**
 	 * 获取当前用户
+	 *
 	 * @return 取不到返回 new User()
 	 */
-	public static User getUser(){
+	public static User getUser() {
 		Principal principal = getPrincipal();
-		if (principal!=null){
-			User user = userDao.get(principal.getId());
-			if (user != null){
+		if (principal != null) {
+			User user = get(principal.getId());
+			if (user != null) {
 				return user;
 			}
 			return new User();
@@ -58,65 +130,155 @@ public class CurrentUserUtils extends PrincipalUtil {
 		return new User();
 	}
 
-
-	
-	public static Session getSession(){
-		try{
-			Subject subject = SecurityUtils.getSubject();
-			Session session = subject.getSession(false);
-			if (session == null){
-				session = subject.getSession();
+	/**
+	 * 获取当前用户角色列表
+	 *
+	 * @return
+	 */
+	public static List<Role> getRoleList() {
+		@SuppressWarnings("unchecked")
+		List<Role> roleList = (List<Role>) getCache(CACHE_ROLE_LIST);
+		if (roleList == null) {
+			User user = getUser();
+			if (user.isAdmin()) {
+				roleList = roleDao.findAllList(new Role());
+			} else {
+				Role role = new Role();
+				role.getSqlMap().put("dsf", DataFilterUtils.dataScopeFilter(CurrentUserUtils.getUser(), "o", "u"));
+				roleList = roleDao.findList(role);
 			}
-			if (session != null){
-				return session;
+			putCache(CACHE_ROLE_LIST, roleList);
+		}
+		return roleList;
+	}
+
+	/**
+	 * 获取当前用户授权菜单
+	 *
+	 * @return
+	 */
+	public static List<Menu> getMenuList() {
+		@SuppressWarnings("unchecked")
+		List<Menu> menuList = (List<Menu>) getCache(CACHE_MENU_LIST);
+		if (menuList == null) {
+			User user = getUser();
+			if (user.isAdmin()) {
+				menuList = menuDao.findAllList(new Menu());
+			} else {
+				Menu m = new Menu();
+				m.setUserId(user.getId());
+				menuList = menuDao.findByUserId(m);
+			}
+			putCache(CACHE_MENU_LIST, menuList);
+		}
+		return menuList;
+	}
+
+	/**
+	 * 获取当前用户授权的区域,授权区域都没做=.=,当做区域列表做呗
+	 *
+	 * @return
+	 */
+	public static List<Area> getAreaList() {
+		@SuppressWarnings("unchecked")
+		List<Area> areaList = (List<Area>) getCache(CACHE_AREA_LIST);
+		if (areaList == null) {
+			areaList = areaDao.findAllList(new Area());
+			putCache(CACHE_AREA_LIST, areaList);
+		}
+		return areaList;
+	}
+
+	/**
+	 * 获取当前用户有权限访问的部门
+	 *
+	 * @return
+	 */
+	public static List<Office> getOfficeList() {
+		@SuppressWarnings("unchecked")
+		List<Office> officeList = (List<Office>) getCache(CACHE_OFFICE_LIST);
+		if (officeList == null) {
+			User user = getUser();
+			if (user.isAdmin()) {
+				officeList = officeDao.findAllList(new Office());
+			} else {
+				Office office = new Office();
+
+				office.getSqlMap().put("dsf", DataFilterUtils.dataScopeFilter(CurrentUserUtils.getUser(), "o", ""));
+				officeList = officeDao.findList(office);
+			}
+			putCache(CACHE_OFFICE_LIST, officeList);
+		}
+		return officeList;
+	}
+
+	/**
+	 * 获取当前用户有权限访问的部门
+	 *
+	 * @return
+	 */
+	public static List<Office> getOfficeAllList() {
+		@SuppressWarnings("unchecked")
+		List<Office> officeList = (List<Office>) getCache(CACHE_OFFICE_ALL_LIST);
+		if (officeList == null) {
+			officeList = officeDao.findAllList(new Office());
+		}
+		return officeList;
+	}
+
+	/**
+	 * 获取授权主要对象
+	 */
+	public static Subject getSubject() {
+		return SecurityUtils.getSubject();
+	}
+
+	/**
+	 * 获取当前登录者对象
+	 */
+	public static Principal getPrincipal() {
+		try {
+			Subject subject = SecurityUtils.getSubject();
+			Principal principal = (Principal) subject.getPrincipal();
+			if (principal != null) {
+				return principal;
 			}
 //			subject.logout();
-		}catch (InvalidSessionException e){
-			
+		} catch (UnavailableSecurityManagerException e) {
+
+		} catch (InvalidSessionException e) {
+
 		}
 		return null;
 	}
 
-    /**
-     * 此处
-     * 插入之前执行方法，需要手动调用
-     */
-	public static void preInsert(DataEntity dataEntity){
-		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
-		if (dataEntity.getIsNewRecord()){
-            if(StringUtils.isBlank(dataEntity.getId()))
-                dataEntity.setId(IdUtils.uuid());
+	public static Session getSession() {
+		try {
+			Subject subject = SecurityUtils.getSubject();
+			Session session = subject.getSession(false);
+			if (session == null) {
+				session = subject.getSession();
+			}
+			if (session != null) {
+				return session;
+			}
+//			subject.logout();
+		} catch (InvalidSessionException e) {
+
 		}
-		String userId = getUser().getId();
-		if (StringUtils.isNotBlank(userId)){
-            dataEntity.setUpdateBy(userId);
-            dataEntity.setCreateBy(userId);
-		}
-        dataEntity.setUpdateDate(new Date());
-        dataEntity.setCreateDate(dataEntity.getUpdateDate());
+		return null;
 	}
 
-	/**
-	 * 更新之前执行方法，需要手动调用
-	 */
-	public static void preUpdate(DataEntity dataEntity){
-        String userId = getUser().getId();
-		if (StringUtils.isNotBlank(userId)){
-            dataEntity.setUpdateBy(userId);
-		}
-        dataEntity.setUpdateDate(new Date());
-	}
-	
 	// ============== User Cache ==============
-	
+
 	public static Object getCache(String key) {
 		return getCache(key, null);
 	}
-	
+
 	public static Object getCache(String key, Object defaultValue) {
 //		Object obj = getCacheMap().get(key);
 		Object obj = getSession().getAttribute(key);
-		return obj==null?defaultValue:obj;
+		return obj == null ? defaultValue : obj;
 	}
 
 	public static void putCache(String key, Object value) {
@@ -128,54 +290,43 @@ public class CurrentUserUtils extends PrincipalUtil {
 //		getCacheMap().remove(key);
 		getSession().removeAttribute(key);
 	}
+
+//	public static Map<String, Object> getCacheMap(){
+//		Principal principal = getPrincipal();
+//		if(principal!=null){
+//			return principal.getCacheMap();
+//		}
+//		return new HashMap<String, Object>();
+//	}
+
+
 	/**
-	 * 根据ID获取用户
-	 * @param id
-	 * @return 取不到返回null
+	 * 此处
+	 * 插入之前执行方法，需要手动调用
 	 */
-	public static User get(String id){
-		User user = (User)CacheUtils.get(USER_CACHE, USER_CACHE_ID_ + id);
-		if (user ==  null){
-			user = userDao.get(id);
-			if (user == null){
-				return null;
-			}
-			user.setRoleList(roleDao.findList(new Role(user)));
-			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
-			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+	public static void preInsert(DataEntity dataEntity){
+		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
+		if (dataEntity.getIsNewRecord()){
+			if(StringUtils.isBlank(dataEntity.getId()))
+				dataEntity.setId(IdUtils.uuid());
 		}
-		return user;
-	}
-	/**
-	 * 根据登录名获取用户
-	 * @param loginName
-	 * @return 取不到返回null
-	 */
-	public static User getByLoginName(String loginName){
-		User user = (User) CacheUtils.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
-		if (user == null){
-			user = userDao.getByLoginName(new User(null, loginName));
-			if (user == null){
-				return null;
-			}
-			user.setRoleList(roleDao.findList(new Role(user)));
-			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
-			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+		String userId = getUser().getId();
+		if (StringUtils.isNotBlank(userId)){
+			dataEntity.setUpdateBy(userId);
+			dataEntity.setCreateBy(userId);
 		}
-		return user;
+		dataEntity.setUpdateDate(new Date());
+		dataEntity.setCreateDate(dataEntity.getUpdateDate());
 	}
 
 	/**
-	 * 清除指定用户缓存
-	 * @param user
+	 * 更新之前执行方法，需要手动调用
 	 */
-	public static void clearCache(User user){
-		CacheUtils.remove(USER_CACHE, USER_CACHE_ID_ + user.getId());
-		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName());
-		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getOldLoginName());
-		if (user.getOffice() != null && user.getOffice().getId() != null){
-			CacheUtils.remove(USER_CACHE, USER_CACHE_LIST_BY_OFFICE_ID_ + user.getOffice().getId());
+	public static void preUpdate(DataEntity dataEntity){
+		String userId = getUser().getId();
+		if (StringUtils.isNotBlank(userId)){
+			dataEntity.setUpdateBy(userId);
 		}
+		dataEntity.setUpdateDate(new Date());
 	}
-
 }
