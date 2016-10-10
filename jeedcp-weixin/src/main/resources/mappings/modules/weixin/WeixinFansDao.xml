@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeedcp.modules.weixin.dao.WeixinFansDao">
+    
+	<sql id="weixinFansColumns">
+		a.id AS "id",
+		a.account_id AS "accountId",
+		a.openid AS "openid",
+		a.subscribestatus AS "subscribestatus",
+		a.subscribetime AS "subscribetime",
+		a.nickname AS "nickname",
+		a.picpath AS "picpath",
+		a.gender AS "gender",
+		a.language AS "language",
+		a.country AS "country",
+		a.province AS "province",
+		a.city AS "city",
+		a.headimgurl AS "headimgurl",
+		a.wxid AS "wxid",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		b.name AS "accountName"
+	</sql>
+	
+	<sql id="weixinFansJoins">
+		LEFT JOIN weixin_account b on a.account_id = b.id
+	</sql>
+    
+	<select id="get" resultType="WeixinFans">
+		SELECT 
+			<include refid="weixinFansColumns"/>
+		FROM weixin_fans a
+		<include refid="weixinFansJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="WeixinFans">
+		SELECT 
+			<include refid="weixinFansColumns"/>
+		FROM weixin_fans a
+		<include refid="weixinFansJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="accountId != null and accountId != ''">
+				AND a.account_id = #{accountId}
+			</if>
+			<if test="openid != null and openid != ''">
+				AND a.openid = #{openid}
+			</if>
+			<if test="subscribestatus != null and subscribestatus != ''">
+				AND a.subscribestatus = #{subscribestatus}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname = #{nickname}
+			</if>
+			<if test="gender != null and gender != ''">
+				AND a.gender = #{gender}
+			</if>
+			<if test="country != null and country != ''">
+				AND a.country = #{country}
+			</if>
+			<if test="province != null and province != ''">
+				AND a.province = #{province}
+			</if>
+			<if test="city != null and city != ''">
+				AND a.city = #{city}
+			</if>
+			<if test="wxid != null and wxid != ''">
+				AND a.wxid = #{wxid}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="WeixinFans">
+		SELECT 
+			<include refid="weixinFansColumns"/>
+		FROM weixin_fans a
+		<include refid="weixinFansJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO weixin_fans(
+			id,
+			account_id,
+			openid,
+			subscribestatus,
+			subscribetime,
+			nickname,
+			picpath,
+			gender,
+			language,
+			country,
+			province,
+			city,
+			headimgurl,
+			wxid,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{accountId},
+			#{openid},
+			#{subscribestatus},
+			#{subscribetime},
+			#{nickname},
+			#{picpath},
+			#{gender},
+			#{language},
+			#{country},
+			#{province},
+			#{city},
+			#{headimgurl},
+			#{wxid},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE weixin_fans SET 	
+			account_id = #{accountId},
+			openid = #{openid},
+			subscribestatus = #{subscribestatus},
+			subscribetime = #{subscribetime},
+			nickname = #{nickname},
+			picpath = #{picpath},
+			gender = #{gender},
+			language = #{language},
+			country = #{country},
+			province = #{province},
+			city = #{city},
+			headimgurl = #{headimgurl},
+			wxid = #{wxid},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE weixin_fans SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<delete id="deleteByAccountID">
+		DELETE FROM weixin_fans  WHERE account_id = #{accountId}
+	</delete>
+	
+</mapper>

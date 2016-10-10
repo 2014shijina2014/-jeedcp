@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeedcp.modules.weixin.dao.WeixinMessageDao">
+    
+	<sql id="weixinMessageColumns">
+		a.id AS "id",
+		a.title AS "title",
+		a.author AS "author",
+		a.brief AS "brief",
+		a.description AS "description",
+		a.picpath AS "picpath",
+		a.showpic AS "showpic",
+		a.url AS "url",
+		a.fromurl AS "fromurl",
+		a.account_id AS "accountId",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		b.name AS "accountName"
+	</sql>
+	
+	<sql id="weixinMessageJoins">
+		LEFT JOIN weixin_account b on a.account_id = b.id
+	</sql>
+    
+	<select id="get" resultType="WeixinMessage">
+		SELECT 
+			<include refid="weixinMessageColumns"/>
+		FROM weixin_message a
+		<include refid="weixinMessageJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="WeixinMessage">
+		SELECT 
+			<include refid="weixinMessageColumns"/>
+		FROM weixin_message a
+		<include refid="weixinMessageJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{title},'%')</if>
+			</if>
+			<if test="author != null and author != ''">
+				AND a.author = #{author}
+			</if>
+			<if test="accountId != null and accountId != ''">
+				AND a.account_id = #{accountId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="WeixinMessage">
+		SELECT 
+			<include refid="weixinMessageColumns"/>
+		FROM weixin_message a
+		<include refid="weixinMessageJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO weixin_message(
+			id,
+			title,
+			author,
+			brief,
+			description,
+			picpath,
+			showpic,
+			url,
+			fromurl,
+			account_id,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{title},
+			#{author},
+			#{brief},
+			#{description},
+			#{picpath},
+			#{showpic},
+			#{url},
+			#{fromurl},
+			#{accountId},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE weixin_message SET 	
+			title = #{title},
+			author = #{author},
+			brief = #{brief},
+			description = #{description},
+			picpath = #{picpath},
+			showpic = #{showpic},
+			url = #{url},
+			fromurl = #{fromurl},
+			account_id = #{accountId},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE weixin_message SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

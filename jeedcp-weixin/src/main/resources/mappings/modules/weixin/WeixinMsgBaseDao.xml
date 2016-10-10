@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeedcp.modules.weixin.dao.WeixinMsgBaseDao">
+    
+	<sql id="weixinMsgBaseColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.msgtype AS "msgtype",
+		a.inputcode AS "inputcode",
+		a.rule AS "rule",
+		a.enable AS "enable",
+		a.readcount AS "readcount",
+		a.favourcount AS "favourcount",
+		a.account_id AS "accountId",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		b.name AS "accountName"
+	</sql>
+	
+	<sql id="weixinMsgBaseJoins">
+		LEFT JOIN  weixin_account b ON a.account_id = b.id
+	</sql>
+    
+	<select id="get" resultType="WeixinMsgBase">
+		SELECT 
+			<include refid="weixinMsgBaseColumns"/>
+		FROM weixin_msg_base a
+		<include refid="weixinMsgBaseJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="WeixinMsgBase">
+		SELECT 
+			<include refid="weixinMsgBaseColumns"/>
+		FROM weixin_msg_base a
+		<include refid="weixinMsgBaseJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="msgtype != null and msgtype != ''">
+				AND a.msgtype = #{msgtype}
+			</if>
+			<if test="inputcode != null and inputcode != ''">
+				AND a.inputcode = #{inputcode}
+			</if>
+			<if test="rule != null and rule != ''">
+				AND a.rule = #{rule}
+			</if>
+			<if test="enable != null and enable != ''">
+				AND a.enable = #{enable}
+			</if>
+			<if test="readcount != null and readcount != ''">
+				AND a.readcount = #{readcount}
+			</if>
+			<if test="favourcount != null and favourcount != ''">
+				AND a.favourcount = #{favourcount}
+			</if>
+			<if test="accountId != null and accountId != ''">
+				AND a.account_id = #{accountId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="WeixinMsgBase">
+		SELECT 
+			<include refid="weixinMsgBaseColumns"/>
+		FROM weixin_msg_base a
+		<include refid="weixinMsgBaseJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO weixin_msg_base(
+			id,
+			name,
+			msgtype,
+			inputcode,
+			rule,
+			enable,
+			readcount,
+			favourcount,
+			account_id,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{msgtype},
+			#{inputcode},
+			#{rule},
+			#{enable},
+			#{readcount},
+			#{favourcount},
+			#{accountId},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE weixin_msg_base SET 	
+			name = #{name},
+			msgtype = #{msgtype},
+			inputcode = #{inputcode},
+			rule = #{rule},
+			enable = #{enable},
+			readcount = #{readcount},
+			favourcount = #{favourcount},
+			account_id = #{accountId},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE weixin_msg_base SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

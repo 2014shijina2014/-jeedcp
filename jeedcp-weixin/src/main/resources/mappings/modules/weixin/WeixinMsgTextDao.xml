@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeedcp.modules.weixin.dao.WeixinMsgTextDao">
+    
+	<sql id="weixinMsgTextColumns">
+		a.id AS "id",
+		a.base_id AS "baseId",
+		a.content AS "content",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag",
+		b.inputcode as "weixinMsgBase.inputcode",
+		b.account_id as "weixinMsgBase.accountid",
+		b.name as "baseName"
+	</sql>
+	
+	<sql id="weixinMsgTextJoins">
+		LEFT JOIN weixin_msg_base b ON a.base_id = b.id
+	</sql>
+
+	<select id="getMsgTextByInputCode" resultType="WeixinMsgText">
+		SELECT
+		<include refid="weixinMsgTextColumns"/>
+		FROM weixin_msg_text a
+		<include refid="weixinMsgTextJoins"/>
+		WHERE  b.inputcode = #{inputcode} AND b.account_id = #{accountid}
+	</select>
+
+	<select id="get" resultType="WeixinMsgText">
+		SELECT 
+			<include refid="weixinMsgTextColumns"/>
+		FROM weixin_msg_text a
+		<include refid="weixinMsgTextJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="WeixinMsgText">
+		SELECT 
+			<include refid="weixinMsgTextColumns"/>
+		FROM weixin_msg_text a
+		<include refid="weixinMsgTextJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="baseId != null and baseId != ''">
+				AND a.base_id = #{baseId}
+			</if>
+			<if test="content != null and content != ''">
+				AND a.content = #{content}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="WeixinMsgText">
+		SELECT 
+			<include refid="weixinMsgTextColumns"/>
+		FROM weixin_msg_text a
+		<include refid="weixinMsgTextJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO weixin_msg_text(
+			id,
+			base_id,
+			content,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{baseId},
+			#{content},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE weixin_msg_text SET 	
+			base_id = #{baseId},
+			content = #{content},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM weixin_msg_text   WHERE id = #{id}
+	</update>
+
+
+
+</mapper>
