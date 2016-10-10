@@ -5,16 +5,20 @@
 	<fileName>${ClassName}Service.java</fileName>
 	<content><![CDATA[
 /**
- * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package ${packageName}.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>;
+
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.jeedcp.common.persistence.Pagination;
 import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.CrudService;
 import ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>.${ClassName};
 import ${packageName}.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>.${ClassName}Dao;
+
 /**
  * ${functionName}Service
  * @author ${functionAuthor}
@@ -23,6 +27,7 @@ import ${packageName}.${moduleName}.dao<#if subModuleName != "">.${subModuleName
 @Service
 @Transactional(readOnly = true)
 public class ${ClassName}Service extends CrudService<${ClassName}Dao, ${ClassName}> {
+
 	public ${ClassName} get(String id) {
 		return super.get(id);
 	}
@@ -31,7 +36,7 @@ public class ${ClassName}Service extends CrudService<${ClassName}Dao, ${ClassNam
 		return super.findList(${className});
 	}
 	
-	public Page<${ClassName}> findPage(Page<${ClassName}> page, ${ClassName} ${className}) {
+	public Pagination<${ClassName}> findPage(Pagination<${ClassName}> page, ${ClassName} ${className}) {
 		return super.findPage(page, ${className});
 	}
 	
@@ -44,19 +49,6 @@ public class ${ClassName}Service extends CrudService<${ClassName}Dao, ${ClassNam
 	public void delete(${ClassName} ${className}) {
 		super.delete(${className});
 	}
-	
-	<#list table.columnList as c>
-		<#-- 如果不是基类属性 -->
-		<#if c.tableName?? && c.tableName!=''>
-	public Page<${c.simpleJavaType}> findPageBy${c.simpleJavaField}(Page<${c.simpleJavaType}> page, ${c.simpleJavaType} ${c.simpleJavaField}) {
-		${c.simpleJavaField}.setPage(page);
-		page.setList(dao.findListBy${c.simpleJavaField}(${c.simpleJavaField}));
-		return page;
-	}
-	</#if>
-	</#list>
-	
-	
 	
 }]]>
 	</content>

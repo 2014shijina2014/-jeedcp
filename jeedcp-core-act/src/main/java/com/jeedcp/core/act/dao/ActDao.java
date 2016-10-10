@@ -5,7 +5,7 @@ package com.jeedcp.core.act.dao;
 
 
 import com.jeedcp.core.act.entity.Act;
-import com.jeedcp.dao.base.CrudDao;
+import com.jeedcp.persistence.CrudDao;
 import com.jeedcp.persistence.annotation.MyBatisDao;
 
 /**

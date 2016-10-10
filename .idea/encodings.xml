@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$USER_HOME$/Downloads/jeeplus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-act-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-persistence-nosql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-persistence-sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-webapp-commonjsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-webapp-static" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-webapp-static-frontend" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-base-webapp-support" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-cache" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-config" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-core-static" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-domain" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-exception" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-core-act" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-file-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-file-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-gen" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-job" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-log" charset="UTF-8" />
@@ -20,16 +26,15 @@
     <file url="file://$PROJECT_DIR$/jeedcp-mq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-pay" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-report" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-service-impl" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-sso-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-sso-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-sys" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-webapp-security-cas" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jeedcp-sys-webapp-tagtld" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-test" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-util" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeedcp-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jeedcp-weixin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jeeplus" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

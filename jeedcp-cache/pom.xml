@@ -49,7 +49,7 @@
 
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-common</artifactId>
+            <artifactId>jeedcp-base-common</artifactId>
         </dependency>
         <!-- SECURITY begin -->
         <dependency>
