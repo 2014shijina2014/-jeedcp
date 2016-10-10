@@ -4,6 +4,8 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://C:/back/jeedcp/jeedcp-sso-server" />
+    <file type="web" url="file://$PROJECT_DIR$/cas-server-webapp" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-act" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-admin" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-api" />
@@ -27,10 +29,12 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/jeedcp-sys/pom.xml" />
         <option value="$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-sso-server/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/cas-server-webapp/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-common/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-data/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-domain/pom.xml" />

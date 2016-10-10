@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cas-server-webapp:war exploded">
+    <output-path>C:/back/jeedcp/jeedcp-sso-server/target/cas-server-webapp-4.0.3</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cas-server-webapp" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="C:/back/jeedcp/jeedcp-sso-server/target/cas-server-webapp-4.0.3/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="cas-server-webapp/web/Web" />
+    </root>
+  </artifact>
+</component>

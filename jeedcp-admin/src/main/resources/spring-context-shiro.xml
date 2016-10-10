@@ -33,8 +33,7 @@
 	<!-- 安全认证过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<!--<property name="loginUrl" value="${cas.server.url}/login?service=${cas.project.url}${adminPath}/cas" />-->
-		<property name="loginUrl" value="${adminPath}/login" />
+		<property name="loginUrl" value="${cas.server.url}/login?service=${cas.project.url}${adminPath}/cas" />
 		<property name="successUrl" value="${adminPath}" />
 		<property name="filters">
             <map>
