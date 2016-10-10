@@ -10,8 +10,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.model.Page;
-import com.jeedcp.service.base.BaseService;
+import com.jeedcp.common.persistence.Page;
+import com.jeedcp.common.service.BaseService;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.editor.constants.ModelDataJsonConstants;
@@ -48,7 +48,7 @@ public class ActModelService extends BaseService {
 	/**
 	 * 流程模型列表
 	 */
-	public Page<org.activiti.engine.repository.Model> modelList(Page<Model> page, String category) {
+	public Page<Model> modelList(Page<Model> page, String category) {
 
 		ModelQuery modelQuery = repositoryService.createModelQuery().latestVersion().orderByLastUpdateTime().desc();
 		
