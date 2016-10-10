@@ -5,8 +5,11 @@
       <element id="artifact" artifact-name="jeedcp-gen-mybaits:war exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="jeedcp-sys" />
+          <element id="module-output" name="jeedcp-sys-webapp" />
           <element id="module-output" name="jeedcp-cache" />
+          <element id="module-output" name="jeedcp-message" />
+          <element id="module-output" name="jeedcp-sys-entity" />
+          <element id="module-output" name="jeedcp-sys-service" />
         </element>
       </element>
     </root>

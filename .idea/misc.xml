@@ -5,13 +5,25 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-api" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-base-webapp-commonjsp" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-base-webapp-static" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-config/jeedcp-config-web" />
     <file type="web" url="file://$PROJECT_DIR$/jeedcp-gen" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-log" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-sso-server" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-sys-webapp" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-sys-webapp-tagtld" />
+    <file type="web" url="file://$PROJECT_DIR$/jeedcp-weixin" />
     <file type="web" url="file://$PROJECT_DIR$/jeeplus" />
+    <file type="web" url="file://$USER_HOME$/Downloads/jeeplus" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-sys/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -20,8 +32,14 @@
         <option value="$PROJECT_DIR$/easyreport-data/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-domain/pom.xml" />
         <option value="$PROJECT_DIR$/easyreport-engine/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-base-security/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-base-util/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-core/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-exception/pom.xml" />
         <option value="$PROJECT_DIR$/jeedcp-gen-mongo/pom.xml" />
-        <option value="$PROJECT_DIR$/jeedcp-sys/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/jeedcp-sso-client/pom.xml" />
         <option value="$PROJECT_DIR$/jeeplus/pom.xml" />
       </set>
     </option>
@@ -166,4 +184,5 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="WebServicesPlugin" addRequiredLibraries="true" />
 </project>

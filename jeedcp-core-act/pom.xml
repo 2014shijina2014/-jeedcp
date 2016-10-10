@@ -20,15 +20,15 @@
         <!--继承父模块的jar包 -->
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-common</artifactId>
+            <artifactId>jeedcp-base-common</artifactId>
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-service</artifactId>
+            <artifactId>jeedcp-base-service</artifactId>
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-dao</artifactId>
+            <artifactId>jeedcp-base-persistence-sql</artifactId>
         </dependency>
 
         <!-- Activiti -->

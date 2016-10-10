@@ -5,7 +5,7 @@
 	<fileName>${ClassName}Dao.java</fileName>
 	<content><![CDATA[
 /**
- * Copyright &copy; 2015-2020 <a href="http://taoyuanwangluo.com/">taoyuanwangluo</a> All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package ${packageName}.${moduleName}.dao<#if subModuleName != "">.${subModuleName}</#if>;
 
@@ -20,13 +20,6 @@ import ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleN
  */
 @MyBatisDao
 public interface ${ClassName}Dao extends CrudDao<${ClassName}> {
-
-	<#list table.columnList as c>
-		<#-- 如果存在自定义java对象 -->
-			<#if c.tableName?? && c.tableName!="">
-	public List<${c.simpleJavaType}> findListBy${c.simpleJavaField}(${c.simpleJavaType} ${c.simpleJavaField});
-			</#if>
-	</#list>
 	
 }]]>
 	</content>

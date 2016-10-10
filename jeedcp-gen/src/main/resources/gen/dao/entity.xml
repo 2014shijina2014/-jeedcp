@@ -5,7 +5,7 @@
 	<fileName>${ClassName}.java</fileName>
 	<content><![CDATA[
 /**
- * Copyright &copy; 2015-2020 <a href="http://taoyuanwangluo.com/">taoyuanwangluo</a> All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package ${packageName}.${moduleName}.entity<#if subModuleName != "">.${subModuleName}</#if>;
 
@@ -14,7 +14,6 @@ import ${i};
 </#list>
 
 import com.jeedcp.common.persistence.DataEntity;
-import com.jeedcp.common.utils.excel.annotation.ExcelField;
 
 /**
  * ${functionName}Entity
@@ -54,6 +53,9 @@ public class ${ClassName} extends DataEntity<${ClassName}> {
 		super();
 	}
 
+	public ${ClassName}(String id){
+		super(id);
+	}
 	<#list table.columnList as c>
 		<#if table.parentExists && table.parentTableFk == c.name>
 
@@ -82,13 +84,6 @@ public class ${ClassName} extends DataEntity<${ClassName}> {
 	
 			<#-- 其它字段 -->
 			<#else>
-	<#if c.showType == "select" || c.showType == "checkbox" || c.showType == "radiobox">
-	@ExcelField(title="<#if c.comments??>${c.comments}<#else>${c.simpleJavaField}</#if>", dictType="${c.dictType}", align=2, sort=${c_index})
-	<#elseif c.showType == "userselect" || c.showType == "officeselect" || c.showType == "areaselect">
-	@ExcelField(title="<#if c.comments??>${c.comments}<#else>${c.simpleJavaField}</#if>", fieldType=${c.simpleJavaType}.class, value="${c.javaFieldName}", align=2, sort=${c_index})
-	<#else>
-	@ExcelField(title="<#if c.comments??>${c.comments}<#else>${c.simpleJavaField}</#if>", align=2, sort=${c_index})
-	</#if>
 	public ${c.simpleJavaType} get${c.simpleJavaField?cap_first}() {
 		return ${c.simpleJavaField};
 	}

@@ -83,19 +83,13 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 				AND a.${c.name} BETWEEN ${"#"}{begin${c.simpleJavaField?cap_first}} AND ${"#"}{end${c.simpleJavaField?cap_first}}
 					<#elseif c.queryType ?? && c.queryType == 'like'>
 				AND a.${c.name} LIKE 
-					<if test="dbName == 'oracle'">'%'||${"#"}{${c.javaFieldId}}||'%'</if>
-					<if test="dbName == 'mssql'">'%'+${"#"}{${c.javaFieldId}}+'%'</if>
-					<if test="dbName == 'mysql'">concat('%',${"#"}{${c.javaFieldId}},'%')</if>
+					'%'||${"#"}{${c.javaFieldId}}||'%'
 					<#elseif c.queryType ?? && c.queryType == 'left_like'>
-				AND a.${c.name} LIKE 
-					<if test="dbName == 'oracle'">'%'||${"#"}{${c.javaFieldId}}</if>
-					<if test="dbName == 'mssql'">'%'+${"#"}{${c.javaFieldId}}</if>
-					<if test="dbName == 'mysql'">concat('%',${"#"}{${c.javaFieldId}})</if>
+				AND a.${c.name} LIKE
+					'%'||${"#"}{${c.javaFieldId}}
 					<#elseif c.queryType ?? && c.queryType == 'right_like'>
-				AND a.${c.name} LIKE 
-					<if test="dbName == 'oracle'">${"#"}{${c.javaFieldId}}||'%'</if>
-					<if test="dbName == 'mssql'">${"#"}{${c.javaFieldId}}+'%'</if>
-					<if test="dbName == 'mysql'">concat(${"#"}{${c.javaFieldId}},'%')</if>
+				AND a.${c.name} LIKE
+					${"#"}{${c.javaFieldId}}||'%'
 					<#else>
 				AND a.${c.name} ${c.queryType} ${"#"}{${c.javaFieldId}}
 					</#if>
@@ -144,69 +138,54 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 	</select>
 	
 	<insert id="insert">
-		INSERT INTO ${table.name}
-		<trim prefix="(" suffix=")" suffixOverrides=",">
+		INSERT INTO ${table.name}(
+		<#assign insertField>
 			<#list table.columnList as c>
 				<#if c.isInsert?? && c.isInsert == "1">
-		 <if test="${c.javaFieldId} != null  ">
 			${c.name},
-		 </if>
 				</#if>
 			</#list>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		</#assign>
+${insertField?substring(0, insertField?last_index_of(","))}
+		) VALUES (
+		<#assign insertJavaField>
 			<#list table.columnList as c>
 				<#if c.isInsert?? && c.isInsert == "1">
-	 	<if test="${c.javaFieldId} != null  ">
 			${"#"}{${c.javaFieldId}},
-		 </if>
 				</#if>
 			</#list>
-		</trim>
+		</#assign>
+${insertJavaField?substring(0, insertJavaField?last_index_of(","))}
+		)
 	</insert>
 	
 	<update id="update">
-		UPDATE ${table.name}
-		<set>	
-			<#list table.columnList as c>
-				<#if c.isEdit?? && c.isEdit == "1">
-		<if test="${c.javaFieldId} != null  ">
+		UPDATE ${table.name} SET 	
+			<#assign updateField>		
+				<#list table.columnList as c>
+					<#if c.isEdit?? && c.isEdit == "1">
 			${c.name} = ${"#"}{${c.javaFieldId}},
-		</if>
-				</#if>
-			</#list>
-		</set>	
+					</#if>
+				</#list>
+			</#assign>
+${updateField?substring(0, updateField?last_index_of(","))}
 		WHERE id = ${"#"}{id}
 	</update>
 	
-	<!--物理删除-->
-	<update id="delete">
-		DELETE FROM ${table.name}
-	<#if table.parentExists>
-		<#list table.columnList as c>
-			<#if table.parentTableFk == c.name>
-		<choose>
-			<when test="id !=null and id != ''">
-				WHERE id = ${"#"}{id}
-			</when>
-			<otherwise>
-				WHERE ${table.parentTableFk} = ${"#"}{${c.javaFieldId}}
-			</otherwise>
-		</choose>
-			</#if>
-		</#list>
-	<#else>
-		WHERE id = ${"#"}{id} OR parent_ids LIKE 
-		<if test="dbName == 'oracle'">${"#"}{id}||'%'</if>
-		<if test="dbName == 'mssql'">${"#"}{id}+'%'</if>
-		<if test="dbName == 'mysql'">concat(${"#"}{id},'%')</if>
-	</#if>
+	<update id="updateParentIds">
+		UPDATE ${table.name} SET 
+			parent_id = ${"#"}{parent.id}, 
+			parent_ids = ${"#"}{parentIds}
+		WHERE id = ${"#"}{id}
 	</update>
 	
-	<!--逻辑删除-->
-	<update id="deleteByLogic">
+	<update id="delete">
+	<#if table.delFlagExists>
 		UPDATE ${table.name} SET 
-			is_deleted = ${"#"}{isDeleted}
+			del_flag = ${"#"}{DEL_FLAG_DELETE}
+	<#else>
+		DELETE FROM ${table.name}
+	</#if>
 	<#if table.parentExists>
 		<#list table.columnList as c>
 			<#if table.parentTableFk == c.name>
@@ -221,10 +200,7 @@ ${columnField?substring(0, columnField?last_index_of(","))}
 			</#if>
 		</#list>
 	<#else>
-		WHERE id = ${"#"}{id} OR parent_ids LIKE 
-		<if test="dbName == 'oracle'">${"#"}{id}||'%'</if>
-		<if test="dbName == 'mssql'">${"#"}{id}+'%'</if>
-		<if test="dbName == 'mysql'">concat(${"#"}{id},'%')</if>
+		WHERE id = ${"#"}{id} OR parent_ids LIKE '%,'||${"#"}{id}||',%'
 	</#if>
 	</update>
 	

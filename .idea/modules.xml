@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-persistence-sql/jeedcp-base-persistence-sql.iml" filepath="$PROJECT_DIR$/jeedcp-base-persistence-sql/jeedcp-base-persistence-sql.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-service/jeedcp-base-service.iml" filepath="$PROJECT_DIR$/jeedcp-base-service/jeedcp-base-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/jeedcp-base-webapp-commonjsp.iml" filepath="$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/jeedcp-base-webapp-commonjsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/jeedcp-base-webapp-commonjsp.iml" filepath="$PROJECT_DIR$/jeedcp-base-webapp-commonjsp/jeedcp-base-webapp-commonjsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-webapp-static/jeedcp-base-webapp-static.iml" filepath="$PROJECT_DIR$/jeedcp-base-webapp-static/jeedcp-base-webapp-static.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-webapp-static-frontend/jeedcp-base-webapp-static-frontend.iml" filepath="$PROJECT_DIR$/jeedcp-base-webapp-static-frontend/jeedcp-base-webapp-static-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeedcp-base-webapp-support/jeedcp-base-webapp-support.iml" filepath="$PROJECT_DIR$/jeedcp-base-webapp-support/jeedcp-base-webapp-support.iml" />

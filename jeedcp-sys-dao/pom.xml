@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jeedcp</artifactId>
+        <groupId>com.dcp.jeedcp</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dcp.jeedcp</groupId>
+    <artifactId>jeedcp-sys-dao</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-sys-entity</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-persistence-sql</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-webapp-support</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

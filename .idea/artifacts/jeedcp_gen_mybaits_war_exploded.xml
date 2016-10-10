@@ -5,15 +5,19 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="jeedcp-gen" />
-          <element id="module-output" name="jeedcp-sys" />
+          <element id="module-output" name="jeedcp-sys-webapp" />
           <element id="module-output" name="jeedcp-cache" />
+          <element id="module-output" name="jeedcp-message" />
+          <element id="module-output" name="jeedcp-sys-entity" />
+          <element id="module-output" name="jeedcp-sys-dao" />
+          <element id="module-output" name="jeedcp-sys-service" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="jeedcp-common-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-common" />
+            <element id="module-output" name="jeedcp-base-common" />
           </element>
           <element id="archive" name="jeedcp-util-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-util" />
+            <element id="module-output" name="jeedcp-base-util" />
           </element>
           <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.0" />
@@ -71,7 +75,7 @@
           <element id="library" level="project" name="Maven: xmlpull:xmlpull:1.1.3.1" />
           <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
           <element id="archive" name="jeedcp-service-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-service" />
+            <element id="module-output" name="jeedcp-base-service" />
           </element>
           <element id="archive" name="jeedcp-domain-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-domain" />
@@ -85,15 +89,15 @@
             <element id="module-output" name="jeedcp-exception" />
           </element>
           <element id="archive" name="jeedcp-dao-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-dao" />
+            <element id="module-output" name="jeedcp-base-persistence-sql" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.0.8.RELEASE" />
           <element id="archive" name="jeedcp-web-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-web" />
+            <element id="module-output" name="jeedcp-base-webapp-support" />
           </element>
           <element id="archive" name="jeedcp-auth-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="jeedcp-auth" />
+            <element id="module-output" name="jeedcp-base-security" />
           </element>
         </element>
       </element>
