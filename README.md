@@ -60,15 +60,14 @@ Jeedcp 技术点总结:
 
 
 项目说明
-jeedcp-common 主要是一些基础的数据结构和工具类。
+jeedcp-base-common 主要是一些基础的数据结构和工具类。
 jeedcp-api 适用于开发对外接口项目，无需关心接口验证，它让开发者不在关心接口验证,只需要关注自身业务代码即可.
 jeedcp-auth  安全方面的API 如果用户信息，授权等。
 jeedcp-core-static 前端html公共页，js ,css.会采用nginx做反向代理
-jeedcp-core 框架主要实现
 jeedcp-gen 代码生成模块
 jeedcp-file-web 图片服务器操作模块
-jeedcp-util 工具类模块
-jeedcp-service 服务模块，所有(基本逻辑服务)、资源(数据库)层操作只能通过数据服务进行访问，组合服务可以调用数据服务、组合服务、流程服务；流程服务可以调用数据服务、组合服务、流程服务；前端可以调用数据服务、组合服务、流程服务；
+jeedcp-base-util 工具类模块
+jeedcp-base-service 服务模块，所有(基本逻辑服务)、资源(数据库)层操作只能通过数据服务进行访问，组合服务可以调用数据服务、组合服务、流程服务；流程服务可以调用数据服务、组合服务、流程服务；前端可以调用数据服务、组合服务、流程服务；
 jeedcp-exception 异常模块
 jeedcp-domain 模型模块 所有查询结果必需继承实现 com.jeedcp.entity.base.DataEntity
 jeedcp-cache 缓存模块，实现了memcache和redis封装
@@ -82,3 +81,6 @@ jeedcp-sso-server 基于shiro的sso服务端，待实现
 jeedcp-sso-client 基于shiro的sso客户端，待实现
 jeedcp-test 单元测试框架，待实现
 jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
+
+如何交流、反馈、参与贡献？
+Jeedcp技术交流群qq 139910463
