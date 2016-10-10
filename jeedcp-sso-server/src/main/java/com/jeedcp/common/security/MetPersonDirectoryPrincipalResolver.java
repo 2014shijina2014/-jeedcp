@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Jeedcp on 15/8/5.
+ * Created by Zach on 15/8/5.
  */
 public class MetPersonDirectoryPrincipalResolver implements PrincipalResolver {
 

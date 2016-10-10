@@ -5,7 +5,7 @@ import org.jasig.cas.authentication.handler.DefaultPasswordEncoder;
 import org.jasig.cas.authentication.handler.PasswordEncoder;
 
 /**
- * Created by Jeedcp on 15/8/3.
+ * Created by Zach on 15/8/3.
  */
 public class Sha1SaltPasswordEncoder implements PasswordEncoder {
 

@@ -16,7 +16,7 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 
 /**
- * Created by Jeedcp on 15/8/3.
+ * Created by Zach on 15/8/3.
  */
 public class QueryDbAuthenticationHandler extends AbstractJdbcUsernamePasswordAuthenticationHandler {
     @NotNull

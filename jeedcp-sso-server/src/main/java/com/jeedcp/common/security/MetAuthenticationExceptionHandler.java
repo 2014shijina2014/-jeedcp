@@ -6,7 +6,7 @@ import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 
 /**
- * Created by Jeedcp on 15/8/4.
+ * Created by Zach on 15/8/4.
  *  AuthenticationExceptionHandler 处理验证码输入错误
  */
 public class MetAuthenticationExceptionHandler extends AuthenticationExceptionHandler {

@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Created by Jeedcp on 15/8/4.
+ * Created by Zach on 15/8/4.
  */
 public class MetUserCredential extends RememberMeUsernamePasswordCredential {
 
