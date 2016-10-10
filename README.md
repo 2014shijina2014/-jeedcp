@@ -83,14 +83,6 @@ jeedcp-test 单元测试框架，待实现
 jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
 
 系统截图
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215626.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215626.png&oid=f3e468b029db027e8fb040f59a8a200fc0c020d3&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215821.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215821.png&oid=ee657196cb13fa89e556ee6a61161c3eb3f028e1&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215825.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215825.png&oid=8875ad6999302edf6be0ffc8e0e019f651a559c9&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215829.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215829.png&oid=c27312701f72cd21cc98f2d70699f875595854d0&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215836.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215836.png&oid=9accf8a4803f967c1bb2cf7586afd3b4b6029ac9&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215842.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215842.png&oid=5c57e42bf6072ac01632cfa89019ca5ab55967b3&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215855.png?dir=0&filepath=doc%2Fpic%2FQQ%E5%9B%BE%E7%89%8720161010215855.png&oid=8875ad6999302edf6be0ffc8e0e019f651a559c9&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
-https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0.png?dir=0&filepath=doc%2Fpic%2F%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0.png&oid=3a760b7ab1e2a77175ebc854e1deab1ff23ed1d3&sha=8f22076a3756055c11eb6a669c48585dcd2a4133
 
 
 如何交流、反馈、参与贡献？
