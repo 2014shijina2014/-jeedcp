@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.servlet;
 
@@ -19,7 +19,7 @@ import java.util.Random;
 
 /**
  * 生成随机验证码
- * @author Jeedcp Xu
+ * @author Zach Xu
  * @version 2014-7-27
  */
 @SuppressWarnings("serial")

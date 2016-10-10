@@ -20,7 +20,6 @@ import com.jeedcp.modules.weixin.web.front.process.WxApiClient;
 import com.jeedcp.modules.weixin.web.front.service.impl.MyServiceImpl;
 import com.jeedcp.modules.weixin.web.front.vo.MsgRequest;
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,10 +28,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jeedcp.common.web.BaseController;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

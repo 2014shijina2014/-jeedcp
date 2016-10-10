@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.security.shiro.session;
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.jeedcp.common.config.Global;
+import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.sys.entity.Office;
 import com.jeedcp.modules.sys.entity.User;
 import com.jeedcp.modules.sys.service.OfficeService;
@@ -18,7 +19,6 @@ import com.jeedcp.modules.sys.service.OfficeService;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import com.jeedcp.modules.sys.utils.DictUtils;
 import com.jeedcp.common.utils.StringUtils;
-import com.jeedcp.common.web.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

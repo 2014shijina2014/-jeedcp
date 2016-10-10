@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.security.shiro.cache;
 
@@ -23,7 +23,7 @@ import java.util.Set;
 
 /**
  * 自定义授权缓存管理类
- * @author jeedcp
+ * @author Zach Xu
  * @version 2014-7-21
  */
 public class SessionCacheManager implements CacheManager {

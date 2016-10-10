@@ -1,5 +1,5 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.filter;
 
@@ -9,7 +9,7 @@ import net.sf.ehcache.constructs.web.filter.SimplePageCachingFilter;
 /**
  * 页面高速缓存过滤器
  * 与spring集成
- * @author jeedcp
+ * @author Zach Xu
  * @version 2013-8-5
  */
 public class PageCachingFilter extends SimplePageCachingFilter {

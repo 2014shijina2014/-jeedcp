@@ -6,9 +6,7 @@
 package com.jeedcp.common.web;
 
 import com.google.common.net.HttpHeaders;
-
 import com.jeedcp.common.config.Global;
-
 import com.jeedcp.common.utils.Encodes;
 import com.jeedcp.common.utils.StringUtils;
 import org.apache.commons.lang3.Validate;
@@ -24,7 +22,7 @@ import java.util.Map.Entry;
 
 /**
  * Http与Servlet工具类.
- * @author jeedcp
+ * @author Zach Xu
  * @version 2014-8-19
  */
 public class Servlets {

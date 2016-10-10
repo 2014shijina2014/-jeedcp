@@ -3,9 +3,6 @@
  */
 package com.jeedcp.common.security;
 
-
-
-
 import com.jeedcp.common.utils.Encodes;
 import com.jeedcp.common.utils.Exceptions;
 

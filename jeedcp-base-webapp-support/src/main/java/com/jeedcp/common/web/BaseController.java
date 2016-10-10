@@ -1,8 +1,7 @@
 /**
- * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
+ * Copyright &copy; 2015-2015  Metinform All rights reserved.
  */
 package com.jeedcp.common.web;
-
 
 import com.jeedcp.common.beanvalidator.BeanValidators;
 import com.jeedcp.common.mapper.JsonMapper;
@@ -31,7 +30,7 @@ import java.util.List;
 
 /**
  * 控制器支持类
- * @author jeedcp
+ * @author Zach Xu
  * @version 2013-3-23
  */
 public abstract class BaseController {

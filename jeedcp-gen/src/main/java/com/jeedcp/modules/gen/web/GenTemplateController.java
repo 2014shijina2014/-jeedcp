@@ -11,8 +11,6 @@ import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.gen.entity.GenTemplate;
 import com.jeedcp.modules.gen.sevice.GenTemplateService;
-import com.jeedcp.modules.gen.entity.GenTemplate;
-import com.jeedcp.modules.gen.sevice.GenTemplateService;
 import com.jeedcp.modules.sys.entity.User;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 
