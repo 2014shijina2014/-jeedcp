@@ -135,7 +135,7 @@
 	</select>
 	
 	<!-- 根据登录名查询用户 -->
-	<select id="getByLoginName" resultType="com.metinform.common.sys.entity.User" parameterType="User">
+	<select id="getByLoginName" resultType="com.jeedcp.modules.sys.entity.User" parameterType="User">
 		SELECT
 			<include refid="userColumns"/><!-- ,
 			ro.office_id AS "roleList.officeList.id" -->
@@ -146,7 +146,7 @@
 	</select>
 	
 	<!-- 分页查询用户信息 -->
-	<select id="findList" resultType="com.metinform.common.sys.entity.User" >
+	<select id="findList" resultType="com.jeedcp.modules.sys.entity.User" >
 		SELECT
 			<include refid="userColumns"/>
 		FROM sys_user a
@@ -181,7 +181,7 @@
 	</select>
 	
 	<!-- 根据OfficeId获取用户（树查询用户时用） -->
-	<select id="findUserByOfficeId" resultType="com.metinform.common.sys.entity.User" useCache="true">
+	<select id="findUserByOfficeId" resultType="com.jeedcp.modules.sys.entity.User" useCache="true">
 		SELECT
 			a.id, a.name, a.login_name
 		FROM sys_user a
