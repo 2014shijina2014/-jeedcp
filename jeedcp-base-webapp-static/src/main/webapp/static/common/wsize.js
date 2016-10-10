@@ -1,5 +1,5 @@
 /*!
- * Copyright &copy; 2015-2015  Metinform All rights reserved.
+ * Copyright &copy; 2015-2015  Jeedcp All rights reserved.
  * 
  * 主框架窗口大小调整
  * @author Jeedcp Xu

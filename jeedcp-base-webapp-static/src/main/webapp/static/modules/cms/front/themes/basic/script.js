@@ -1,5 +1,5 @@
 /*!
- * Copyright &copy; 2012-2015 Metinform All rights reserved.
+ * Copyright &copy; 2012-2015 Jeedcp All rights reserved.
  */
 
 // 添加收藏
