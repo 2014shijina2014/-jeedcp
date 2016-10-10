@@ -4,11 +4,11 @@
 package com.jeedcp.common.security.shiro.session;
 
 import com.google.common.collect.Sets;
-import com.metinform.common.config.Constants;
-import com.metinform.common.config.Global;
-import com.metinform.common.utils.DateUtils;
-import com.metinform.common.utils.StringUtils;
-import com.metinform.common.web.Servlets;
+import com.jeedcp.common.config.Constants;
+import com.jeedcp.common.config.Global;
+import com.jeedcp.common.utils.DateUtils;
+import com.jeedcp.common.utils.StringUtils;
+import com.jeedcp.common.web.Servlets;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
