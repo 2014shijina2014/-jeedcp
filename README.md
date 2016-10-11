@@ -83,11 +83,11 @@ jeedcp-test 单元测试框架，待实现
 jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
 
 系统截图
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215626.png)
-![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092027.png)
-![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092114.png)
-![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092130.png)
-![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092150.png)
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161010215626.png)
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092027.png)
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092114.png)
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092150.png)
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092130.png)
 
 
 如何交流、反馈、参与贡献？
