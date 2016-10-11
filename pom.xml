@@ -883,7 +883,11 @@
             <artifactId>com.springsource.org.aopalliance</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.6.11</version>
+        </dependency>
         <!-- User Agent -->
         <dependency>
             <groupId>eu.bitwalker</groupId>
