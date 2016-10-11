@@ -104,7 +104,7 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="box-tools">${page}</div>
+<sys:page httptype="post" formId="searchForm"/>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btnExport").click(function () {

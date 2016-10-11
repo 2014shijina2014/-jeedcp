@@ -84,6 +84,6 @@
     </c:forEach>
     </tbody>
 </table>
-<%--<div class="box-tools">${page}</div>--%>
+<sys:page httptype="post" formId="searchForm"/>
 </body>
 </html>

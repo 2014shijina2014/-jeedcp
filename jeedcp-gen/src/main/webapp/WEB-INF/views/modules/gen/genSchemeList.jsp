@@ -25,9 +25,7 @@
 </ul>
 <form:form id="searchForm" modelAttribute="genScheme" action="${ctx}/gen/genScheme/" method="post"
            class="row form-horizontal well" role="form">
-    <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
-    <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-
+    <sys:postPageInput/>
     <div class="form-group col-sm-4">
         <label class="col-sm-4 control-label">方案名称：</label>
         <div class="col-sm-8">
@@ -68,6 +66,6 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="box-tools">${page}</div>
+<sys:page httptype="post" formId="searchForm"/>
 </body>
 </html>
