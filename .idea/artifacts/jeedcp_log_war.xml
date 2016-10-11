@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="jeedcp-log:war">
-    <output-path>$PROJECT_DIR$/jeedcp-log/target</output-path>
-    <root id="archive" name="jeedcp-log-1.0.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="jeedcp-log:war exploded" />
-    </root>
-  </artifact>
-</component>

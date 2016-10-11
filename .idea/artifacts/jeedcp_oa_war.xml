@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="jeedcp-oa:war">
-    <output-path>$PROJECT_DIR$/jeedcp-oa/target</output-path>
-    <root id="archive" name="jeedcp-oa-1.0.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="jeedcp-oa:war exploded" />
-    </root>
-  </artifact>
-</component>
