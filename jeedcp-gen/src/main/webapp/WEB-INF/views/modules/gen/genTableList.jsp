@@ -4,6 +4,7 @@
 <head>
     <title>业务表管理</title>
     <meta name="decorator" content="default"/>
+    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -28,9 +29,8 @@
 <sys:message content="${message}"/>
 <form:form id="searchForm" modelAttribute="genTable" action="${ctx}/gen/genTable/" method="post"
            class="row form-horizontal well" role="form">
-    <input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
-    <input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
-    <sys:tableSort id="orderBy" name="orderBy" value="${page.orderBy}" callback="page();"/>
+    <sys:postPageInput/>
+    <sys:tableSort id="orderBy" name="orderBy" value="${genTable.orderBy}" callback="page();"/>
 
     <div class="form-group col-sm-4">
         <label class="col-sm-4 control-label">表名：</label>
@@ -84,6 +84,6 @@
     </c:forEach>
     </tbody>
 </table>
-<div class="box-tools">${page}</div>
+<%--<div class="box-tools">${page}</div>--%>
 </body>
 </html>
