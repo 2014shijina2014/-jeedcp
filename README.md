@@ -83,13 +83,11 @@ jeedcp-test 单元测试框架，待实现
 jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
 
 系统截图
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67105&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p4qAPW2kAAHOm2ezrCo424.png%3Ftoken%3D13a735e8b96e1b069d27a5d3b8db81a4%26ts%3D1476110197%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215626.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67106&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p7qACr_zAAFgnGbakNs831.png%3Ftoken%3D2d9a1df843cc49d8015b933582b28fb0%26ts%3D1476110301%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215821.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67107&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p8SANJkCAAIeTj2MgVo855.png%3Ftoken%3Ddf786e73e3bc4735a4d8575ab3715829%26ts%3D1476110301%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215825.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67108&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p9OAS6u4AAIrQnuwmEg739.png%3Ftoken%3Def972d2b46667ba03b25779a3823f2a0%26ts%3D1476110301%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215829.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67109&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p-CAFwnwAAGEugFbyqg717.png%3Ftoken%3D4b0e24367631eef9b635651ef61ae1cd%26ts%3D1476110301%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215842.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67110&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p-qAOYCXAAIeTj2MgVo033.png%3Ftoken%3De47709e1358ccf72d4d90da9b726b860%26ts%3D1476110301%26attname%3DQQ%E5%9B%BE%E7%89%8720161010215855.png)
-![alt text](https://git.oschina.net/smarter56.com/jeedcp/attach_files/download?i=67111&u=http%3A%2F%2Ffiles.git.oschina.net%2Fgroup1%2FM00%2F00%2F7A%2FPaAvDFf7p_OAJQWIAAEa3zxMFfc256.png%3Ftoken%3Dcafb15932c2149f4731452cae5b237ab%26ts%3D1476110301%26attname%3D%E5%9F%BA%E7%A1%80%E5%B9%B3%E5%8F%B0.png)
+![alt text](https://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161010215626.png)
+![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092027.png)
+![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092114.png)
+![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092130.png)
+![alt text](http://git.oschina.net/smarter56.com/jeedcp/blob/master/doc/pic/QQ%E5%9B%BE%E7%89%8720161011092150.png)
 
 
 如何交流、反馈、参与贡献？
