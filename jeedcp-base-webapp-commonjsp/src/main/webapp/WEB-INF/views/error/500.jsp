@@ -33,7 +33,7 @@ else {
 <html>
 <head>
 	<title>500 - 系统内部错误</title>
-	<%@include file="/WEB-INF/views/include/adminlte.jsp" %>
+	<%@include file="/WEB-INF/views/include/head.jsp" %>
 </head>
 <body>
 	<div class="container-fluid">

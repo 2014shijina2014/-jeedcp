@@ -25,7 +25,7 @@ else {
 <html>
 <head>
 	<title>403 - 操作权限不足</title>
-	<%@include file="/WEB-INF/views/include/adminlte.jsp" %>
+	<%@include file="/WEB-INF/views/include/head.jsp" %>
 </head>
 <body>
 	<div class="container-fluid">

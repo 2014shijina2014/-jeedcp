@@ -4,7 +4,6 @@
 <head>
     <title>业务表管理</title>
     <meta name="decorator" content="default"/>
-    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
     <script type="text/javascript">
         $(document).ready(function () {
 
