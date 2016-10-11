@@ -3,6 +3,7 @@
  */
 package com.jeedcp.modules.sys.web;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -115,6 +116,16 @@ public class LoginController extends BaseController {
 			theme = CookieUtils.getCookie(request, "theme");
 		}
 		return "redirect:"+request.getParameter("url");
+	}
+	/**
+	 * 首页
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "${adminPath}/home")
+	public String home(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+
+		return "modules/sys/sysHome";
+
 	}
 
 }

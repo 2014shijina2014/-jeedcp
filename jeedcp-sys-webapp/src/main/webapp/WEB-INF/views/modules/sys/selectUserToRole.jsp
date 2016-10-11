@@ -94,16 +94,17 @@
 	</script>
 </head>
 <body>
-	<div id="assignRole" class="row-fluid span12">
-		<div class="span4" style="border-right: 1px solid #A8A8A8;">
+	
+	<div id="assignRole" class="row wrapper wrapper-content">
+		<div class="col-sm-4" style="border-right: 1px solid #A8A8A8;">
 			<p>所在部门：</p>
 			<div id="officeTree" class="ztree"></div>
 		</div>
-		<div class="span3">
+		<div class="col-sm-4">
 			<p>待选人员：</p>
 			<div id="userTree" class="ztree"></div>
 		</div>
-		<div class="span3" style="padding-left:16px;border-left: 1px solid #A8A8A8;">
+		<div class="col-sm-4" style="padding-left:16px;border-left: 1px solid #A8A8A8;">
 			<p>已选人员：</p>
 			<div id="selectedTree" class="ztree"></div>
 		</div>

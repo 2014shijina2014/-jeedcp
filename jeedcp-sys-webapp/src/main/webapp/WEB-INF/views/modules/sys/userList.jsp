@@ -1,143 +1,105 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/WEB-INF/views/include/taglib.jsp" %>
+<%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <html>
 <head>
-    <title>用户管理</title>
-    <meta name="decorator" content="default"/>
-    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
+	<title>用户管理</title>
+	<meta name="decorator" content="default"/>
 </head>
 <body>
-<div id="importBox" class="hide">
-    <form id="importForm" action="${ctx}/sys/user/import" method="post" enctype="multipart/form-data"
-          class="col-md-6" role="form" onsubmit="loading('正在导入，请稍等...');"><br/>
-        <input id="uploadFile" name="file" type="file" style="width:330px"/><br/><br/>　　
-        <input id="btnImportSubmit" class="btn btn-primary" type="submit" value="   导    入   "/>
-        <a href="${ctx}/sys/user/import/template">下载模板</a>
-    </form>
-</div>
-<ul class="nav nav-tabs">
-    <li class="active"><a href="${ctx}/sys/user/list">用户列表</a></li>
-    <shiro:hasPermission name="sys:user:edit">
-        <li><a href="${ctx}/sys/user/form">用户添加</a></li>
-    </shiro:hasPermission>
-</ul>
-<form:form id="searchForm" modelAttribute="user" action="${ctx}/sys/user/list" method="post"
-           class="row form-horizontal well" role="form">
-    <sys:postPageInput/>
-    <sys:tableSort id="orderBy" name="orderBy" value="${user.orderBy}" callback="page();"/>
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <label class="col-sm-4 control-label">归属公司：</label>
-            <div class="col-sm-8">
-                <sys:treeselect id="company" name="company.id" value="${user.company.id}"
-                                labelName="company.name" labelValue="${user.company.name}"
-                                title="公司" url="/sys/office/treeData?type=1" cssClass="form-control"
-                                allowClear="true"/></div>
-        </div>
-        <div class="form-group col-sm-6">
-            <label class="col-sm-4 control-label">登录名：</label>
-            <div class="col-sm-8">
-                <form:input path="loginName" htmlEscape="false" maxlength="50"
-                            class="form-control"/>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <label class="col-sm-4 control-label">归属部门：</label>
-            <div class="col-sm-8">
-                <sys:treeselect id="office" name="office.id"
-                                value="${user.office.id}" labelName="office.name"
-                                labelValue="${user.office.name}" title="部门" url="/sys/office/treeData?type=2"
-                                cssClass="form-control" allowClear="true" notAllowSelectParent="true"/>
-            </div>
-        </div>
-        <div class="form-group col-sm-6">
-            <label class="col-sm-4 control-label">姓&nbsp;&nbsp;&nbsp;名：</label>
-            <div class="col-sm-8">
-                <form:input path="name" htmlEscape="false"
-                            maxlength="50"
-                            class="form-control"/>
-            </div>
-        </div>
-    </div>
-    <div class="row col-sm-offset-9">
-        <input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"
-               onclick="return page();"/>
-        <input id="btnExport" class="btn btn-primary" type="button" value="导出"/>
-        <input id="btnImport" class="btn btn-primary" type="button" value="导入"/>
-    </div>
-</form:form>
-<sys:message content="${message}"/>
-<table id="contentTable" class="table table-hover">
-    <thead>
-    <tr>
-        <td>归属公司</td>
-        <td>归属部门</td>
-        <td class="sort-column login_name">登录名</td>
-        <td class="sort-column name">姓名</td>
-        <td>电话</td>
-        <td>手机</td>
-        <%--<th>角色</th> --%><shiro:hasPermission name="sys:user:edit">
-        <td>操作</td>
-        </shiro:hasPermission></tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${page.list}" var="user">
-        <tr>
-            <td>${user.company.name}</td>
-            <td>${user.office.name}</td>
-            <td><a href="${ctx}/sys/user/form?id=${user.id}">${user.loginName}</a></td>
-            <td>${user.name}</td>
-            <td>${user.phone}</td>
-            <td>${user.mobile}</td>
-                <%--
-                                <td>${user.roleNames}</td> --%>
-            <shiro:hasPermission name="sys:user:edit">
-                <td>
-                    <a href="${ctx}/sys/user/form?id=${user.id}">修改</a>
-                    <a href="${ctx}/sys/user/delete?id=${user.id}"
-                       onclick="return confirmx('确认要删除该用户吗？', this.href)">删除</a>
-                </td>
-            </shiro:hasPermission>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-<sys:page httptype="post" formId="searchForm"/>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#btnExport").click(function () {
-            var d = top.dialog({
-                title: '系统提示',
-                content: '确认要导出用户数据吗？',
-                okValue: '确定',
-                ok: function () {
-                    $("#searchForm").attr("action", "${ctx}/sys/user/export");
-                    $("#searchForm").submit();
-                    return false;
-                },
-                cancelValue: '取消',
-                cancel: function () {
-                }
-            });
-            d.showModal();
-        });
-        $("#btnImport").click(function () {
-            var d = top.dialog({
-                title: '导入数据',
-                content: $("#importBox").html(),
-            });
-            d.showModal();
-        });
-    });
-    function page(n, s) {
-        if (n) $("#pageNo").val(n);
-        if (s) $("#pageSize").val(s);
-        $("#searchForm").attr("action", "${ctx}/sys/user/list");
-        $("#searchForm").submit();
-        return false;
-    }
-</script>
+<div class="wrapper wrapper-content">
+    <sys:message content="${message}"/>
+		<!-- 查询条件 -->
+	<div class="row">
+	<div class="col-sm-12">
+	<form:form id="searchForm" modelAttribute="user" action="${ctx}/sys/user/list" method="post" class="form-inline">
+		<sys:postPageInput/>
+		<sys:tableSort id="orderBy" name="orderBy" value="${user.orderBy}" callback="page();"/>
+		<div class="form-group">
+			<span>归属公司：</span>
+				<sys:treeselect id="company" name="company.id" value="${user.company.id}" labelName="company.name" labelValue="${user.company.name}" 
+				title="公司" url="/sys/office/treeData?type=1" cssClass=" form-control input-sm" allowClear="true"/>
+			<span>登录名：</span>
+				<form:input path="loginName" htmlEscape="false" maxlength="50" class=" form-control input-sm"/>
+			<span>归属部门：</span>
+				<sys:treeselect id="office" name="office.id" value="${user.office.id}" labelName="office.name" labelValue="${user.office.name}" 
+				title="部门" url="/sys/office/treeData?type=2" cssClass=" form-control input-sm" allowClear="true" notAllowSelectParent="true"/>
+			<span>姓&nbsp;&nbsp;&nbsp;名：</span>
+				<form:input path="name" htmlEscape="false" maxlength="50" class=" form-control input-sm"/>
+		
+		 </div>	
+	</form:form>
+	<br/>
+	</div>
+	</div>
+	
+	<!-- 工具栏 -->
+	<div class="row">
+	<div class="col-sm-12">
+		<div class="pull-left">
+			<shiro:hasPermission name="sys:user:add">
+				<table:addRow url="${ctx}/sys/user/form" title="用户" width="800px" height="620px" target="officeContent"></table:addRow><!-- 增加按钮 -->
+			</shiro:hasPermission>
+			<shiro:hasPermission name="sys:user:edit">
+			    <table:editRow url="${ctx}/sys/user/form" id="contentTable"  title="用户" width="800px" height="680px" target="officeContent"></table:editRow><!-- 编辑按钮 -->
+			</shiro:hasPermission>
+			<shiro:hasPermission name="sys:user:del">
+				<table:delRow url="${ctx}/sys/user/deleteAll" id="contentTable"></table:delRow><!-- 删除按钮 -->
+			</shiro:hasPermission>
+			<shiro:hasPermission name="sys:user:import">
+				<table:importExcel url="${ctx}/sys/user/import"></table:importExcel><!-- 导入按钮 -->
+			</shiro:hasPermission>
+			<shiro:hasPermission name="sys:user:export">
+	       		<table:exportExcel url="${ctx}/sys/user/export"></table:exportExcel><!-- 导出按钮 -->
+	       </shiro:hasPermission>
+	       <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
+		
+			</div>
+		<div class="pull-right">
+			<button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()" ><i class="fa fa-search"></i> 查询</button>
+			<button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="reset()" ><i class="fa fa-refresh"></i> 重置</button>
+		</div>
+	</div>
+	</div>
+	
+	<table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
+		<thead>
+			<tr>
+				<th><input type="checkbox" class="i-checks"></th>
+				<th class="sort-column login_name">登录名</th>
+				<th class="sort-column name">姓名</th>
+				<th class="sort-column phone">电话</th>
+				<th class="sort-column mobile">手机</th>
+				<th class="sort-column c.name">归属公司</th>
+				<th class="sort-column o.name">归属部门</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${page.list}" var="user">
+			<tr>
+				<td> <input type="checkbox" id="${user.id}" class="i-checks"></td>
+				<td><a  href="#" onclick="openDialogView('查看用户', '${ctx}/sys/user/form?id=${user.id}','800px', '680px')">${user.loginName}</a></td>
+				<td>${user.name}</td>
+				<td>${user.phone}</td>
+				<td>${user.mobile}</td>
+				<td>${user.company.name}</td>
+				<td>${user.office.name}</td>
+				<td>
+					<shiro:hasPermission name="sys:user:view">
+						<a href="#" onclick="openDialogView('查看用户', '${ctx}/sys/user/form?id=${user.id}','800px', '680px')" class="btn btn-info btn-xs" ><i class="fa fa-search-plus"></i> 查看</a>
+					</shiro:hasPermission>
+					<shiro:hasPermission name="sys:user:edit">
+						<a href="#" onclick="openDialog('修改用户', '${ctx}/sys/user/form?id=${user.id}','800px', '700px', 'officeContent')" class="btn btn-success btn-xs" ><i class="fa fa-edit"></i> 修改</a>
+					</shiro:hasPermission>
+					<shiro:hasPermission name="sys:user:del">
+						<a href="${ctx}/sys/user/delete?id=${user.id}" onclick="return confirmx('确认要删除该用户吗？', this.href)" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+					</shiro:hasPermission>
+				</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	<table:page page="${page}"></table:page>
+		</div>
 </body>
 </html>
