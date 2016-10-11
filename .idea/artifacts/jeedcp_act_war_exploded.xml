@@ -106,7 +106,7 @@
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.8.1" />
           <element id="library" level="project" name="Maven: com.google.zxing:core:2.2" />
           <element id="library" level="project" name="Maven: com.google.zxing:javase:2.2" />
-          <element id="library" level="project" name="Maven: bitwalker:UserAgentUtils:1.13" />
+          <element id="library" level="project" name="Maven: eu.bitwalker:UserAgentUtils:1.14" />
           <element id="archive" name="jeedcp-base-persistence-sql-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-base-persistence-sql" />
           </element>

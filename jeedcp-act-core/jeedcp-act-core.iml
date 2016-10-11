@@ -105,7 +105,7 @@
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:core:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:javase:2.2" level="project" />
-    <orderEntry type="library" name="Maven: bitwalker:UserAgentUtils:1.13" level="project" />
+    <orderEntry type="library" name="Maven: eu.bitwalker:UserAgentUtils:1.14" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-persistence-sql" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.1.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.3.GA" level="project" />

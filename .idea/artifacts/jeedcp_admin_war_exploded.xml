@@ -17,7 +17,7 @@
           <element id="library" level="project" name="Maven: com.drewnoakes:metadata-extractor:2.6.2" />
           <element id="library" level="project" name="Maven: com.adobe.xmp:xmpcore:5.1.2" />
           <element id="library" level="project" name="Maven: xerces:xercesImpl:2.8.1" />
-          <element id="library" level="project" name="Maven: bitwalker:UserAgentUtils:1.13" />
+          <element id="library" level="project" name="Maven: eu.bitwalker:UserAgentUtils:1.14" />
           <element id="archive" name="jeedcp-base-persistence-nosql-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="jeedcp-base-persistence-nosql" />
           </element>

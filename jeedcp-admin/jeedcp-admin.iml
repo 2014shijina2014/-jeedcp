@@ -38,7 +38,7 @@
     <orderEntry type="library" name="Maven: com.drewnoakes:metadata-extractor:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: com.adobe.xmp:xmpcore:5.1.2" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
-    <orderEntry type="library" name="Maven: bitwalker:UserAgentUtils:1.13" level="project" />
+    <orderEntry type="library" name="Maven: eu.bitwalker:UserAgentUtils:1.14" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-persistence-nosql" />
     <orderEntry type="module" module-name="jeedcp-base-persistence-sql" />
     <orderEntry type="module" module-name="jeedcp-base-service" />

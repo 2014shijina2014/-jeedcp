@@ -47,7 +47,7 @@
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:core:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:javase:2.2" level="project" />
-    <orderEntry type="library" name="Maven: bitwalker:UserAgentUtils:1.13" level="project" />
+    <orderEntry type="library" name="Maven: eu.bitwalker:UserAgentUtils:1.14" level="project" />
     <orderEntry type="module" module-name="jeedcp-base-service" />
     <orderEntry type="module" module-name="jeedcp-sys-dao" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.0.1" level="project" />

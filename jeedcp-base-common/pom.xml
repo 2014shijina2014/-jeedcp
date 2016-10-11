@@ -161,10 +161,10 @@
 
         <!-- User Agent -->
         <dependency>
-            <groupId>bitwalker</groupId>
+            <groupId>eu.bitwalker</groupId>
             <artifactId>UserAgentUtils</artifactId>
+            <version>1.14</version>
         </dependency>
-
 
     </dependencies>
 
