@@ -14,7 +14,8 @@
     <dependencies>
     <dependency>
         <groupId>${dcp.jeedcp.groupId}</groupId>
-        <artifactId>jeedcp-base-util</artifactId>
+        <artifactId>jeedcp-base-common</artifactId>
+        <type>jar</type>
     </dependency>
     </dependencies>
 

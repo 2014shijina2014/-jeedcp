@@ -1,7 +1,8 @@
 package com.jeedcp.message.sms;
 
 
-import com.jeedcp.util.Digests;
+
+import com.jeedcp.common.security.Digests;
 
 import java.io.BufferedReader;
 import java.io.IOException;
