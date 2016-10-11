@@ -5,7 +5,7 @@ package com.jeedcp.modules.act.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.jeedcp.common.persistence.Page;
+import com.jeedcp.common.persistence.Pagination;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
@@ -53,7 +53,7 @@ public class ActProcessService extends BaseService {
 	/**
 	 * 流程定义列表
 	 */
-	public Page<Object[]> processList(Page<Object[]> page, String category) {
+	public Pagination<Object[]> processList(Pagination<Object[]> page, String category) {
 
 	    ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
 	    		.latestVersion().orderByProcessDefinitionKey().asc();
@@ -62,9 +62,9 @@ public class ActProcessService extends BaseService {
 	    	processDefinitionQuery.processDefinitionCategory(category);
 		}
 	    
-	    page.setCount(processDefinitionQuery.count());
+	    page.setTotal(processDefinitionQuery.count());
 	    
-	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getFirstResult(), page.getMaxResults());
+	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getPageNum(), page.getPageSize());
 	    for (ProcessDefinition processDefinition : processDefinitionList) {
 	      String deploymentId = processDefinition.getDeploymentId();
 	      Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
@@ -77,7 +77,7 @@ public class ActProcessService extends BaseService {
 	/**
 	 * 流程定义列表
 	 */
-	public Page<ProcessInstance> runningList(Page<ProcessInstance> page, String procInsId, String procDefKey) {
+	public Pagination<ProcessInstance> runningList(Pagination<ProcessInstance> page, String procInsId, String procDefKey) {
 
 	    ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
 
@@ -89,8 +89,8 @@ public class ActProcessService extends BaseService {
 		    processInstanceQuery.processDefinitionKey(procDefKey);
 	    }
 	    
-	    page.setCount(processInstanceQuery.count());
-	    page.setList(processInstanceQuery.listPage(page.getFirstResult(), page.getMaxResults()));
+	    page.setTotal(processInstanceQuery.count());
+	    page.setList(processInstanceQuery.listPage(page.getPageNum(), page.getPageSize()));
 		return page;
 	}
 	
