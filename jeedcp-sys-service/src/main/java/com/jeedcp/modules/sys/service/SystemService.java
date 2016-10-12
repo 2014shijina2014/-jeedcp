@@ -23,7 +23,6 @@ import com.jeedcp.modules.sys.entity.User;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import com.jeedcp.modules.sys.utils.DataFilterUtils;
 
-import jdk.nashorn.internal.objects.Global;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
