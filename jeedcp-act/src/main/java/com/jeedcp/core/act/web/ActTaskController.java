@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeedcp.common.persistence.Pagination;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.act.entity.Act;
 import com.jeedcp.modules.act.service.ActTaskService;
@@ -61,7 +61,7 @@ public class ActTaskController extends BaseController {
 	 */
 	@RequestMapping(value = "historic")
 	public String historicList(Act act, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		Page<Act> page = new Page<Act>(request, response);
+		Pagination<Act> page = new Pagination<Act>(request, response);
 		page = actTaskService.historicList(page, act);
 		model.addAttribute("page", page);
 		if (CurrentUserUtils.getPrincipal().isMobileLogin()){
@@ -91,7 +91,7 @@ public class ActTaskController extends BaseController {
 	 */
 	@RequestMapping(value = "process")
 	public String processList(String category, HttpServletRequest request, HttpServletResponse response, Model model) {
-	    Page<Object[]> page = new Page<Object[]>(request, response);
+		Pagination<Object[]> page = new Pagination<Object[]>(request, response);
 	    page = actTaskService.processList(page, category);
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);
