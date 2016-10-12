@@ -109,8 +109,8 @@
           p:flowRegistry-ref="loginFlowRegistry" p:order="2">
         <property name="interceptors">
             <list>
-                <ref bean="localeChangeInterceptor"/>
-                <ref bean="loginThrottle"/>
+                <ref local="localeChangeInterceptor"/>
+                <ref local="loginThrottle"/>
             </list>
         </property>
     </bean>
@@ -139,7 +139,7 @@
     <bean id="logoutFlowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping"
           p:flowRegistry-ref="logoutFlowRegistry" p:order="3">
         <property name="interceptors">
-            <ref bean="localeChangeInterceptor"/>
+            <ref local="localeChangeInterceptor"/>
         </property>
     </bean>
 
@@ -181,7 +181,7 @@
     <bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
         <property name="viewResolvers">
             <util:list>
-                <ref bean="viewResolver"/>
+                <ref local="viewResolver"/>
             </util:list>
         </property>
     </bean>

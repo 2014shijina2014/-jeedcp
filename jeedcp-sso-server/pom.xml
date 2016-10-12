@@ -22,14 +22,15 @@
 
     <properties>
 
-
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
 
         <!--<cs.dir>${project.parent.basedir}</cs.dir>-->
     </properties>
     <parent>
-        <groupId>com.dcp.jeedcp</groupId>
-        <artifactId>jeedcp</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <groupId>org.jasig.cas</groupId>
+        <artifactId>cas-server</artifactId>
+        <version>4.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jeedcp-sso-server</artifactId>
@@ -39,7 +40,7 @@
         <dependency>
             <groupId>org.jasig.cas</groupId>
             <artifactId>cas-server-webapp-support</artifactId>
-            <version>4.0.3</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -65,7 +66,7 @@
         <dependency>
             <groupId>org.jasig.cas</groupId>
             <artifactId>cas-server-security-filter</artifactId>
-            <version>2.0.3</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.jasig.cas</groupId>
@@ -91,11 +92,6 @@
             <artifactId>kaptcha</artifactId>
             <version>${kaptcha.version}</version>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -105,11 +101,11 @@
 
         <resources>
             <!--<resource>-->
-                <!--<directory>src/main/java</directory>-->
-                <!--<includes>-->
-                    <!--<include>**/*.properties</include>-->
-                    <!--<include>**/*.xml</include>-->
-                <!--</includes>-->
+            <!--<directory>src/main/java</directory>-->
+            <!--<includes>-->
+            <!--<include>**/*.properties</include>-->
+            <!--<include>**/*.xml</include>-->
+            <!--</includes>-->
             <!--</resource>-->
             <resource>
                 <directory>src/main/resources</directory>
@@ -119,10 +115,10 @@
                 <filtering>true</filtering>
             </resource>
             <!--<resource>-->
-                <!--<directory>src/main/webapp</directory>-->
-                <!--<includes>-->
-                    <!--<include>**/*.xml</include>-->
-                <!--</includes>-->
+            <!--<directory>src/main/webapp</directory>-->
+            <!--<includes>-->
+            <!--<include>**/*.xml</include>-->
+            <!--</includes>-->
             <!--</resource>-->
             <resource>
                 <directory>src/main/resources</directory>
