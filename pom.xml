@@ -98,6 +98,7 @@
         <module>jeedcp-sys-webapp-tagtld</module>
         <module>jeedcp-sys-webapp-security-cas</module>
         <module>jeedcp-job</module>
+        <module>jeedcp-mobile-api</module>
     </modules>
     <dependencyManagement>
     <dependencies>
@@ -906,8 +907,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.1</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>1.7</source>
+                        <target>1.7</target>
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
