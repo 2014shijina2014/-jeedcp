@@ -1,6 +1,6 @@
 package com.jeedcp.modules.weixin.web.front.process;
 
-import com.jeedcp.modules.weixin.web.front.vo.MsgRequest;
+import com.jeedcp.modules.weixin.web.front.vo.*;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;

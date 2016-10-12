@@ -83,7 +83,7 @@ public class MyServiceImpl implements MyService {
         }
         /**************** 保存接收到的消息*************************/
         WeixinReceiveText rt = new WeixinReceiveText();
-        rt.setId(IdGen.uuid());
+        rt.setId(UUID.randomUUID().toString());
         if(!msgtype.equalsIgnoreCase(MsgType.Event.toString())){
             rt.setMsgid(msgRequest.getMsgId());
             rt.setContent(msgRequest.getContent().trim());//接收的消息内容
@@ -240,7 +240,7 @@ public class MyServiceImpl implements MyService {
                 for(int i = 0; i < openidArr.size() ;i++){
                     Object openId = openidArr.get(i);
                     WeixinFans fans = WxApiClient.syncAccountFans(openId.toString(), mpAccount);
-                    fans.setId(IdGen.uuid());
+                    fans.setId(UUID.randomUUID().toString());
                     fans.setAccountId(mpAccount.getId());
                     fansList.add(fans);
                 }
@@ -262,7 +262,7 @@ public class MyServiceImpl implements MyService {
             params.setOpenid(openId);
             WeixinFans tmpFans = fansDao.findList(params).get(0);
             if(tmpFans == null){
-                fans.setId(IdGen.uuid());
+                fans.setId(UUID.randomUUID().toString());
                 fans.setAccountId(mpAccount.getId());
                 fansDao.insert(fans);
             }else{
@@ -281,7 +281,7 @@ public class MyServiceImpl implements MyService {
         if(fans == null){//如果没有，添加
             fans = WxApiClient.syncAccountFans(openId, mpAccount);
             if (null != fans) {
-                fans.setId(IdGen.uuid());
+                fans.setId(UUID.randomUUID().toString());
                 fans.setAccountId(mpAccount.getId());
                 fansDao.insert(fans);
             }

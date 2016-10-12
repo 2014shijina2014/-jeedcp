@@ -55,7 +55,7 @@ public class WeixinFansController extends BaseController {
 	@RequiresPermissions("weixin:weixinFans:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinFans weixinFans, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<WeixinFans> page = weixinFansService.findPage(new Pagination<>(request, response), weixinFans);
+		Pagination<WeixinFans> page = weixinFansService.findPage(new Pagination<WeixinFans>(request, response), weixinFans);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinFansList";
 	}

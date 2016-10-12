@@ -1,7 +1,11 @@
 package com.jeedcp.modules.weixin.web.front.process;
 
 
+import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.modules.weixin.entity.WeixinAccount;
+import com.jeedcp.modules.weixin.entity.WeixinFans;
+import com.jeedcp.modules.weixin.entity.WeixinMsgNews;
+import com.jeedcp.modules.weixin.web.front.vo.TemplateMessage;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
