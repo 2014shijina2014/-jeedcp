@@ -20,6 +20,7 @@ import com.jeedcp.modules.act.service.creator.SimpleRuntimeActivityDefinitionEnt
 import com.jeedcp.modules.act.utils.ActUtils;
 import com.jeedcp.modules.act.utils.ProcessDefCache;
 import com.jeedcp.modules.act.utils.ProcessDefUtils;
+import com.jeedcp.modules.sys.entity.User;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.engine.*;
@@ -185,10 +186,10 @@ public class ActTaskService extends BaseService {
 		}
 		
 		// 查询总数
-		page.setCount(histTaskQuery.count());
+		page.setTotal(histTaskQuery.count());
 		
 		// 查询列表
-		List<HistoricTaskInstance> histList = histTaskQuery.listPage(page.getFirstResult(), page.getMaxResults());
+		List<HistoricTaskInstance> histList = histTaskQuery.listPage(page.getPageNum(), page.getPageSize());
 		//处理分页问题
 		List<Act> actList=Lists.newArrayList();
 		for (HistoricTaskInstance histTask : histList) {
@@ -303,7 +304,7 @@ public class ActTaskService extends BaseService {
 	 * 获取流程列表
 	 * @param category 流程分类
 	 */
-	public Page<Object[]> processList(Page<Object[]> page, String category) {
+	public Pagination<Object[]> processList(Pagination<Object[]> page, String category) {
 		/*
 		 * 保存两个对象，一个是ProcessDefinition（流程定义），一个是Deployment（流程部署）
 		 */
@@ -314,9 +315,9 @@ public class ActTaskService extends BaseService {
 	    	processDefinitionQuery.processDefinitionCategory(category);
 		}
 	    
-	    page.setCount(processDefinitionQuery.count());
+	    page.setTotal(processDefinitionQuery.count());
 	    
-	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getFirstResult(), page.getMaxResults());
+	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getPageNum(), page.getPageSize());
 	    for (ProcessDefinition processDefinition : processDefinitionList) {
 	      String deploymentId = processDefinition.getDeploymentId();
 	      Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
