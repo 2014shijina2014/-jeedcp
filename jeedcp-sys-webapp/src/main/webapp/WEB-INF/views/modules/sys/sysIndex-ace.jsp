@@ -378,7 +378,7 @@
 					<!-- #section:basics/footer -->
 					<div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">JeePlus</span>
+							<span class="blue bolder">Jeedcp</span>
 							 &copy; 2015-2020
 						</span>
 

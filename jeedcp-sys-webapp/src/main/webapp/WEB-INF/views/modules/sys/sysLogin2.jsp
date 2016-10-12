@@ -455,7 +455,7 @@
 									</div><!-- /.widget-body -->
 								</div><!-- /.signup-box -->
 							</div><!-- /.position-relative -->
-							<div class="center"><h4 class="blue" id="id-company-text">&copy; JeePlus</h4></div>
+							<div class="center"><h4 class="blue" id="id-company-text">&copy; Jeedcp</h4></div>
 							<div class="navbar-fixed-top align-right">
 								<br />
 								&nbsp;

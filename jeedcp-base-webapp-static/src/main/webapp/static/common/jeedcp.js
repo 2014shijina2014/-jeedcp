@@ -1,5 +1,5 @@
 /*!
- * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">JeePlus</a> All rights reserved.
+ * Copyright &copy; 2015-2020 <a href="http://www.jeedcp.org/">Jeedcp</a> All rights reserved.
  * 
  * 通用公共方法
  * @author jeedcp
