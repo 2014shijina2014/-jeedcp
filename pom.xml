@@ -98,7 +98,7 @@
         <module>jeedcp-sys-webapp-tagtld</module>
         <module>jeedcp-sys-webapp-security-cas</module>
         <module>jeedcp-job</module>
-        <module>jeedcp-mobile-api</module>
+        <!--<module>jeedcp-mobile-api</module>-->
     </modules>
     <dependencyManagement>
     <dependencies>
@@ -883,17 +883,6 @@
             <groupId>org.aopalliance</groupId>
             <artifactId>com.springsource.org.aopalliance</artifactId>
             <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>1.6.11</version>
-        </dependency>
-        <!-- User Agent -->
-        <dependency>
-            <groupId>eu.bitwalker</groupId>
-            <artifactId>UserAgentUtils</artifactId>
-            <version>1.14</version>
         </dependency>
 
     </dependencies>
