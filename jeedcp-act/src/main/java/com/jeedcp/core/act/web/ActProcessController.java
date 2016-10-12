@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.stream.XMLStreamException;
 
+import com.jeedcp.common.persistence.Pagination;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.act.service.ActProcessService;
@@ -51,7 +51,7 @@ public class ActProcessController extends BaseController {
 		/*
 		 * 保存两个对象，一个是ProcessDefinition（流程定义），一个是Deployment（流程部署）
 		 */
-	    Page<Object[]> page = actProcessService.processList(new Page<Object[]>(request, response), category);
+		Pagination<Object[]> page = actProcessService.processList(new Pagination<>(request, response), category);
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);
 		return "modules/act/actProcessList";
@@ -63,7 +63,7 @@ public class ActProcessController extends BaseController {
 	@RequiresPermissions("act:process:edit")
 	@RequestMapping(value = "running")
 	public String runningList(String procInsId, String procDefKey, HttpServletRequest request, HttpServletResponse response, Model model) {
-	    Page<ProcessInstance> page = actProcessService.runningList(new Page<ProcessInstance>(request, response), procInsId, procDefKey);
+		Pagination<ProcessInstance> page = actProcessService.runningList(new Pagination<ProcessInstance>(request, response), procInsId, procDefKey);
 		model.addAttribute("page", page);
 		model.addAttribute("procInsId", procInsId);
 		model.addAttribute("procDefKey", procDefKey);
@@ -72,9 +72,6 @@ public class ActProcessController extends BaseController {
 
 	/**
 	 * 读取资源，通过部署ID
-	 * @param processDefinitionId  流程定义ID
-	 * @param processInstanceId 流程实例ID
-	 * @param resourceType 资源类型(xml|image)
 	 * @param response
 	 * @throws Exception
 	 */
