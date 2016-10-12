@@ -51,7 +51,7 @@ public class ActProcessController extends BaseController {
 		/*
 		 * 保存两个对象，一个是ProcessDefinition（流程定义），一个是Deployment（流程部署）
 		 */
-		Pagination<Object[]> page = actProcessService.processList(new Pagination<>(request, response), category);
+		Pagination<Object[]> page = actProcessService.processList(new Pagination<Object[]>(request, response), category);
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);
 		return "modules/act/actProcessList";
