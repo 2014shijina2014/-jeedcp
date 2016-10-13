@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dcp.jeedcp</groupId>
+  
     <artifactId>jeedcp-base-persistence-nosql</artifactId>
 
 
