@@ -33,7 +33,7 @@
         <version>4.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>jeedcp-sso-server</artifactId>
+    <artifactId>jeedcp-cas-webapp</artifactId>
     <packaging>war</packaging>
     <name>Jasig CAS Web Application</name>
     <dependencies>
