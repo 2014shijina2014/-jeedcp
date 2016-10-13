@@ -80,6 +80,8 @@
 		<module>jeedcp-sys-dao-xml</module><!-- 系统管理dao xml -->
 		<module>jeedcp-cas-webapp</module> <!-- cas server -->
 
+		<module>jeedcp-admin-webapp</module>        <!--管理平台 -->
+
 		<!--以下几个模块属于可选模块，按照自己需要进行选择 -->
 		<module>jeedcp-act-core</module> <!--流程引擎核心模块 -->
 		<module>jeedcp-act-webapp</module> <!--流程引擎前台展示webapp -->
