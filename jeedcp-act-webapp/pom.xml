@@ -11,8 +11,8 @@
     <packaging>war</packaging>
 
 
-    <artifactId>jeedcp-act</artifactId>
-    <description>jeedcp-act是流程基础工程</description>
+    <artifactId>jeedcp-act-webapp</artifactId>
+    <description>jeedcp-act-webapp是流程基础工程</description>
     <dependencies>
         <!--继承父模块的jar包 -->
         <dependency>

@@ -8,8 +8,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>war</packaging>
-	<artifactId>jeedcp-api</artifactId>
-	<description>jeedcp的服务模块工程，提供RESTful服务。 </description>
+	<artifactId>jeedcp-api-webapp</artifactId>
+	<description>jeedcp-api-webapp的服务模块工程，提供RESTful服务。 </description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
