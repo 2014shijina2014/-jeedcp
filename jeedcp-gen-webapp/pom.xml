@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <!-- 子项目：代码生成 -->
-    <artifactId>jeedcp-gen</artifactId>
+    <artifactId>jeedcp-gen-webapp</artifactId>
     <packaging>war</packaging>
-    <name>jeesite-gen</name>
+    <name>jeedcp-gen-webapp</name>
     <!--  打包时把resources下包内的XML配置文件也包含 -->
     <build>
         <resources>
