@@ -108,13 +108,7 @@
         </filters>
 
         <resources>
-            <!--<resource>-->
-            <!--<directory>src/main/java</directory>-->
-            <!--<includes>-->
-            <!--<include>**/*.properties</include>-->
-            <!--<include>**/*.xml</include>-->
-            <!--</includes>-->
-            <!--</resource>-->
+
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
@@ -122,12 +116,7 @@
                 </includes>
                 <filtering>true</filtering>
             </resource>
-            <!--<resource>-->
-            <!--<directory>src/main/webapp</directory>-->
-            <!--<includes>-->
-            <!--<include>**/*.xml</include>-->
-            <!--</includes>-->
-            <!--</resource>-->
+
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
@@ -142,7 +131,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>cas</warName>
                     <webResources>
                         <resource>
                             <directory>${basedir}/src/main/webapp/WEB-INF</directory>

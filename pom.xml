@@ -60,43 +60,49 @@
         <jdk.version>1.7</jdk.version>
     </properties>
     <modules>
-        <module>jeedcp-base-common</module>
-        <module>jeedcp-base-persistence-nosql</module>
-        <module>jeedcp-base-persistence-sql</module>
-        <module>jeedcp-base-service</module>
-        <module>jeedcp-file-core</module>
-        <module>jeedcp-file-web</module>
 
+        <!--以下几个模块属于基础模块，所有业务系统必须依赖-->
+        <module>jeedcp-base-common</module>        <!--框架技术类库-->
+        <module>jeedcp-base-persistence-nosql</module> <!--MongoDB支持-->
+        <module>jeedcp-base-persistence-sql</module> <!--mysql等关系数据库支持-->
+        <module>jeedcp-base-service</module> <!--service层基础类和异常-->
+        <module>jeedcp-base-webapp-support</module> <!--基础webapp支持-->
+        <module>jeedcp-base-webapp-static</module> <!--前端静态类库，后台管理系统使用-->
+        <module>jeedcp-base-webapp-static-frontend</module> <!--前端打包类-->
+        <module>jeedcp-base-webapp-commonjsp</module> <!--共用jsp，大部分为管理系统使用-->
 
+        <!--以下几个模块属于系统模块，所有业务系统必须依赖-->
+        <module>jeedcp-sys-webapp-tagtld</module><!-- 基础tag and tld-->
+        <module>jeedcp-sys-webapp-security-cas</module> <!-- cas client-->
+        <module>jeedcp-sys-entity</module> <!-- 系统管理entity-->
+        <module>jeedcp-sys-dao</module><!-- 系统管理dao-->
+        <module>jeedcp-sys-service</module> <!-- 系统管理 service -->
+        <module>jeedcp-sys-webapp</module> <!-- 系统管理 View-->
+        <module>jeedcp-sys-dao-xml</module><!-- 系统管理dao xml-->
+        <module>jeedcp-cas-webapp</module> <!-- cas server-->
 
-        <!--<module>jeedcp-api</module>-->
+        <!--以下几个模块属于可选模块，按照自己需要进行选择-->
+        <module>jeedcp-act-core</module> <!--流程引擎核心模块-->
+        <module>jeedcp-act-webapp</module> <!--流程引擎前台展示webapp-->
+        <module>jeedcp-oa-webapp</module> <!--OA前台展示webapp-->
+        <module>jeedcp-gen-webapp</module> <!--代码生成模块-->
+        <module>jeedcp-log-webapp</module> <!--日志模块-->
+        <module>jeedcp-weixin-webapp</module><!--微信操作模块，支持公众号，包括管理平台-->
+        <module>jeedcp-mobile-webapp</module><!--mobile服务端模块。支持token，验证码等-->
+        <module>jeedcp-test</module> <!--单元测试支持-->
+        <module>jeedcp-file-core</module> <!--阿里oss操作核心库-->
+        <module>jeedcp-file-webapp</module> <!--阿里oss操作web-->
+        <module>jeedcp-api-webapp</module> <!--对外接口模块,支持摘要-->
 
-        <module>jeedcp-test</module>
-        <module>jeedcp-message</module>
-        <module>jeedcp-config</module>
-        <module>jeedcp-mq</module>
-        <!--<module>jeedcp-cache</module>-->
+        <!--以下几个模块尚未实现-->
+        <module>jeedcp-report</module><!--easy report模块-->
+        <module>jeedcp-message</module> <!--消息模块，暂时没用-->
+        <module>jeedcp-config</module> <!--公共配置模块，暂时没用-->
+        <module>jeedcp-mq</module> <!--阿里MQ操作模块，暂时没用-->
+        <module>jeedcp-cache</module> <!--缓存模块，暂时没用-->
+        <module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用-->
+        <module>jeedcp-job</module><!--分布式任务模块，暂时没用-->
 
-        <!--<module>jeedcp-weixin</module>-->
-        <module>jeedcp-report</module>
-        <module>jeedcp-pay</module>
-        <module>jeedcp-cas-webapp</module>
-        <module>jeedcp-act-core</module>
-        <module>jeedcp-act</module>
-        <module>jeedcp-oa</module>
-        <module>jeedcp-sys-webapp-tagtld</module>
-        <module>jeedcp-sys-webapp-security-cas</module>
-        <module>jeedcp-sys-entity</module>
-        <module>jeedcp-sys-dao</module>
-        <module>jeedcp-sys-service</module>
-        <module>jeedcp-job</module>
-        <module>jeedcp-base-webapp-support</module>
-        <module>jeedcp-base-webapp-static</module>
-        <module>jeedcp-base-webapp-static-frontend</module>
-        <module>jeedcp-base-webapp-commonjsp</module>
-        <module>jeedcp-sys-webapp</module>
-        <module>jeedcp-sys-dao-xml</module>
-        <!--<module>jeedcp-mobile-api</module>-->
     </modules>
     <dependencyManagement>
     <dependencies>
