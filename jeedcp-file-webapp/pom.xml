@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jeedcp-file-web</artifactId>
+    <artifactId>jeedcp-file-webapp</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
