@@ -70,36 +70,32 @@
 
 
         <!--<module>jeedcp-api</module>-->
-        <module>jeedcp-gen</module>
+
         <module>jeedcp-test</module>
         <module>jeedcp-message</module>
-        <module>jeedcp-log</module>
         <module>jeedcp-config</module>
         <module>jeedcp-mq</module>
         <!--<module>jeedcp-cache</module>-->
-        <module>jeedcp-sso-server</module>
-        <module>jeedcp-admin</module>
-        <module>jeedcp-weixin</module>
+
+        <!--<module>jeedcp-weixin</module>-->
         <module>jeedcp-report</module>
         <module>jeedcp-pay</module>
-
+        <module>jeedcp-cas-webapp</module>
         <module>jeedcp-act-core</module>
         <module>jeedcp-act</module>
         <module>jeedcp-oa</module>
-
+        <module>jeedcp-sys-webapp-tagtld</module>
+        <module>jeedcp-sys-webapp-security-cas</module>
+        <module>jeedcp-sys-entity</module>
+        <module>jeedcp-sys-dao</module>
+        <module>jeedcp-sys-service</module>
+        <module>jeedcp-job</module>
         <module>jeedcp-base-webapp-support</module>
         <module>jeedcp-base-webapp-static</module>
         <module>jeedcp-base-webapp-static-frontend</module>
         <module>jeedcp-base-webapp-commonjsp</module>
         <module>jeedcp-sys-webapp</module>
-        <module>jeedcp-sys-entity</module>
-        <module>jeedcp-sys-dao</module>
         <module>jeedcp-sys-dao-xml</module>
-        <module>jeedcp-sys-service</module>
-
-        <module>jeedcp-sys-webapp-tagtld</module>
-        <module>jeedcp-sys-webapp-security-cas</module>
-        <module>jeedcp-job</module>
         <!--<module>jeedcp-mobile-api</module>-->
     </modules>
     <dependencyManagement>

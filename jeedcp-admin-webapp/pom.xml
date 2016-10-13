@@ -32,7 +32,11 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-base-service</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-act</artifactId>
+            <type>war</type>
+        </dependency>
 
         <!--<dependency>-->
             <!--<groupId>com.dcp.jeedcp</groupId>-->
