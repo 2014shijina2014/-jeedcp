@@ -92,7 +92,7 @@
 		<module>jeedcp-test</module> <!--单元测试支持 -->
 		<module>jeedcp-file-core</module> <!--阿里oss操作核心库 -->
 		<module>jeedcp-file-webapp</module> <!--阿里oss操作web -->
-		<module>jeedcp-api-webapp</module> <!--对外接口模块,支持摘要 -->
+		<!--<module>jeedcp-api-webapp</module> &lt;!&ndash;对外接口模块,支持摘要 &ndash;&gt;-->
 
 		<!--以下几个模块尚未实现 -->
 		<module>jeedcp-report</module><!--easy report模块 -->
