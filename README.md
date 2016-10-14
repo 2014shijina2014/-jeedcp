@@ -58,29 +58,50 @@ Jeedcp 技术点总结:
 即将推出功能：分布式部署，云平台，移动平台开发，规则引擎
 要求JDK1.6+
 
-
 项目说明
-jeedcp-base-common 主要是一些基础的数据结构和工具类。
-jeedcp-api 适用于开发对外接口项目，无需关心接口验证，它让开发者不在关心接口验证,只需要关注自身业务代码即可.
-jeedcp-auth  安全方面的API 如果用户信息，授权等。
-jeedcp-core-static 前端html公共页，js ,css.会采用nginx做反向代理
-jeedcp-gen 代码生成模块
-jeedcp-file-web 图片服务器操作模块
-jeedcp-base-util 工具类模块
-jeedcp-base-service 服务模块，所有(基本逻辑服务)、资源(数据库)层操作只能通过数据服务进行访问，组合服务可以调用数据服务、组合服务、流程服务；流程服务可以调用数据服务、组合服务、流程服务；前端可以调用数据服务、组合服务、流程服务；
-jeedcp-exception 异常模块
-jeedcp-domain 模型模块 所有查询结果必需继承实现 com.jeedcp.common.persistence.DataEntity
-jeedcp-cache 缓存模块，实现了memcache和redis封装
-jeedcp-pay 支付模块（包含微信支付和支付宝支付SDK）
-jeedcp-report 在线配置报表模块，支持编辑SQL直接生成报表表格，含导出excel功能，可以随意切换表格和图表，图表采用echarts
-jeedcp-mq  消息队列模块，所有平台相关模块要使用消息队列时必需遵从这个mq模块标准，配置必需采用动态加载，当网络出现闪断时必需重连接；
-jeedcp-weixin 微信模块
-jeedcp-job 分布式任务调度模块
-jeedcp-log 遵从log4j，目前实现是logback，对logback，对slf4j进行了封装，所有log配置都是采用logback， 所有模块的日志文件必需包含错误与信息两个文件。未来会用mongo记录log内容
-jeedcp-sso-server 基于shiro的sso服务端，待实现
-jeedcp-sso-client 基于shiro的sso客户端，待实现
-jeedcp-test 单元测试框架，待实现
-jeedcp-message 消息模块，包含阿里短信，jpush模块，websocket推送
+	<!--以下几个模块属于基础模块，所有业务系统必须依赖 -->
+		<module>jeedcp-base-common</module>        <!--框架技术类库 -->
+		<module>jeedcp-base-persistence-nosql</module> <!--MongoDB支持 -->
+		<module>jeedcp-base-persistence-sql</module> <!--mysql等关系数据库支持 -->
+		<module>jeedcp-base-service</module> <!--service层基础类和异常 -->
+		<module>jeedcp-base-webapp-support</module> <!--基础webapp支持 -->
+		<module>jeedcp-base-webapp-static</module> <!--前端静态类库，后台管理系统使用 -->
+		<module>jeedcp-base-webapp-static-frontend</module> <!--前端打包类 -->
+		<module>jeedcp-base-webapp-commonjsp</module> <!--共用jsp，大部分为管理系统使用 -->
+
+		<!--以下几个模块属于系统模块，所有业务系统必须依赖 -->
+		<module>jeedcp-sys-webapp-tagtld</module><!-- 基础tag and tld -->
+		<module>jeedcp-sys-webapp-security-cas</module> <!-- cas client -->
+		<module>jeedcp-sys-entity</module> <!-- 系统管理entity -->
+		<module>jeedcp-sys-dao</module><!-- 系统管理dao -->
+		<module>jeedcp-sys-service</module> <!-- 系统管理 service -->
+		<module>jeedcp-sys-webapp</module> <!-- 系统管理 View -->
+		<module>jeedcp-sys-dao-xml</module><!-- 系统管理dao xml -->
+		<module>jeedcp-cas-webapp</module> <!-- cas server -->
+
+		<module>jeedcp-admin-webapp</module>        <!--管理平台 -->
+
+		<!--以下几个模块属于可选模块，按照自己需要进行选择 -->
+		<module>jeedcp-act-core</module> <!--流程引擎核心模块 -->
+		<module>jeedcp-act-webapp</module> <!--流程引擎前台展示webapp -->
+		<module>jeedcp-oa-webapp</module> <!--OA前台展示webapp -->
+		<module>jeedcp-gen-webapp</module> <!--代码生成模块 -->
+		<module>jeedcp-log-webapp</module> <!--日志模块 -->
+		<module>jeedcp-weixin-webapp</module><!--微信操作模块，支持公众号，包括管理平台 -->
+		<module>jeedcp-mobile-webapp</module><!--mobile服务端模块。支持token，验证码等 -->
+		<module>jeedcp-test</module> <!--单元测试支持 -->
+		<module>jeedcp-file-core</module> <!--阿里oss操作核心库 -->
+		<module>jeedcp-file-webapp</module> <!--阿里oss操作web -->
+		<!--<module>jeedcp-api-webapp</module> &lt;!&ndash;对外接口模块,支持摘要 &ndash;&gt;-->
+
+		<!--以下几个模块尚未实现 -->
+		<module>jeedcp-report</module><!--easy report模块 -->
+		<module>jeedcp-message</module> <!--消息模块，暂时没用 -->
+		<module>jeedcp-config</module> <!--公共配置模块，暂时没用 -->
+		<module>jeedcp-mq</module> <!--阿里MQ操作模块，暂时没用 -->
+		<module>jeedcp-cache</module> <!--缓存模块，暂时没用 -->
+		<module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用 -->
+		<module>jeedcp-job</module><!--分布式任务模块，暂时没用 -->
 
 系统截图
 ![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161010215626.png)
