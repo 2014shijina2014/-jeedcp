@@ -58,51 +58,8 @@ Jeedcp 技术点总结:
 即将推出功能：分布式部署，云平台，移动平台开发，规则引擎
 要求JDK1.6+
 
-项目说明
-	    <!--以下几个模块属于基础模块，所有业务系统必须依赖 -->
-		<module>jeedcp-base-common</module>        <!--框架技术类库 -->
-		<module>jeedcp-base-persistence-nosql</module> <!--MongoDB支持 -->
-		<module>jeedcp-base-persistence-sql</module> <!--mysql等关系数据库支持 -->
-		<module>jeedcp-base-service</module> <!--service层基础类和异常 -->
-		<module>jeedcp-base-webapp-support</module> <!--基础webapp支持 -->
-		<module>jeedcp-base-webapp-static</module> <!--前端静态类库，后台管理系统使用 -->
-		<module>jeedcp-base-webapp-static-frontend</module> <!--前端打包类 -->
-		<module>jeedcp-base-webapp-commonjsp</module> <!--共用jsp，大部分为管理系统使用 -->
-
-		<!--以下几个模块属于系统模块，所有业务系统必须依赖 -->
-		<module>jeedcp-sys-webapp-tagtld</module><!-- 基础tag and tld -->
-		<module>jeedcp-sys-webapp-security-cas</module> <!-- cas client -->
-		<module>jeedcp-sys-entity</module> <!-- 系统管理entity -->
-		<module>jeedcp-sys-dao</module><!-- 系统管理dao -->
-		<module>jeedcp-sys-service</module> <!-- 系统管理 service -->
-		<module>jeedcp-sys-webapp</module> <!-- 系统管理 View -->
-		<module>jeedcp-sys-dao-xml</module><!-- 系统管理dao xml -->
-		<module>jeedcp-cas-webapp</module> <!-- cas server -->
-
-		<module>jeedcp-admin-webapp</module>        <!--管理平台 -->
-
-		<!--以下几个模块属于可选模块，按照自己需要进行选择 -->
-		<module>jeedcp-act-core</module> <!--流程引擎核心模块 -->
-		<module>jeedcp-act-webapp</module> <!--流程引擎前台展示webapp -->
-		<module>jeedcp-oa-webapp</module> <!--OA前台展示webapp -->
-		<module>jeedcp-gen-webapp</module> <!--代码生成模块 -->
-		<module>jeedcp-log-webapp</module> <!--日志模块 -->
-		<module>jeedcp-weixin-webapp</module><!--微信操作模块，支持公众号，包括管理平台 -->
-		<module>jeedcp-mobile-webapp</module><!--mobile服务端模块。支持token，验证码等 -->
-		<module>jeedcp-test</module> <!--单元测试支持 -->
-		<module>jeedcp-file-core</module> <!--阿里oss操作核心库 -->
-		<module>jeedcp-file-webapp</module> <!--阿里oss操作web -->
-		<!--<module>jeedcp-api-webapp</module> &lt;!&ndash;对外接口模块,支持摘要 &ndash;&gt;-->
-
-		<!--以下几个模块尚未实现 -->
-		<module>jeedcp-report</module><!--easy report模块 -->
-		<module>jeedcp-message</module> <!--消息模块，暂时没用 -->
-		<module>jeedcp-config</module> <!--公共配置模块，暂时没用 -->
-		<module>jeedcp-mq</module> <!--阿里MQ操作模块，暂时没用 -->
-		<module>jeedcp-cache</module> <!--缓存模块，暂时没用 -->
-		<module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用 -->
-		<module>jeedcp-job</module><!--分布式任务模块，暂时没用 -->
-
+项目包结构说明
+![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/jeedcp-package%281%29.png)
 系统截图
 ![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161010215626.png)
 ![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092027.png)
