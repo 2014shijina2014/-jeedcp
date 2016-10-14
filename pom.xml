@@ -14,7 +14,6 @@
 		<dcp.jeedcp.groupId>com.dcp.jeedcp</dcp.jeedcp.groupId>
 		<dcp.jeedcp.version>1.0.0-SNAPSHOT</dcp.jeedcp.version>
 		<dcp.jeedcp.inceptionYear>2014-2016</dcp.jeedcp.inceptionYear>
-
 		<validator-api.version>1.1.0.Final</validator-api.version>
 		<!--mongodb -->
 		<mongo-java-driver.verison>2.13.0</mongo-java-driver.verison>
@@ -126,7 +125,30 @@
 				<version>${dcp.jeedcp.version}</version>
 				<type>war</type>
 			</dependency>
-
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId> jeedcp-gen-webapp</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId> jeedcp-oa-webapp</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId> jeedcp-act-webapp</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId> jeedcp-log-webapp</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>war</type>
+			</dependency>
 			<dependency>
 				<groupId>${dcp.jeedcp.groupId}</groupId>
 				<artifactId>jeedcp-sys-webapp-security-cas</artifactId>

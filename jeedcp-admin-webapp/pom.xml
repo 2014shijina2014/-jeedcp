@@ -31,14 +31,9 @@
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-act</artifactId>
+            <artifactId>jeedcp-act-webapp</artifactId>
             <type>war</type>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>com.dcp.jeedcp</groupId>-->
-            <!--<artifactId>jeedcp-test</artifactId>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
@@ -93,14 +88,14 @@
 
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-log</artifactId>
+            <artifactId>jeedcp-log-webapp</artifactId>
             <type>war</type>
         </dependency>
 
 
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
-            <artifactId>jeedcp-gen</artifactId>
+            <artifactId>jeedcp-gen-webapp</artifactId>
             <type>war</type>
         </dependency>
 
