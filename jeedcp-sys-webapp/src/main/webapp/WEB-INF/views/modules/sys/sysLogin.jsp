@@ -228,7 +228,8 @@
 						<div class="login-container">
 							
 							<div class="center">
-								<h1>
+								<h1 style="    color: white;
+    font-size: 48px;">
 									<br/>
 									Jeedcp平台
 									<br>
