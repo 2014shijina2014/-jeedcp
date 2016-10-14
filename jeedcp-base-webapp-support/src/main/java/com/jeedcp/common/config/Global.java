@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * 全局配置类
- * @author Zach Xu
+ * @author
  * @version 2014-06-25
  */
 public class Global {
