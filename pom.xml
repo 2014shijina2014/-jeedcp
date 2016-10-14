@@ -80,6 +80,8 @@
 		<module>jeedcp-cas-webapp</module> <!-- cas server -->
 
 		<module>jeedcp-admin-webapp</module>        <!--管理平台 -->
+		<module>jeedcp-nc-webapp</module><!--无需SSO的演示平台-->
+
 
 		<!--以下几个模块属于可选模块，按照自己需要进行选择 -->
 		<module>jeedcp-act-core</module> <!--流程引擎核心模块 -->
@@ -102,7 +104,7 @@
 		<module>jeedcp-cache</module> <!--缓存模块，暂时没用 -->
 		<module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用 -->
 		<module>jeedcp-job</module><!--分布式任务模块，暂时没用 -->
-		<module>jeedcp-nc-webapp</module>
+
 	</modules>
 	<dependencyManagement>
 		<dependencies>
