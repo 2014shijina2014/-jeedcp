@@ -19,27 +19,46 @@
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-base-common</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-dao</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-entity</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-service</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
         </dependency>
     </dependencies>
+     <!--  打包时把resources下包内的XML配置文件也包含 -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+      <pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+    </build>
 </project>

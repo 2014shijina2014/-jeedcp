@@ -10,7 +10,6 @@
     </parent>
 
 	<artifactId>jeedcp-sys-entity</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>jeedcp-sys-entity</name>
