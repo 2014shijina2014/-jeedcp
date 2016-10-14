@@ -111,6 +111,11 @@ Jeedcp 技术点总结:
 ![alt text](http://7xsfg6.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161011092130.png)
 
 
+安装使用说明：
+1：初始化数据库：导入工程目录下doc文件db文件的jeesite_mysql.sql文件
+2：在根目录下执行 mvn clean install命令
+3：部署到tomcat中
+
 如何交流、反馈、参与贡献？
 Jeedcp技术交流群qq 139910463
 
