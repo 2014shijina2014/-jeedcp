@@ -230,7 +230,7 @@
 							<div class="center">
 								<h1>
 									<br/>
-									<img src="${ctxStatic }/common/login/images/logo.png" style="width:280px">
+									Jeedcp平台
 									<br>
 								</h1>
 								
