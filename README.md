@@ -59,7 +59,7 @@ Jeedcp 技术点总结:
 要求JDK1.6+
 
 项目说明
-	<!--以下几个模块属于基础模块，所有业务系统必须依赖 -->
+	    <!--以下几个模块属于基础模块，所有业务系统必须依赖 -->
 		<module>jeedcp-base-common</module>        <!--框架技术类库 -->
 		<module>jeedcp-base-persistence-nosql</module> <!--MongoDB支持 -->
 		<module>jeedcp-base-persistence-sql</module> <!--mysql等关系数据库支持 -->
