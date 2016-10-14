@@ -39,7 +39,7 @@ public class ErrorFactory {
         setErrorMessageSourceAccessor(messageSourceAccessor);
     }
 
-    public static java.lang.Error getError(ErrorType errorType, Locale locale, Object... params) {
+    public static ErrorImpl getError(ErrorType errorType, Locale locale, Object... params) {
         String errorMessage = getErrorMessage(ERROR_CODE_PREFIX + errorType.value(),locale,params);
         return new ErrorImpl(errorType.value(), errorMessage);
     }
