@@ -8,6 +8,7 @@ import com.github.pagehelper.PageHelper;
 import com.jeedcp.common.cache.EhCacheServiceBean;
 import com.jeedcp.common.persistence.Pagination;
 import com.jeedcp.common.security.Digests;
+import com.jeedcp.common.security.shiro.session.SessionDAO;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.service.ServiceException;
 import com.jeedcp.common.utils.Encodes;
@@ -23,7 +24,6 @@ import com.jeedcp.modules.sys.entity.User;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import com.jeedcp.modules.sys.utils.DataFilterUtils;
 
-import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

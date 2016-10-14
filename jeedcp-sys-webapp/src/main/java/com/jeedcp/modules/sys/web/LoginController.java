@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jeedcp.common.cache.EhCacheServiceBean;
 import com.jeedcp.common.config.Constants;
 import com.jeedcp.common.config.Global;
+import com.jeedcp.common.security.FormAuthenticationFilter;
 import com.jeedcp.common.security.Principal;
 import com.jeedcp.common.security.shiro.session.SessionDAO;
 import com.jeedcp.common.servlet.ValidateCodeServlet;
@@ -63,6 +64,28 @@ public class LoginController extends BaseController {
 
 
 	/**
+	 * 管理登录
+	 */
+	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.GET)
+	public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Principal principal = CurrentUserUtils.getPrincipal();
+
+		if (logger.isDebugEnabled()){
+			logger.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
+		}
+
+		// 如果已登录，再次访问主页，则退出原账号。
+		if (Constants.TRUE.equals(Global.getConfig("notAllowRefreshIndex"))){
+			CookieUtils.setCookie(response, "LOGINED", "false");
+		}
+
+		// 如果已经登录，则跳转到管理首页
+		if(principal != null && !principal.isMobileLogin()){
+			return "redirect:" + adminPath;
+		}
+		return "modules/sys/sysLogin";
+	}
+	/**
 	 * 登录成功，进入管理首页
 	 */
 	@RequiresPermissions("user")
@@ -104,7 +127,50 @@ public class LoginController extends BaseController {
 
 		return "modules/sys/sysIndex";
 	}
+	/**
+	 * 登录失败，真正登录的POST请求由Filter完成
+	 */
+	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.POST)
+	public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) {
+		Principal principal = CurrentUserUtils.getPrincipal();
 
+		// 如果已经登录，则跳转到管理首页
+		if(principal != null){
+			return "redirect:" + adminPath;
+		}
+
+		String username = WebUtils.getCleanParam(request, FormAuthenticationFilter.DEFAULT_USERNAME_PARAM);
+		boolean rememberMe = WebUtils.isTrue(request, FormAuthenticationFilter.DEFAULT_REMEMBER_ME_PARAM);
+		boolean mobile = WebUtils.isTrue(request, FormAuthenticationFilter.DEFAULT_MOBILE_PARAM);
+		String exception = (String)request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
+		String message = (String)request.getAttribute(FormAuthenticationFilter.DEFAULT_MESSAGE_PARAM);
+
+		if (StringUtils.isBlank(message) || StringUtils.equals(message, "null")){
+			message = "用户或密码错误, 请重试.";
+		}
+
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_REMEMBER_ME_PARAM, rememberMe);
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_MOBILE_PARAM, mobile);
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, exception);
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_MESSAGE_PARAM, message);
+
+		if (logger.isDebugEnabled()){
+			logger.debug("login fail, active session size: {}, message: {}, exception: {}",
+					sessionDAO.getActiveSessions(false).size(), message, exception);
+		}
+
+
+		// 验证失败清空验证码
+		request.getSession().setAttribute(ValidateCodeServlet.VALIDATE_CODE, IdGen.uuid());
+
+		// 如果是手机登录，则返回JSON字符串
+		if (mobile){
+			return renderString(response, model);
+		}
+
+		return "modules/sys/sysLogin";
+	}
 	/**
 	 * 获取主题方案
 	 */

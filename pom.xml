@@ -102,7 +102,7 @@
 		<module>jeedcp-cache</module> <!--缓存模块，暂时没用 -->
 		<module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用 -->
 		<module>jeedcp-job</module><!--分布式任务模块，暂时没用 -->
-
+		<module>jeedcp-nc-webapp</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
