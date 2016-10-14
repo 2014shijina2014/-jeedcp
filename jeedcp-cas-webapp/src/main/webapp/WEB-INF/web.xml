@@ -21,8 +21,8 @@
 -->
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-         version="2.4">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd"
+         version="3.0">
   <display-name>Central Authentication System (CAS) ${project.version}</display-name>
 
   <context-param>
@@ -34,45 +34,11 @@
   </context-param>
 
   <filter>
-    <filter-name>characterEncodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>characterEncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-  <filter>
     <filter-name>CAS Client Info Logging Filter</filter-name>
     <filter-class>com.github.inspektr.common.web.ClientInfoThreadLocalFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>CAS Client Info Logging Filter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-  <filter>
-    <filter-name>requestParameterSecurityFilter</filter-name>
-    <filter-class>org.jasig.cas.security.RequestParameterPolicyEnforcementFilter</filter-class>
-    <init-param>
-      <param-name>parametersToCheck</param-name>
-      <param-value>ticket service renew gateway warn target SAMLart pgtUrl pgt pgtId pgtIou targetService</param-value>
-    </init-param>
-    <init-param>
-      <param-name>charactersToForbid</param-name>
-      <param-value>none</param-value>
-    </init-param>
-    <init-param>
-      <param-name>allowMultiValuedParameters</param-name>
-      <param-value>false</param-value>
-    </init-param>
-    <init-param>
-      <param-name>onlyPostParameters</param-name>
-      <param-value>username password</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>requestParameterSecurityFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
@@ -87,6 +53,15 @@
   <filter-mapping>
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/statistics</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
 
   <!--
@@ -122,41 +97,6 @@
     - If you'd like these errors to result in all requests for CAS getting a "CAS is Unavailable" response,
     - use org.jasig.cas.web.init.SafeDispatcherServlet
   -->
-
-  <!--Kaptcha-->
-  <servlet>
-    <servlet-name>Kaptcha</servlet-name>
-    <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
-    <!-- ? -->
-    <init-param>
-      <param-name>kaptcha.image.width</param-name>
-      <param-value>160</param-value>
-    </init-param>
-    <!-- ? -->
-    <init-param>
-      <param-name>kaptcha.image.height</param-name>
-      <param-value>50</param-value>
-    </init-param>
-    <!-- ????? -->
-    <init-param>
-      <param-name>kaptcha.textproducer.char.string</param-name>
-      <!-- ???-->
-      <param-value>1</param-value>
-      <!-- ??1?0?I?i?O?o-->
-      <!--<param-value>23456789ABCDEFGHJKMNPQRSTUVWXYabcdefghjkmnpqrstuvwxy</param-value>-->
-    </init-param>
-    <!-- noise?? -->
-    <!--<init-param>-->
-      <!--<param-name>kaptcha.noise.impl</param-name>-->
-      <!--<param-value>com.google.code.kaptcha.impl.NoNoise </param-value>-->
-    <!--</init-param>-->
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Kaptcha</servlet-name>
-    <url-pattern>/captcha.jpg</url-pattern>
-  </servlet-mapping>
-
-
   <servlet>
     <servlet-name>cas</servlet-name>
     <servlet-class>
@@ -229,6 +169,20 @@
     <url-pattern>/authorizationFailure.html</url-pattern>
   </servlet-mapping>
 
+	<!-- DruidStatView -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+		<init-param>
+			<param-name>allow</param-name>
+			<param-value>127.0.0.1</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+	
   <session-config>
     <!-- Default to 5 minute session timeouts -->
     <session-timeout>5</session-timeout>

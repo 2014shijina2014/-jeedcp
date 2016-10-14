@@ -27,12 +27,9 @@
 		Defines the cookie that stores the TicketGrantingTicket.  You most likely should never modify these (especially the "secure" property).
 		You can change the name if you want to make it harder for people to guess.
 	</description>
-
-    <bean id="ticketGrantingTicketCookieGenerator" class="org.jasig.cas.web.support.CookieRetrievingCookieGenerator"
-          p:cookieSecure="false"
-          p:cookieMaxAge="-1"
-          p:rememberMeMaxAge="${rememberMeDuration:1209600}"
-          p:cookieName="CASTGC"
-          p:cookiePath="/cas"
-            />
+	<bean id="ticketGrantingTicketCookieGenerator" class="org.jasig.cas.web.support.CookieRetrievingCookieGenerator"
+		p:cookieSecure="false"
+		p:cookieMaxAge="-1"
+		p:cookieName="CASTGC"
+		p:cookiePath="/cas" />
 </beans>

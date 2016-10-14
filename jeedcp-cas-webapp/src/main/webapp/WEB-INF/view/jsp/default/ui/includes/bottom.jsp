@@ -30,15 +30,15 @@
       </footer>
 
     </div> <!-- END #container -->
-
-    <script type="text/javascript" src="<c:url value="/js/jquery.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/js/jquery-ui.min.js"/>"></script>
+    
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jqueryui/1.10.2/jquery-ui.min.js"></script>
     
     <%-- 
         JavaScript Debug: A simple wrapper for console.log 
         See this link for more info: http://benalman.com/projects/javascript-debug-console-log/
     --%>
-    <%--<script type="text/javascript" src="https://github.com/cowboy/javascript-debug/raw/master/ba-debug.min.js"></script>--%>
+    <script type="text/javascript" src="https://github.com/cowboy/javascript-debug/raw/master/ba-debug.min.js"></script>
     
     <spring:theme code="cas.javascript.file" var="casJavascriptFile" text="" />
     <script type="text/javascript" src="<c:url value="${casJavascriptFile}" />"></script>

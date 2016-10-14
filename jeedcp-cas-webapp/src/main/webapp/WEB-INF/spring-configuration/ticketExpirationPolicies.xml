@@ -41,32 +41,7 @@
 
     <!-- TicketGrantingTicketExpirationPolicy: Default as of 3.5 -->
     <!-- Provides both idle and hard timeouts, for instance 2 hour sliding window with an 8 hour max lifetime -->
-    <!-- 不使用remember me-->
-    <!--<bean id="grantingTicketExpirationPolicy" class="org.jasig.cas.ticket.support.TicketGrantingTicketExpirationPolicy"
-          p:maxTimeToLiveInSeconds="${tgt.maxTimeToLiveInSeconds:28800}"
-          p:timeToKillInSeconds="${tgt.timeToKillInSeconds:7200}"/>-->
-
-    <!-- 使用remember me-->
-    <bean id="grantingTicketExpirationPolicy"
-          class="org.jasig.cas.ticket.support.RememberMeDelegatingExpirationPolicy"
-          p:sessionExpirationPolicy-ref="standardSessionTGTExpirationPolicy"
-          p:rememberMeExpirationPolicy-ref="longTermSessionTGTExpirationPolicy" />
-    <!--
-   | The following policy applies to standard CAS SSO sessions.
-   | Default 2h (7200s) sliding expiration with default 8h (28800s) maximum lifetime.
-   -->
-    <bean id="standardSessionTGTExpirationPolicy"
-          class="org.jasig.cas.ticket.support.TicketGrantingTicketExpirationPolicy"
+    <bean id="grantingTicketExpirationPolicy" class="org.jasig.cas.ticket.support.TicketGrantingTicketExpirationPolicy"
           p:maxTimeToLiveInSeconds="${tgt.maxTimeToLiveInSeconds:28800}"
           p:timeToKillInSeconds="${tgt.timeToKillInSeconds:7200}"/>
-
-    <!--
-       | The following policy applies to long term CAS SSO sessions.
-       | Default duration is two weeks (1209600s).
-       -->
-    <bean id="longTermSessionTGTExpirationPolicy"
-          class="org.jasig.cas.ticket.support.TimeoutExpirationPolicy"
-          c:timeToKillInMilliSeconds="#{ ${rememberMeDuration:1209600} * 1000 }" />
-
-
 </beans>
