@@ -162,7 +162,7 @@ public class LoginController extends BaseController {
 
 
 		// 验证失败清空验证码
-		request.getSession().setAttribute(ValidateCodeServlet.VALIDATE_CODE, IdGen.uuid());
+		//request.getSession().setAttribute(ValidateCodeServlet.VALIDATE_CODE, IdUtils.uuid());
 
 		// 如果是手机登录，则返回JSON字符串
 		if (mobile){
