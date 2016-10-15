@@ -1,6 +1,5 @@
 package com.jeedcp.services.support;
 
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -30,9 +29,9 @@ public class AccoutAttributeDao extends StubPersonAttributeDao {
     @Override
     public IPersonAttributes getPerson(String loginName) {
         String sql = "";
-        if (loginName.length()==11&&LoginNameUtils.isMobile(loginName)) {  // 如果是手机号
+        if (loginName.length()==11&&LoginNameUtils.isMobile(loginName)) {
             sql = "select * from sys_user where mobile=? and del_flag=0";
-        } else if(LoginNameUtils.isEmail(loginName)){// 如果是邮箱
+        } else if(LoginNameUtils.isEmail(loginName)){
             sql = "select * from sys_user where email=? and del_flag=0";
         }else {
             sql = "select * from sys_user where login_name=? and del_flag=0";
@@ -46,4 +45,3 @@ public class AccoutAttributeDao extends StubPersonAttributeDao {
         return new AttributeNamedPersonImpl(attributes);
     }
 }
-

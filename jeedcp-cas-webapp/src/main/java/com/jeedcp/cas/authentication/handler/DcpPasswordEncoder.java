@@ -65,5 +65,4 @@ public class DcpPasswordEncoder implements PasswordEncoder{
             throw new RuntimeException();
         }
     }
-
 }

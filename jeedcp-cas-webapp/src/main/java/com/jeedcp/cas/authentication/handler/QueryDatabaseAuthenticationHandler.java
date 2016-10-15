@@ -39,9 +39,9 @@ public class QueryDatabaseAuthenticationHandler extends AbstractJdbcUsernamePass
         final String username = credential.getUsername();
         try {
             final Map<String, Object> queryMap;
-            if (username.length()==11&&LoginNameUtils.isMobile(username)) {  // 如果是手机号
+            if (username.length()==11&&LoginNameUtils.isMobile(username)) {
                 queryMap=getJdbcTemplate().queryForMap(this.sqlTel, username);
-            } else if(LoginNameUtils.isMobile(username)){// 如果是邮箱
+            } else if(LoginNameUtils.isMobile(username)){
                 queryMap=getJdbcTemplate().queryForMap(this.sqlEmail, username);
             }else {
                 queryMap=getJdbcTemplate().queryForMap(this.sql, username);
@@ -81,4 +81,3 @@ public class QueryDatabaseAuthenticationHandler extends AbstractJdbcUsernamePass
         this.sqlEmail = sqlEmail;
     }
 }
-
