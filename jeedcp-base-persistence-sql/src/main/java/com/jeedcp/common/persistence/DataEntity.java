@@ -5,8 +5,6 @@ package com.jeedcp.common.persistence;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jeedcp.common.utils.IdGen;
-import com.jeedcp.common.utils.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
