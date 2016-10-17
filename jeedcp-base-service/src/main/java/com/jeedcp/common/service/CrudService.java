@@ -3,11 +3,9 @@
  */
 package com.jeedcp.common.service;
 
-import com.github.pagehelper.PageHelper;
-
 import com.jeedcp.common.persistence.CrudDao;
 import com.jeedcp.common.persistence.DataEntity;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.IdUtils;
 import com.jeedcp.common.utils.PrincipalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,12 +61,10 @@ public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<T>>
 	 * @param entity
 	 * @return
 	 */
-	public Pagination<T> findPage(Pagination<T> page, T entity) {
-//		entity.setPage(page);
-        PageHelper.startPage(page.getPageNum(),page.getPageSize());
+	public Page<T> findPage(Page<T> page, T entity) {
         List<T> list = dao.findList(entity);
-        //用PageInfo对结果进行包装
-        Pagination pageInfo = new Pagination(list);
+        Page pageInfo = new Page();
+		pageInfo.setList(list);
         return pageInfo;
 	}
 

@@ -6,7 +6,7 @@ package com.jeedcp.modules.gen.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.gen.entity.GenTemplate;
@@ -53,7 +53,7 @@ public class GenTemplateController extends BaseController {
 		if (!user.isAdmin()){
 			genTemplate.setCreateBy(user.getId());
 		}
-        Pagination<GenTemplate> page = genTemplateService.find(new Pagination<GenTemplate>(request, response), genTemplate);
+        Page<GenTemplate> page = genTemplateService.find(new Page<GenTemplate>(request, response), genTemplate);
         model.addAttribute("page", page);
 		return "modules/gen/genTemplateList";
 	}

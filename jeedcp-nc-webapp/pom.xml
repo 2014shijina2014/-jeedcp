@@ -33,12 +33,16 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-base-webapp-support</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.dcp.jeedcp</groupId>-->
-            <!--<artifactId>jeedcp-act-webapp</artifactId>-->
-            <!--<type>war</type>-->
-        <!--</dependency>-->
-
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-act-webapp</artifactId>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-cms-webapp</artifactId>
+            <type>war</type>
+        </dependency>
         <dependency>
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-base-webapp-commonjsp</artifactId>
@@ -86,11 +90,17 @@
         <!--</dependency>-->
 
 
-        <!--<dependency>-->
-            <!--<groupId>com.dcp.jeedcp</groupId>-->
-            <!--<artifactId>jeedcp-gen-webapp</artifactId>-->
-            <!--<type>war</type>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-gen-webapp</artifactId>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-oa-webapp</artifactId>
+            <type>war</type>
+        </dependency>
 
         <!--&lt;!&ndash; SPRING begin &ndash;&gt;-->
         <dependency>

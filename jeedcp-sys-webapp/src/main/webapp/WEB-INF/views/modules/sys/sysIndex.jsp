@@ -1,310 +1,359 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/WEB-INF/views/include/taglib.jsp"%>
-
-<!DOCTYPE html>
+<%@ include file="/WEB-INF/views/include/taglib.jsp" %>
 <html>
-
 <head>
+    <c:set var="tabmode" value="${empty cookie.tabmode.value ? '1' : cookie.tabmode.value}"/>
+    <c:if test="${tabmode eq '1'}">
+        <%--<link rel="Stylesheet" href="${ctxStatic}/jerichotab/css/jquery.jerichotab.css"/>--%>
+        <%--<script type="text/javascript" src="${ctxStatic}/jerichotab/js/jquery.jerichotab.js"></script>--%>
+    </c:if>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit">
-    <title>Jeedcp</title>
-
-	<%@ include file="/WEB-INF/views/include/head.jsp"%>
-	<script src="${ctxStatic}/common/inspinia.js?v=3.2.0"></script>
-	<script src="${ctxStatic}/common/contabs.js"></script> 
-    <meta name="keywords" content="JeePlus快速开发平台">
-    <meta name="description" content="Jeedcp，采用spring mvc+mybatis+shiro+bootstrap，集成代码生成器的快速开发平台">
-    <script type="text/javascript">
-	$(document).ready(function() {
-		 if('${fns:getDictLabel(cookie.theme.value,'theme','默认主题')}' == '天蓝主题'){
-			    // 蓝色主题
-			        $("body").removeClass("skin-2");
-			        $("body").removeClass("skin-3");
-			        $("body").addClass("skin-1");
-		 }else  if('${fns:getDictLabel(cookie.theme.value,'theme','默认主题')}' == '橙色主题'){
-			    // 黄色主题
-			        $("body").removeClass("skin-1");
-			        $("body").removeClass("skin-2");
-			        $("body").addClass("skin-3");
-		 }else {
-			 // 默认主题
-			        $("body").removeClass("skin-2");
-			        $("body").removeClass("skin-3");
-			        $("body").removeClass("skin-1");
-		 };
-	 });
-			
-	</script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=${ctxStatic}edge">
+    <title>${fns:getConfig('productName')}</title>
+    <%@include file="/WEB-INF/views/include/adminlte.jsp" %>
 </head>
 
-<body class="fixed-sidebar full-height-layout gray-bg">
-    <div id="wrapper">
-        <!--左侧导航开始-->
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="nav-close"><i class="fa fa-times-circle"></i>
-            </div>
-            <div class="sidebar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" style="height:64px;width:64px;" src="http://imgsrc.baidu.com/forum/w%3D580/sign=84af50db791ed21b79c92eed9d6eddae/64c3c9177f3e6709ca0684d63fc79f3df8dc555e.jpg" /></span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">${fns:getUser().name}</strong></span>
-                               <span class="text-muted text-xs block">${fns:getUser().roleNames}<b class="caret"></b></span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="${ctx}/sys/user/imageEdit">修改头像</a>
-                                </li>
-                                <li><a class="J_menuItem" href="${ctx }/sys/user/info">个人资料</a>
-                                </li>
-                                <li><a class="J_menuItem" href="${ctx }/iim/contact/index">我的通讯录</a>
-                                </li>
-                                <li><a class="J_menuItem" href="${ctx }/iim/mailBox/list">信箱</a>
-                                </li> 
-                                 <li class="divider"></li>
-                                <li><a onclick="changeStyle()" href="#">切换到ACE模式</a>
-                                </li> 
-                                 
-                                <li class="divider"></li>
-                                <li><a href="${ctx}/logout">安全退出</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="logo-element">JP
-                        </div>
-                    </li>
-     
-                  <t:menu  menu="${fns:getTopMenu()}"></t:menu>
-            
-                 
-             
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
 
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini">${fns:getConfig('productName')}</span>
+            <span class="logo-lg"><b>${fns:getConfig('productName')}</b></span>
+        </a>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+
+            </a>
+
+            <div>
+                <ul class="nav navbar-nav">
+                    <c:set var="firstMenu" value="true"/>
+                    <c:if test="${!empty param.parentId}">
+                        <c:set var="firstMenuId" value="${param.parentId}"/>
+                        <c:set var="firstMenu" value="false"/>
+                    </c:if>
+
+                    <c:forEach items="${fns:getMenuList()}" var="menu" varStatus="idxStatus">
+                        <c:if test="${menu.parent.id eq '1'&&menu.isShow eq '1'}">
+                            <li class=" ${menu.id eq param.parentId ? ' active' : ''}">
+                                <c:if test="${empty menu.href}">
+                                    <a href="?parentId=${menu.id}"
+                                       data-id="${menu.id}">${menu.name}</a>
+                                </c:if>
+                                <c:if test="${not empty menu.href}">
+                                    <a href="${fn:indexOf(menu.href, '://') eq -1 ? ctx : ''}${menu.href}"
+                                       data-id="${menu.id}" target="mainFrame">${menu.name}</a>
+                                </c:if>
+                            </li>
+                            <c:if test="${firstMenu}">
+                                <c:set var="firstMenuId" value="${menu.id}"/>
+                            </c:if>
+                            <c:set var="firstMenu" value="false"/>
+                        </c:if>
+                    </c:forEach>
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+
+
+                   <c:set var="oaNotifyRemindInterval" value="${fns:getConfig('oa.notify.remind.interval')}"/>
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">你有4个消息</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="${ctxStatic}/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                运营团队
+                                                <small><i class="fa fa-clock-o"></i> 5 分钟</small>
+                                            </h4>
+                                            <p>为什么要使用龙果模板?</p>
+                                        </a>
+                                    </li>
+                                    <!-- end message -->
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="${ctxStatic}/adminlte/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                设计团队
+                                                <small><i class="fa fa-clock-o"></i> 2 小时</small>
+                                            </h4>
+                                            <p>为什么要使用龙果模板?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="${ctxStatic}/adminlte/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                开发者
+                                                <small><i class="fa fa-clock-o"></i> 今天</small>
+                                            </h4>
+                                            <p>为什么要使用龙果模板?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="${ctxStatic}/adminlte/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                销售部
+                                                <small><i class="fa fa-clock-o"></i> 昨天</small>
+                                            </h4>
+                                            <p>为什么要使用龙果模板?</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="${ctxStatic}/adminlte/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                            </div>
+                                            <h4>
+                                                测试员
+                                                <small><i class="fa fa-clock-o"></i> 2 天前</small>
+                                            </h4>
+                                            <p>为什么要使用龙果模板?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">查看所有消息</a></li>
+                        </ul>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">你有10个通知</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 今天有 5 人加入
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-warning text-yellow"></i> 很长的描述，可能在这里不适合展示
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-users text-red"></i> 5 新用户
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-shopping-cart text-green"></i> 25 销售额
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-user text-red"></i> 你更改了你的用户名
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">显示全部</a></li>
+                        </ul>
+                    </li>
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <li class="dropdown tasks-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">你有9个任务</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                设计一些按钮
+                                                <small class="pull-right">20%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">20% 完成</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                创造一个好的主题
+                                                <small class="pull-right">40%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">40% 完成</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                使用龙果模板
+                                                <small class="pull-right">60%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">60% 完成</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                活动规则设定
+                                                <small class="pull-right">80%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">80% 完成</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">查看所有任务</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="${ctxStatic}/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <span class="hidden-xs">您好, ${fns:getUser().name}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-header">
+                                <img src="${ctxStatic}/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <p>
+                                    ${fns:getUser().name}
+                                </p>
+                                <div class="text-center col-xs-12">
+                                    <img src="${fns:getUser().photo}"/>
+                                </div>
+
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="col-xs-6 text-center">
+                                    <a href="${ctx}/sys/user/modifyPwd" target="mainFrame">修改密码</a>
+                                </div>
+                                <div class="col-xs-6 text-center">
+                                    <a href="${ctx}/oa/oaNotify/self" target="mainFrame">我的通知</a>
+                                </div>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a class="btn btn-default btn-flat" href="${ctx}/sys/user/info" target="mainFrame">个人信息</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-default btn-flat" href="${ctx}/logout" title="退出登录">退出</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
-        <!--左侧导航结束-->
-        <!--右侧部分开始-->
-        <div id="page-wrapper" class="gray-bg dashbard-1">
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-envelope"></i> <span class="label label-warning">${noReadCount}</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                            	 <c:forEach items="${mailPage.list}" var="mailBox">
-	                                <li class="m-t-xs">
-	                                    <div class="dropdown-messages-box">
-	                                   
-	                                        <a  href="#" onclick='top.openTab("${ctx}/iim/contact/index?name=${mailBox.sender.name }","通讯录", false)' class="pull-left">
-	                                            <img alt="image" class="img-circle" src="${mailBox.sender.photo }">
-	                                        </a>
-	                                        <div class="media-body">
-	                                            <small class="pull-right">${fns:getTime(mailBox.sendtime)}前</small>
-	                                            <strong>${mailBox.sender.name }</strong>
-	                                            <a class="J_menuItem" href="${ctx}/iim/mailBox/detail?id=${mailBox.id}"> ${fns:abbr(mailBox.mail.title,50)}</a>
-	                                            <br>
-	                                            <a class="J_menuItem" href="${ctx}/iim/mailBox/detail?id=${mailBox.id}">
-	                                             ${mailBox.mail.overview}
-	                                            </a>
-	                                            <br>
-	                                            <small class="text-muted">
-	                                            <fmt:formatDate value="${mailBox.sendtime}" pattern="yyyy-MM-dd HH:mm:ss"/></small>
-	                                        </div>
-	                                    </div>
-	                                </li>
-	                                <li class="divider"></li>
-                                </c:forEach>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a class="J_menuItem" href="${ctx}/iim/mailBox/list?orderBy=sendtime desc">
-                                            <i class="fa fa-envelope"></i> <strong> 查看所有邮件</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">${count }</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                
-                                <c:forEach items="${page.list}" var="oaNotify">
-                         
-                                        <div>
-                                        	   <a class="J_menuItem" href="${ctx}/oa/oaNotify/view?id=${oaNotify.id}&">
-                                            	<i class="fa fa-envelope fa-fw"></i> ${fns:abbr(oaNotify.title,50)}
-                                               </a>
-                                            <span class="pull-right text-muted small">${fns:getTime(oaNotify.updateDate)}前</span>
-                                        </div>
-                                 
-								</c:forEach>
-                                   
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                       您有${count }条未读消息 <a class="J_menuItem" href="${ctx }/oa/oaNotify/self ">
-                                            <strong>查看所有 </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                      
-                      <!-- 国际化功能预留接口 -->
-                        <li class="dropdown">
-							<a id="lang-switch" class="lang-selector dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="true">
-								<span class="lang-selected">
-										<img  class="lang-flag" src="${ctxStatic}/common/img/china.png" alt="中国">
-										<span class="lang-id">中国</span>
-										<span class="lang-name">中文</span>
-									</span>
-							</a>
+    </header>
 
-							<!--Language selector menu-->
-							<ul class="head-list dropdown-menu with-arrow">
-								<li>
-									<!--English-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/china.png" alt="中国">
-										<span class="lang-id">中国</span>
-										<span class="lang-name">中文</span>
-									</a>
-								</li>
-								<li>
-									<!--English-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/united-kingdom.png" alt="English">
-										<span class="lang-id">EN</span>
-										<span class="lang-name">English</span>
-									</a>
-								</li>
-								<li>
-									<!--France-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/france.png" alt="France">
-										<span class="lang-id">FR</span>
-										<span class="lang-name">Français</span>
-									</a>
-								</li>
-								<li>
-									<!--Germany-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/germany.png" alt="Germany">
-										<span class="lang-id">DE</span>
-										<span class="lang-name">Deutsch</span>
-									</a>
-								</li>
-								<li>
-									<!--Italy-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/italy.png" alt="Italy">
-										<span class="lang-id">IT</span>
-										<span class="lang-name">Italiano</span>
-									</a>
-								</li>
-								<li>
-									<!--Spain-->
-									<a class="lang-select">
-										<img class="lang-flag" src="${ctxStatic}/common/img/spain.png" alt="Spain">
-										<span class="lang-id">ES</span>
-										<span class="lang-name">Español</span>
-									</a>
-								</li>
-							</ul>
-						</li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="row content-tabs">
-                <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
-                </button>
-                <nav class="page-tabs J_menuTabs">
-                    <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="${ctx}/home">首页</a>
-                    </div>
-                </nav>
-                <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
-                </button>
-                <div class="btn-group roll-nav roll-right">
-                    <button class="dropdown J_tabClose"  data-toggle="dropdown">关闭操作<span class="caret"></span>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <c:set var="firstUrl" value=""/>
+                <c:forEach items="${fns:getMenuList()}" var="menu" varStatus="idxStatus">
+                    <c:if test="${menu.parent.id eq firstMenuId &&menu.isShow eq '1'}">
+                        <c:if test="${firstUrl==''}">
+                            <li class="treeview active">
+                        </c:if>
+                        <c:if test="${firstUrl!=''}">
+                            <li class="treeview">
+                        </c:if>
 
-                    </button>
-                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                        <li class="J_tabShowActive"><a>定位当前选项卡</a>
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>${menu.name}</span> <i
+                                class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <c:forEach var="vo" items="${fns:getMenuList()}">
+                                <c:if test="${vo.parent.id eq menu.id &&vo.isShow eq '1'}">
+                                    <c:if test="${firstUrl==''}">
+                                        <li class="active">
+                                    </c:if>
+                                    <c:if test="${firstUrl!=''}">
+                                        <li>
+                                    </c:if>
+                                    <a href="${fn:indexOf(vo.href, '://') eq -1 ? ctx : ''}${vo.href}"
+                                       data-id="${vo.id}" target="mainFrame"><i
+                                            class="fa fa-circle-o"></i> ${vo.name}</a></li>
+                                    <c:if test="${firstUrl==''}">
+                                        <c:set var="firstUrl"
+                                               value="${fn:indexOf(vo.href, '://') eq -1 ? ctx : ''}${vo.href}"></c:set>
+                                    </c:if>
+                                </c:if>
+                            </c:forEach>
+
+                        </ul>
                         </li>
-                        <li class="divider"></li>
-                        <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
-                        </li>
-                        <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
-                        </li>
-                    </ul>
-                </div>
-                <a href="${ctx}/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
-            </div>
-            <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctx}/home" frameborder="0" data-id="${ctx}/home" seamless></iframe>
-            </div>
-            <div class="footer">
-                <div class="pull-left"><a href="http://www.jeedcp.org">http://www.jeedcp.org</a> &copy; 2015-2025</div>
-            </div>
-        </div>
-        <!--右侧部分结束-->
-       
-       
+                    </c:if>
+                </c:forEach>
+            </ul>
+        </section>
+    </aside>
+    <div class="content-wrapper" style="min-height: 900px;">
+        <section class="content">
+            <iframe id="mainFrame" name="mainFrame" src="${firstUrl}" style="overflow:visible;" scrolling="yes"
+                    frameborder="no" width="100%" height="850px"></iframe>
+        </section>
     </div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2016 <a href="#">Jeedcp</a>.</strong> All rights
+        reserved.
+    </footer>
+
+</div>
+
 </body>
-
-<!-- 语言切换插件，为国际化功能预留插件 -->
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-	$("a.lang-select").click(function(){
-		$(".lang-selected").find(".lang-flag").attr("src",$(this).find(".lang-flag").attr("src"));
-		$(".lang-selected").find(".lang-flag").attr("alt",$(this).find(".lang-flag").attr("alt"));
-		$(".lang-selected").find(".lang-id").text($(this).find(".lang-id").text());
-		$(".lang-selected").find(".lang-name").text($(this).find(".lang-name").text());
-
-	});
-
-
-});
-
-function changeStyle(){
-   $.get('${pageContext.request.contextPath}/theme/ace?url='+window.top.location.href,function(result){   window.location.reload();});
-}
-
-</script>
-
-
-
-<%--<!-- 即时聊天插件 -->--%>
-<%--<link href="${ctxStatic}/layer-v2.3/layim/layim.css" type="text/css" rel="stylesheet"/>--%>
-<%--<script type="text/javascript">--%>
-	<%--var currentId = '${fns:getUser().loginName}';--%>
-	<%--var currentName = '${fns:getUser().name}';--%>
-	<%--var currentFace ='${fns:getUser().photo}';--%>
-	<%--var url="${ctx}";--%>
-	<%--var wsServer = 'ws://'+window.document.domain+':8668';--%>
-<%--</script>--%>
-<%--<script src="${ctxStatic}/layer-v2.3/layim/layer.min.js"></script>--%>
-<%--<script src="${ctxStatic}/layer-v2.3/layim/layim.js"></script>--%>
-
 </html>

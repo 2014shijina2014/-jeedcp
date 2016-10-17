@@ -6,7 +6,7 @@ package com.jeedcp.modules.sys.service;
 import com.github.pagehelper.PageHelper;
 
 import com.jeedcp.common.cache.EhCacheServiceBean;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.security.Digests;
 import com.jeedcp.common.security.shiro.session.SessionDAO;
 import com.jeedcp.common.service.BaseService;
@@ -93,24 +93,12 @@ public class SystemService extends BaseService {
         return user;
 	}
 	
-	public Pagination<User> findUser(Pagination<User> page, User user) {
+	public Page<User> findUser(Page<User> page, User user) {
 		// 生成数据权限过滤条件（dsf为dataScopeFilter的简写，在xml中使用 ${sqlMap.dsf}调用权限SQL）
 		user.getSqlMap().put("dsf", DataFilterUtils.dataScopeFilter(CurrentUserUtils.getUser(), "o", "a"));
 		// 执行分页查询
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
-
-        logger.debug("findlist page user start"+ System.currentTimeMillis());
-        List<User> list = userDao.findList(user);
-        logger.debug("findlist page user end"+ System.currentTimeMillis());
-        //用PageInfo对结果进行包装
-        Pagination pageInfo = new Pagination(list);
-//        todo delete
-        logger.debug("findlist user 1 start"+ System.currentTimeMillis());
-        userDao.findList(user);
-        logger.debug("findlist user 1 end and 2 start"+ System.currentTimeMillis());
-        userDao.findList(user);
-        logger.debug("findlist user 2 end"+ System.currentTimeMillis());
-		return pageInfo;
+		page.setList(userDao.findList(user));
+		return page;
 	}
 
 

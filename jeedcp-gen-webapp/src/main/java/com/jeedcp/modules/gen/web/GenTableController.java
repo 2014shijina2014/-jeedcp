@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.gen.entity.GenTable;
@@ -55,7 +55,7 @@ public class GenTableController extends BaseController {
 		if (!user.isAdmin()){
 			genTable.setCreateBy(user.getId());
 		}
-        Pagination<GenTable> page = genTableService.find(new Pagination<GenTable>(request, response), genTable);
+        Page<GenTable> page = genTableService.find(new Page<GenTable>(request, response), genTable);
         model.addAttribute("page", page);
 		return "modules/gen/genTableList";
 	}

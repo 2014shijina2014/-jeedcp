@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.sys.entity.Dict;
@@ -56,7 +56,7 @@ public class DictController extends BaseController {
 	public String list(Dict dict, HttpServletRequest request, HttpServletResponse response, Model model) {
 		List<String> typeList = dictService.findTypeList();
 		model.addAttribute("typeList", typeList);
-        Pagination<Dict> page = dictService.findPage(new Pagination<Dict>(request, response), dict);
+        Page<Dict> page = dictService.findPage(new Page<Dict>(request, response), dict);
         model.addAttribute("page", page);
 		return "modules/sys/dictList";
 	}

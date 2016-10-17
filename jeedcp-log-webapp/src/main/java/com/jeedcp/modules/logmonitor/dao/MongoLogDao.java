@@ -1,7 +1,7 @@
 package com.jeedcp.modules.logmonitor.dao;
 
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.logmonitor.dto.MongoLogDto;
 import com.jeedcp.modules.logmonitor.entity.MongoLog;
 import com.jeedcp.common.persistence.CrudMongoDao;
@@ -43,7 +43,7 @@ public class MongoLogDao extends CrudMongoDao {
         return null;
     }
 
-    public Pagination<MongoLog> findMongoLogePageByDto(MongoLogDto mongoLogDto){
+    public Page<MongoLog> findMongoLogePageByDto(MongoLogDto mongoLogDto){
         Query query = new Query();
         if(mongoLogDto != null) {
             if (mongoLogDto.getLevel() != null){
@@ -57,8 +57,8 @@ public class MongoLogDao extends CrudMongoDao {
                 query.addCriteria(Criteria.where("timestamp").lte(mongoLogDto.getEndDate()).gte(mongoLogDto.getStartDate()));
             }
 
-//            Pagination<MongoLog> pagination = new Pagination<MongoLog>(mongoLogDto.getPageNum(),mongoLogDto.getPageSize());
-            Pagination<MongoLog> pagination = new Pagination(new ArrayList<MongoLog>());
+//            Page<MongoLog> pagination = new Page<MongoLog>(mongoLogDto.getPageNum(),mongoLogDto.getPageSize());
+            Page<MongoLog> pagination = new Page(new ArrayList<MongoLog>());
 //            query.skip(pagination.getStartRow());
 //            pagination
             List<MongoLog> mongoLogList = paasLogsTemplate.find(query, MongoLog.class);

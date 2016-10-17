@@ -39,6 +39,7 @@ public class OaNotifyService extends CrudService<OaNotifyDao, OaNotify> {
 	 * @return
 	 */
 	public OaNotify getRecordList(OaNotify oaNotify) {
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 		oaNotify.setOaNotifyRecordList(oaNotifyRecordDao.findList(new OaNotifyRecord(oaNotify)));
 		return oaNotify;
 	}
@@ -49,6 +50,7 @@ public class OaNotifyService extends CrudService<OaNotifyDao, OaNotify> {
 	 * @return
 	 */
 	public Long findCount(OaNotify oaNotify) {
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 		return dao.findCount(oaNotify);
 	}
 	

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.stream.XMLStreamException;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class ActProcessController extends BaseController {
 		/*
 		 * 保存两个对象，一个是ProcessDefinition（流程定义），一个是Deployment（流程部署）
 		 */
-		Pagination<Object[]> page = actProcessService.processList(new Pagination<Object[]>(request, response), category);
+		Page<Object[]> page = actProcessService.processList(new Page<Object[]>(request, response), category);
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);
 		return "modules/act/actProcessList";
@@ -63,7 +63,7 @@ public class ActProcessController extends BaseController {
 	@RequiresPermissions("act:process:edit")
 	@RequestMapping(value = "running")
 	public String runningList(String procInsId, String procDefKey, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<ProcessInstance> page = actProcessService.runningList(new Pagination<ProcessInstance>(request, response), procInsId, procDefKey);
+		Page<ProcessInstance> page = actProcessService.runningList(new Page<ProcessInstance>(request, response), procInsId, procDefKey);
 		model.addAttribute("page", page);
 		model.addAttribute("procInsId", procInsId);
 		model.addAttribute("procDefKey", procDefKey);

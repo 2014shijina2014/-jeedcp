@@ -12,7 +12,6 @@ import org.hibernate.validator.constraints.Length;
 import com.google.common.collect.Lists;
 import com.jeedcp.common.persistence.DataEntity;
 import com.jeedcp.common.utils.Collections3;
-import com.jeedcp.common.utils.IdGen;
 import com.jeedcp.common.utils.StringUtils;
 
 /**
@@ -35,6 +34,8 @@ public class OaNotify extends DataEntity<OaNotify> {
 	private boolean isSelf;		// 是否只查询自己的通知
 	
 	private String readFlag;	// 本人阅读状态
+
+	private String userId;
 	
 	private List<OaNotifyRecord> oaNotifyRecordList = Lists.newArrayList();
 	
@@ -168,5 +169,13 @@ public class OaNotify extends DataEntity<OaNotify> {
 
 	public void setReadFlag(String readFlag) {
 		this.readFlag = readFlag;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

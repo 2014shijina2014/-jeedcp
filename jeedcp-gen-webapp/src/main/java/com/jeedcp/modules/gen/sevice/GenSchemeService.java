@@ -6,10 +6,7 @@ package com.jeedcp.modules.gen.sevice;
 import java.util.List;
 import java.util.Map;
 
-import com.github.pagehelper.PageHelper;
-
-
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.modules.gen.dao.GenSchemeDao;
@@ -45,13 +42,11 @@ public class GenSchemeService extends BaseService {
 		return genSchemeDao.get(id);
 	}
 	
-	public Pagination<GenScheme> find(Pagination<GenScheme> page, GenScheme genScheme) {
+	public Page<GenScheme> find(Page<GenScheme> page, GenScheme genScheme) {
 		GenUtils.getTemplatePath();
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<GenScheme> list = genSchemeDao.findList(genScheme);
-        //用PageInfo对结果进行包装
-        Pagination pageInfo = new Pagination(list);
-        return pageInfo;
+		page.setList(list);
+		return page;
 	}
 	
 	@Transactional(readOnly = false)

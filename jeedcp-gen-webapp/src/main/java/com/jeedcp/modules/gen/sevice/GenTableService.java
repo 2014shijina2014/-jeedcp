@@ -5,10 +5,7 @@ package com.jeedcp.modules.gen.sevice;
 
 import java.util.List;
 
-import com.github.pagehelper.PageHelper;
-
-
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.modules.gen.dao.GenDataBaseDictDao;
@@ -17,8 +14,6 @@ import com.jeedcp.modules.gen.dao.GenTableDao;
 import com.jeedcp.modules.gen.entity.GenTable;
 import com.jeedcp.modules.gen.entity.GenTableColumn;
 import com.jeedcp.modules.gen.util.GenUtils;
-import com.jeedcp.modules.gen.entity.GenTable;
-import com.jeedcp.modules.gen.entity.GenTableColumn;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,12 +45,10 @@ public class GenTableService extends BaseService {
 		return genTable;
 	}
 	
-	public Pagination<GenTable> find(Pagination<GenTable> page, GenTable genTable) {
-        PageHelper.startPage(page.getPageNum(),page.getPageSize());
+	public Page<GenTable> find(Page<GenTable> page, GenTable genTable) {
         List<GenTable> list = genTableDao.findList(genTable);
-        //用PageInfo对结果进行包装
-        Pagination pageInfo = new Pagination(list);
-        return pageInfo;
+		page.setList(list);
+		return page;
 	}
 
 	public List<GenTable> findAll() {

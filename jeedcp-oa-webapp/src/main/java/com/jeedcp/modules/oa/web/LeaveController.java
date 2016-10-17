@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -97,7 +97,7 @@ public class LeaveController extends BaseController {
 	@RequiresPermissions("oa:leave:view")
 	@RequestMapping(value = {"list"})
 	public String list(Leave leave, HttpServletRequest request, HttpServletResponse response, Model model) {
-        Pagination<Leave> page = leaveService.find(new Pagination<Leave>(request, response), leave);
+        Page<Leave> page = leaveService.find(new Page<Leave>(request, response), leave);
         model.addAttribute("page", page);
 		return "modules/oa/leaveList";
 	}

@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -61,7 +61,7 @@ public class ActTaskController extends BaseController {
 	 */
 	@RequestMapping(value = "historic")
 	public String historicList(Act act, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		Pagination<Act> page = new Pagination<Act>(request, response);
+		Page<Act> page = new Page<Act>(request, response);
 		page = actTaskService.historicList(page, act);
 		model.addAttribute("page", page);
 		if (CurrentUserUtils.getPrincipal().isMobileLogin()){
@@ -91,7 +91,7 @@ public class ActTaskController extends BaseController {
 	 */
 	@RequestMapping(value = "process")
 	public String processList(String category, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<Object[]> page = new Pagination<Object[]>(request, response);
+		Page<Object[]> page = new Page<Object[]>(request, response);
 	    page = actTaskService.processList(page, category);
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);

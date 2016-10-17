@@ -5,7 +5,7 @@ package com.jeedcp.modules.act.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
@@ -53,23 +53,23 @@ public class ActProcessService extends BaseService {
 	/**
 	 * 流程定义列表
 	 */
-	public Pagination<Object[]> processList(Pagination<Object[]> page, String category) {
+	public Page<Object[]> processList(Page<Object[]> page, String category) {
 
-	    ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
-	    		.latestVersion().orderByProcessDefinitionKey().asc();
-	    
-	    if (StringUtils.isNotEmpty(category)){
-	    	processDefinitionQuery.processDefinitionCategory(category);
+		ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
+				.latestVersion().orderByProcessDefinitionKey().asc();
+
+		if (StringUtils.isNotEmpty(category)){
+			processDefinitionQuery.processDefinitionCategory(category);
 		}
-	    
-	    page.setTotal(processDefinitionQuery.count());
-	    
-	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getPageNum(), page.getPageSize());
-	    for (ProcessDefinition processDefinition : processDefinitionList) {
-	      String deploymentId = processDefinition.getDeploymentId();
-	      Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
-	      page.getList().add(new Object[]{processDefinition, deployment});
-	    }
+
+		page.setCount(processDefinitionQuery.count());
+
+		List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getFirstResult(), page.getMaxResults());
+		for (ProcessDefinition processDefinition : processDefinitionList) {
+			String deploymentId = processDefinition.getDeploymentId();
+			Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
+			page.getList().add(new Object[]{processDefinition, deployment});
+		}
 
 		return page;
 	}
@@ -77,23 +77,23 @@ public class ActProcessService extends BaseService {
 	/**
 	 * 流程定义列表
 	 */
-	public Pagination<ProcessInstance> runningList(Pagination<ProcessInstance> page, String procInsId, String procDefKey) {
+	public Page<ProcessInstance> runningList(Page<ProcessInstance> page, String procInsId, String procDefKey) {
 
-	    ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
+		ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
 
-	    if (StringUtils.isNotBlank(procInsId)){
-		    processInstanceQuery.processInstanceId(procInsId);
-	    }
-	    
-	    if (StringUtils.isNotBlank(procDefKey)){
-		    processInstanceQuery.processDefinitionKey(procDefKey);
-	    }
-	    
-	    page.setTotal(processInstanceQuery.count());
-	    page.setList(processInstanceQuery.listPage(page.getPageNum(), page.getPageSize()));
+		if (StringUtils.isNotBlank(procInsId)){
+			processInstanceQuery.processInstanceId(procInsId);
+		}
+
+		if (StringUtils.isNotBlank(procDefKey)){
+			processInstanceQuery.processDefinitionKey(procDefKey);
+		}
+
+		page.setCount(processInstanceQuery.count());
+		page.setList(processInstanceQuery.listPage(page.getFirstResult(), page.getMaxResults()));
 		return page;
 	}
-	
+
 	/**
 	 * 读取资源，通过部署ID
 	 * @param procDefId  流程定义ID
@@ -101,24 +101,24 @@ public class ActProcessService extends BaseService {
 	 * @param resType 资源类型(xml|image)
 	 */
 	public InputStream resourceRead(String procDefId, String proInsId, String resType) throws Exception {
-		
+
 		if (StringUtils.isBlank(procDefId)){
 			ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(proInsId).singleResult();
 			procDefId = processInstance.getProcessDefinitionId();
 		}
 		ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionId(procDefId).singleResult();
-		
+
 		String resourceName = "";
 		if (resType.equals("image")) {
 			resourceName = processDefinition.getDiagramResourceName();
 		} else if (resType.equals("xml")) {
 			resourceName = processDefinition.getResourceName();
 		}
-		
+
 		InputStream resourceAsStream = repositoryService.getResourceAsStream(processDefinition.getDeploymentId(), resourceName);
 		return resourceAsStream;
 	}
-	
+
 	/**
 	 * 部署流程 - 保存
 	 * @param file

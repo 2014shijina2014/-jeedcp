@@ -47,14 +47,11 @@
 		<include refid="oaNotifyJoins"/>
 		<!-- 我的通知 -->
 		<if test="isSelf">
-			JOIN oa_notify_record r ON r.oa_notify_id = a.id AND r.user_id = #{currentUser.id}
+			JOIN oa_notify_record r ON r.oa_notify_id = a.id AND r.user_id = #{userId}
 		</if>
 		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
 		<if test="title != null and title != ''">
-			AND a.TITLE LIKE 
-					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
-					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
-					<if test="dbName == 'mysql'">CONCAT('%', #{title}, '%')</if>
+			AND a.TITLE LIKE CONCAT('%', #{title}, '%')
 		</if>
 		<if test="type != null and type != ''">
 			AND a.TYPE = #{type}
@@ -82,7 +79,7 @@
 			count(1)
 		FROM oa_notify a
 		<if test="isSelf">
-			JOIN oa_notify_record r ON r.oa_notify_id = a.id AND r.user_id = #{currentUser.id}
+			JOIN oa_notify_record r ON r.oa_notify_id = a.id AND r.user_id = #{userId}
 				<if test="readFlag != null and readFlag != ''">
 					AND r.read_flag = #{readFlag}
 				</if>

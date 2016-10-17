@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jeedcp.common.config.Global;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.weixin.entity.WeixinAccount;
@@ -62,7 +62,7 @@ public class WeixinMenuGroupController extends BaseController {
 	@RequiresPermissions("weixin:weixinMenuGroup:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinMenuGroup weixinMenuGroup, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<WeixinMenuGroup> page = weixinMenuGroupService.findPage(new Pagination<WeixinMenuGroup>(request, response), weixinMenuGroup);
+		Page<WeixinMenuGroup> page = weixinMenuGroupService.findPage(new Page<WeixinMenuGroup>(request, response), weixinMenuGroup);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinMenuGroupList";
 	}

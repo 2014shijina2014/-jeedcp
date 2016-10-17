@@ -5,7 +5,7 @@ package com.jeedcp.modules.act.service;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
 
@@ -74,7 +74,7 @@ public class ActTaskService extends BaseService {
 
 	@Autowired
 	private ProcessEngineFactoryBean processEngineFactory;
-	
+
 	@Autowired
 	private ProcessEngine processEngine;
 	@Autowired
@@ -89,7 +89,7 @@ public class ActTaskService extends BaseService {
 	private RepositoryService repositoryService;
 	@Autowired
 	private IdentityService identityService;
-	
+
 	/**
 	 * 获取待办列表
 	 * @param act 流程定义标识
@@ -97,13 +97,13 @@ public class ActTaskService extends BaseService {
 	 */
 	public List<Act> todoList(Act act){
 		String userId = CurrentUserUtils.getUser().getLoginName();//ObjectUtils.toString(UserUtils.getUser().getId());
-		
+
 		List<Act> result = new ArrayList<Act>();
-		
+
 		// =============== 已经签收的任务  ===============
 		TaskQuery todoTaskQuery = taskService.createTaskQuery().taskAssignee(userId).active()
 				.includeProcessVariables().orderByTaskCreateTime().desc();
-		
+
 		// 设置查询条件
 		if (StringUtils.isNotBlank(act.getProcDefKey())){
 			todoTaskQuery.processDefinitionKey(act.getProcDefKey());
@@ -114,7 +114,7 @@ public class ActTaskService extends BaseService {
 		if (act.getEndDate() != null){
 			todoTaskQuery.taskCreatedBefore(act.getEndDate());
 		}
-		
+
 		// 查询列表
 		List<Task> todoList = todoTaskQuery.list();
 		for (Task task : todoList) {
@@ -129,11 +129,11 @@ public class ActTaskService extends BaseService {
 			e.setStatus("todo");
 			result.add(e);
 		}
-		
+
 		// =============== 等待签收的任务  ===============
 		TaskQuery toClaimQuery = taskService.createTaskQuery().taskCandidateUser(userId)
 				.includeProcessVariables().active().orderByTaskCreateTime().desc();
-		
+
 		// 设置查询条件
 		if (StringUtils.isNotBlank(act.getProcDefKey())){
 			toClaimQuery.processDefinitionKey(act.getProcDefKey());
@@ -144,7 +144,7 @@ public class ActTaskService extends BaseService {
 		if (act.getEndDate() != null){
 			toClaimQuery.taskCreatedBefore(act.getEndDate());
 		}
-		
+
 		// 查询列表
 		List<Task> toClaimList = toClaimQuery.list();
 		for (Task task : toClaimList) {
@@ -161,19 +161,19 @@ public class ActTaskService extends BaseService {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 获取已办任务
 	 * @param page
 	 * @param act 流程定义标识
 	 * @return
 	 */
-	public Pagination<Act> historicList(Pagination<Act> page, Act act){
+	public Page<Act> historicList(Page<Act> page, Act act){
 		String userId = CurrentUserUtils.getUser().getLoginName();//ObjectUtils.toString(UserUtils.getUser().getId());
 
 		HistoricTaskInstanceQuery histTaskQuery = historyService.createHistoricTaskInstanceQuery().taskAssignee(userId).finished()
 				.includeProcessVariables().orderByHistoricTaskInstanceEndTime().desc();
-		
+
 		// 设置查询条件
 		if (StringUtils.isNotBlank(act.getProcDefKey())){
 			histTaskQuery.processDefinitionKey(act.getProcDefKey());
@@ -184,12 +184,12 @@ public class ActTaskService extends BaseService {
 		if (act.getEndDate() != null){
 			histTaskQuery.taskCompletedBefore(act.getEndDate());
 		}
-		
+
 		// 查询总数
-		page.setTotal(histTaskQuery.count());
-		
+		page.setCount(histTaskQuery.count());
+
 		// 查询列表
-		List<HistoricTaskInstance> histList = histTaskQuery.listPage(page.getPageNum(), page.getPageSize());
+		List<HistoricTaskInstance> histList = histTaskQuery.listPage(page.getFirstResult(), page.getMaxResults());
 		//处理分页问题
 		List<Act> actList=Lists.newArrayList();
 		for (HistoricTaskInstance histTask : histList) {
@@ -208,7 +208,7 @@ public class ActTaskService extends BaseService {
 		page.setList(actList);
 		return page;
 	}
-	
+
 	/**
 	 * 获取流转历史列表
 	 * @param procInsId 流程实例
@@ -219,14 +219,14 @@ public class ActTaskService extends BaseService {
 		List<Act> actList = Lists.newArrayList();
 		List<HistoricActivityInstance> list = historyService.createHistoricActivityInstanceQuery().processInstanceId(procInsId)
 				.orderByHistoricActivityInstanceStartTime().asc().orderByHistoricActivityInstanceEndTime().asc().list();
-		
+
 		boolean start = false;
 		Map<String, Integer> actMap = Maps.newHashMap();
-		
+
 		for (int i=0; i<list.size(); i++){
-			
+
 			HistoricActivityInstance histIns = list.get(i);
-			
+
 			// 过滤开始节点前的节点
 			if (StringUtils.isNotBlank(startAct) && startAct.equals(histIns.getActivityId())){
 				start = true;
@@ -234,18 +234,18 @@ public class ActTaskService extends BaseService {
 			if (StringUtils.isNotBlank(startAct) && !start){
 				continue;
 			}
-			
+
 			// 只显示开始节点和结束节点，并且执行人不为空的任务
 			if (StringUtils.isNotBlank(histIns.getAssignee())
 					 || "startEvent".equals(histIns.getActivityType())
 					 || "endEvent".equals(histIns.getActivityType())){
-				
+
 				// 给节点增加一个序号
 				Integer actNum = actMap.get(histIns.getActivityId());
 				if (actNum == null){
 					actMap.put(histIns.getActivityId(), actMap.size());
 				}
-				
+
 				Act e = new Act();
 				e.setHistIns(histIns);
 				// 获取流程发起人名称
@@ -279,7 +279,7 @@ public class ActTaskService extends BaseService {
 				}
 				actList.add(e);
 			}
-			
+
 			// 过滤结束节点后的节点
 			if (StringUtils.isNotBlank(endAct) && endAct.equals(histIns.getActivityId())){
 				boolean bl = false;
@@ -304,28 +304,29 @@ public class ActTaskService extends BaseService {
 	 * 获取流程列表
 	 * @param category 流程分类
 	 */
-	public Pagination<Object[]> processList(Pagination<Object[]> page, String category) {
+	public Page<Object[]> processList(Page<Object[]> page, String category) {
 		/*
 		 * 保存两个对象，一个是ProcessDefinition（流程定义），一个是Deployment（流程部署）
 		 */
-	    ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
-	    		.latestVersion().active().orderByProcessDefinitionKey().asc();
-	    
-	    if (StringUtils.isNotEmpty(category)){
-	    	processDefinitionQuery.processDefinitionCategory(category);
+		ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery()
+				.latestVersion().active().orderByProcessDefinitionKey().asc();
+
+		if (StringUtils.isNotEmpty(category)){
+			processDefinitionQuery.processDefinitionCategory(category);
 		}
-	    
-	    page.setTotal(processDefinitionQuery.count());
-	    
-	    List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getPageNum(), page.getPageSize());
-	    for (ProcessDefinition processDefinition : processDefinitionList) {
-	      String deploymentId = processDefinition.getDeploymentId();
-	      Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
-	      page.getList().add(new Object[]{processDefinition, deployment});
-	    }
+
+		page.setCount(processDefinitionQuery.count());
+
+		List<ProcessDefinition> processDefinitionList = processDefinitionQuery.listPage(page.getFirstResult(), page.getMaxResults());
+		for (ProcessDefinition processDefinition : processDefinitionList) {
+			String deploymentId = processDefinition.getDeploymentId();
+			Deployment deployment = repositoryService.createDeploymentQuery().deploymentId(deploymentId).singleResult();
+			page.getList().add(new Object[]{processDefinition, deployment});
+		}
 		return page;
 	}
-	
+
+
 	/**
 	 * 获取流程表单（首先获取任务节点表单KEY，如果没有则取流程开始节点表单KEY）
 	 * @return
@@ -350,7 +351,7 @@ public class ActTaskService extends BaseService {
 		logger.debug("getFormKey: {}", formKey);
 		return formKey;
 	}
-	
+
 	/**
 	 * 获取流程实例对象
 	 * @param procInsId
@@ -372,7 +373,7 @@ public class ActTaskService extends BaseService {
 	public String startProcess(String procDefKey, String businessTable, String businessId) {
 		return startProcess(procDefKey, businessTable, businessId, "");
 	}
-	
+
 	/**
 	 * 启动流程
 	 * @param procDefKey 流程定义KEY
@@ -386,7 +387,7 @@ public class ActTaskService extends BaseService {
 		Map<String, Object> vars = Maps.newHashMap();
 		return startProcess(procDefKey, businessTable, businessId, title, vars);
 	}
-	
+
 	/**
 	 * 启动流程
 	 * @param procDefKey 流程定义KEY
@@ -402,20 +403,20 @@ public class ActTaskService extends BaseService {
 
 		// 用来设置启动流程的人员ID，引擎会自动把用户ID保存到activiti:initiator中
 		identityService.setAuthenticatedUserId(userId);
-		
+
 		// 设置流程变量
 		if (vars == null){
 			vars = Maps.newHashMap();
 		}
-		
+
 		// 设置流程标题
 		if (StringUtils.isNotBlank(title)){
 			vars.put("title", title);
 		}
-		
+
 		// 启动流程
 		ProcessInstance procIns = runtimeService.startProcessInstanceByKey(procDefKey, businessTable+":"+businessId, vars);
-		
+
 		// 更新业务表流程实例ID
 		Act act = new Act();
 		act.setBusinessTable(businessTable);// 业务表名
@@ -432,7 +433,7 @@ public class ActTaskService extends BaseService {
 	public Task getTask(String taskId){
 		return taskService.createTaskQuery().taskId(taskId).singleResult();
 	}
-	
+
 	/**
 	 * 删除任务
 	 * @param taskId 任务ID
@@ -442,7 +443,7 @@ public class ActTaskService extends BaseService {
 	public void deleteTask(String taskId, String deleteReason){
 		taskService.deleteTask(taskId, deleteReason);
 	}
-	
+
 	/**
 	 * 签收任务
 	 * @param taskId 任务ID
@@ -452,7 +453,7 @@ public class ActTaskService extends BaseService {
 	public void claim(String taskId, String userId){
 		taskService.claim(taskId, userId);
 	}
-	
+
 	/**
 	 * 提交任务, 并保存意见
 	 * @param taskId 任务ID
@@ -464,7 +465,7 @@ public class ActTaskService extends BaseService {
 	public void complete(String taskId, String procInsId, String comment, Map<String, Object> vars){
 		complete(taskId, procInsId, comment, "", vars);
 	}
-	
+
 	/**
 	 * 提交任务, 并保存意见
 	 * @param taskId 任务ID
@@ -479,17 +480,17 @@ public class ActTaskService extends BaseService {
 		if (StringUtils.isNotBlank(procInsId) && StringUtils.isNotBlank(comment)){
 			taskService.addComment(taskId, procInsId, comment);
 		}
-		
+
 		// 设置流程变量
 		if (vars == null){
 			vars = Maps.newHashMap();
 		}
-		
+
 		// 设置流程标题
 		if (StringUtils.isNotBlank(title)){
 			vars.put("title", title);
 		}
-		
+
 		// 提交任务
 		taskService.complete(taskId, vars);
 	}
@@ -502,7 +503,7 @@ public class ActTaskService extends BaseService {
 	public void completeFirstTask(String procInsId){
 		completeFirstTask(procInsId, null, null, null);
 	}
-	
+
 	/**
 	 * 完成第一个任务
 	 * @param procInsId
@@ -527,7 +528,7 @@ public class ActTaskService extends BaseService {
 //	public void delegateTask(String taskId, String userId){
 //		taskService.delegateTask(taskId, userId);
 //	}
-//	
+//
 //	/**
 //	 * 被委派人完成任务
 //	 * @param taskId 任务ID
@@ -535,7 +536,7 @@ public class ActTaskService extends BaseService {
 //	public void resolveTask(String taskId){
 //		taskService.resolveTask(taskId);
 //	}
-//	
+//
 //	/**
 //	 * 回退任务
 //	 * @param taskId
@@ -543,15 +544,15 @@ public class ActTaskService extends BaseService {
 //	public void backTask(String taskId){
 //		taskService.
 //	}
-	
+
 	/**
 	 * 添加任务意见
 	 */
 	public void addTaskComment(String taskId, String procInsId, String comment){
 		taskService.addComment(taskId, procInsId, comment);
 	}
-	
-	//////////////////  回退、前进、跳转、前加签、后加签、分裂 移植  https://github.com/bluejoe2008/openwebflow  ////////////////////////////////////////////////// 
+
+	//////////////////  回退、前进、跳转、前加签、后加签、分裂 移植  https://github.com/bluejoe2008/openwebflow  //////////////////////////////////////////////////
 
 	/**
 	 * 任务后退一步
@@ -587,7 +588,7 @@ public class ActTaskService extends BaseService {
 
 		jumpTask(currentTaskEntity, activity, variables);
 	}
-	
+
 	/**
 	 * 跳转（包括回退和向前）至指定活动节点
 	 */
@@ -624,7 +625,7 @@ public class ActTaskService extends BaseService {
 		CommandExecutor commandExecutor = ((RuntimeServiceImpl) runtimeService).getCommandExecutor();
 		commandExecutor.execute(new JumpTaskCmd(currentTaskEntity, targetActivity, variables));
 	}
-	
+
 	/**
 	 * 后加签
 	 */
@@ -653,7 +654,7 @@ public class ActTaskService extends BaseService {
 	public ActivityImpl splitTask(String procDefId, String procInsId, String targetTaskDefinitionKey, Map<String, Object> variables, String... assignee) {
 		return splitTask(procDefId, procInsId, targetTaskDefinitionKey, variables, true, assignee);
 	}
-	
+
 	/**
 	 * 分裂某节点为多实例节点
 	 */
@@ -668,12 +669,12 @@ public class ActTaskService extends BaseService {
 		radei.setPrototypeActivityId(targetTaskDefinitionKey);
 		radei.setAssignees(CollectionUtils.arrayToList(assignees));
 		radei.setSequential(isSequential);
-		
+
 		ProcessDefinitionEntity processDefinition = (ProcessDefinitionEntity)repositoryService.getProcessDefinition(procDefId);
 		ActivityImpl clone = new MultiInstanceActivityCreator().createActivities(processEngine, processDefinition, info)[0];
 
 		TaskEntity currentTaskEntity = this.getCurrentTask(procInsId);
-		
+
 		CommandExecutor commandExecutor = ((RuntimeServiceImpl) runtimeService).getCommandExecutor();
 		commandExecutor.execute(new CreateAndTakeTransitionCmd(currentTaskEntity, clone, variables));
 
@@ -707,14 +708,14 @@ public class ActTaskService extends BaseService {
 
 		return activities;
 	}
-	
+
 //	private void recordActivitiesCreation(SimpleRuntimeActivityDefinitionEntity info) {
 //		info.serializeProperties();
 //		_activitiesCreationStore.save(info);
 //	}
-	
-	//////////////////////////////////////////////////////////////////// 
-	
+
+	////////////////////////////////////////////////////////////////////
+
 
 //	private void recordActivitiesCreation(SimpleRuntimeActivityDefinitionEntity info) throws Exception {
 //		info.serializeProperties();
@@ -723,7 +724,7 @@ public class ActTaskService extends BaseService {
 //
 //	/**
 //	 * 分裂某节点为多实例节点
-//	 * 
+//	 *
 //	 * @param targetTaskDefinitionKey
 //	 * @param assignee
 //	 * @throws IOException
@@ -756,7 +757,7 @@ public class ActTaskService extends BaseService {
 //	}
 
 	////////////////////////////////////////////////////////////////////
-	
+
 	/**
 	 * 读取带跟踪的图片
 	 * @param executionId	环节ID
@@ -765,12 +766,12 @@ public class ActTaskService extends BaseService {
 	public InputStream tracePhoto(String processDefinitionId, String executionId) {
 //		ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(executionId).singleResult();
 		BpmnModel bpmnModel = repositoryService.getBpmnModel(processDefinitionId);
-		
+
 		List<String> activeActivityIds = Lists.newArrayList();
 		if (runtimeService.createExecutionQuery().executionId(executionId).count() > 0){
 			activeActivityIds = runtimeService.getActiveActivityIds(executionId);
 		}
-		
+
 		// 不使用spring请使用下面的两行代码
 		// ProcessEngineImpl defaultProcessEngine = (ProcessEngineImpl)ProcessEngines.getDefaultProcessEngine();
 		// Context.setProcessEngineConfiguration(defaultProcessEngine.getProcessEngineConfiguration());
@@ -781,7 +782,7 @@ public class ActTaskService extends BaseService {
 		return processEngine.getProcessEngineConfiguration().getProcessDiagramGenerator()
 				.generateDiagram(bpmnModel, "png", activeActivityIds);
 	}
-	
+
 	/**
 	 * 流程跟踪图信息
 	 * @param processInstanceId		流程实例ID
@@ -818,7 +819,7 @@ public class ActTaskService extends BaseService {
 
 		return activityInfos;
 	}
-	
+
 
 	/**
 	 * 封装输出信息，包括：当前节点的X、Y坐标、变量信息、任务类型、任务描述
@@ -949,5 +950,5 @@ public class ActTaskService extends BaseService {
 	public ProcessEngine getProcessEngine() {
 		return processEngine;
 	}
-	
+
 }

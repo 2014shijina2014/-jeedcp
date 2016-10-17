@@ -5,7 +5,7 @@ package com.jeedcp.modules.weixin.service;
 
 import java.util.List;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.CrudService;
 import com.jeedcp.modules.weixin.dao.WeixinAccountDao;
 import com.jeedcp.modules.weixin.entity.WeixinAccount;
@@ -31,7 +31,7 @@ public class WeixinAccountService extends CrudService<WeixinAccountDao, WeixinAc
 		return super.findList(weixinAccount);
 	}
 	
-	public Pagination<WeixinAccount> findPage(Pagination<WeixinAccount> page, WeixinAccount weixinAccount) {
+	public Page<WeixinAccount> findPage(Page<WeixinAccount> page, WeixinAccount weixinAccount) {
 		return super.findPage(page, weixinAccount);
 	}
 	

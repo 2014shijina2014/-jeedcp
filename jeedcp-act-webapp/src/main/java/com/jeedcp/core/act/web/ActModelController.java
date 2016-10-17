@@ -6,7 +6,7 @@ package com.jeedcp.core.act.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.act.service.ActModelService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -38,8 +38,8 @@ public class ActModelController extends BaseController {
 	@RequestMapping(value = { "list", "" })
 	public String modelList(String category, HttpServletRequest request, HttpServletResponse response, Model model) {
 
-		Pagination<org.activiti.engine.repository.Model> page = actModelService.modelList(
-				new Pagination<org.activiti.engine.repository.Model>(request, response), category);
+		Page<org.activiti.engine.repository.Model> page = actModelService.modelList(
+				new Page<org.activiti.engine.repository.Model>(request, response), category);
 
 		model.addAttribute("page", page);
 		model.addAttribute("category", category);

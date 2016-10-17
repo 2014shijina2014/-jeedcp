@@ -13,12 +13,6 @@
 
     <!-- 依赖项定义 -->
     <dependencies>
-
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-        </dependency>
-
         <!-- SPRING begin -->
         <dependency>
             <groupId>org.springframework</groupId>

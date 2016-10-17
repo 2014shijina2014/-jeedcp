@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.weixin.entity.WeixinAccount;
 import com.jeedcp.modules.weixin.entity.WeixinMessage;
 import com.jeedcp.modules.weixin.service.WeixinAccountService;
@@ -57,7 +57,7 @@ public class WeixinMessageController extends BaseController {
 	@RequiresPermissions("weixin:weixinMessage:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinMessage weixinMessage, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<WeixinMessage> page = weixinMessageService.findPage(new Pagination<WeixinMessage>(request, response), weixinMessage);
+		Page<WeixinMessage> page = weixinMessageService.findPage(new Page<WeixinMessage>(request, response), weixinMessage);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinMessageList";
 	}

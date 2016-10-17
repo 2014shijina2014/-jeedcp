@@ -3,13 +3,9 @@
  */
 package com.jeedcp.modules.gen.sevice;
 
-import com.github.pagehelper.PageHelper;
-
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import com.jeedcp.common.utils.StringUtils;
-import com.jeedcp.modules.gen.dao.GenTemplateDao;
-import com.jeedcp.modules.gen.entity.GenTemplate;
 import com.jeedcp.modules.gen.dao.GenTemplateDao;
 import com.jeedcp.modules.gen.entity.GenTemplate;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
@@ -37,12 +33,10 @@ public class GenTemplateService extends BaseService {
 		return genTemplateDao.get(id);
 	}
 	
-	public Pagination<GenTemplate> find(Pagination<GenTemplate> page, GenTemplate genTemplate) {
-        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+	public Page<GenTemplate> find(Page<GenTemplate> page, GenTemplate genTemplate) {
         List<GenTemplate> list = genTemplateDao.findList(genTemplate);
-        //用PageInfo对结果进行包装
-        Pagination pageInfo = new Pagination(list);
-        return pageInfo;
+		page.setList(list);
+		return page;
 	}
 	
 	@Transactional(readOnly = false)

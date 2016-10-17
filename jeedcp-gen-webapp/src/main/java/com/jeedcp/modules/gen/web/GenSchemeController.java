@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.gen.entity.GenScheme;
@@ -56,7 +56,7 @@ public class GenSchemeController extends BaseController {
 		if (!user.isAdmin()){
 			genScheme.setCreateBy(user.getId());
 		}
-        Pagination<GenScheme> page = genSchemeService.find(new Pagination<GenScheme>(request, response), genScheme);
+        Page<GenScheme> page = genSchemeService.find(new Page<GenScheme>(request, response), genScheme);
         model.addAttribute("page", page);
 		
 		return "modules/gen/genSchemeList";

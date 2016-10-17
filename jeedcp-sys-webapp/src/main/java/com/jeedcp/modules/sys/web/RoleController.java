@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jeedcp.common.config.Constants;
 import com.jeedcp.common.config.Global;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.Collections3;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
@@ -175,7 +175,7 @@ public class RoleController extends BaseController {
 		List<Map<String, Object>> mapList = Lists.newArrayList();
 		User user = new User();
 		user.setOffice(new Office(officeId));
-		Pagination<User> page = systemService.findUser(new Pagination<User>(1, 0), user);
+		Page<User> page = systemService.findUser(new Page<User>(1, 0), user);
 		for (User e : page.getList()) {
 			Map<String, Object> map = Maps.newHashMap();
 			map.put("id", e.getId());

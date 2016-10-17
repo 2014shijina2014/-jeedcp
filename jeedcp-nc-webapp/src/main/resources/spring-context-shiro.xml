@@ -87,7 +87,7 @@
 	<!-- 		<property name="sessionKeyPrefix" value="${redis.keyPrefix}_session_" /> -->
 	<!-- 	</bean> -->
 	<bean id="sessionDAO" class="com.jeedcp.common.security.shiro.session.CacheSessionDAO">
-		<property name="sessionIdGenerator" ref="idGen" />
+		<property name="sessionIdGenerator" ref="idUtils" />
 		<property name="activeSessionsCacheName" value="activeSessionsCache" />
 		<property name="cacheManager" ref="shiroCacheManager" />
 	</bean>

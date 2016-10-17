@@ -1,12 +1,19 @@
 package com.jeedcp.common.utils;
 
+import org.apache.shiro.session.Session;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
+import org.apache.shiro.session.mgt.eis.SessionIdGenerator;
+
+import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.UUID;
 
 /**
  * Created by Jeedcp on 15/9/23.
  */
-public class IdUtils {
+@Service
+public class IdUtils implements SessionIdGenerator {
 
     private static SecureRandom random = new SecureRandom();
 
@@ -31,5 +38,12 @@ public class IdUtils {
         byte[] randomBytes = new byte[length];
         random.nextBytes(randomBytes);
         return Encodes.encodeBase62(randomBytes);
+    }
+
+
+
+    @Override
+    public Serializable generateId(Session session) {
+        return IdUtils.uuid();
     }
 }

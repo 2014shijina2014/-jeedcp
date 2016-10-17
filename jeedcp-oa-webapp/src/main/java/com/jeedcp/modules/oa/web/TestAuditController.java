@@ -6,7 +6,7 @@ package com.jeedcp.modules.oa.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -57,7 +57,7 @@ public class TestAuditController extends BaseController {
 		if (!user.isAdmin()){
 			testAudit.setCreateBy(user.getLoginName());
 		}
-		Pagination<TestAudit> page = testAuditService.findPage(new Pagination<TestAudit>(request, response), testAudit);
+		Page<TestAudit> page = testAuditService.findPage(new Page<TestAudit>(request, response), testAudit);
         model.addAttribute("page", page);
 		return "modules/oa/testAuditList";
 	}

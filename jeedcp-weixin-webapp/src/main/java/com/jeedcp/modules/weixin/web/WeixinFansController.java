@@ -6,7 +6,7 @@ package com.jeedcp.modules.weixin.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
 import com.jeedcp.modules.weixin.entity.WeixinAccount;
@@ -55,7 +55,7 @@ public class WeixinFansController extends BaseController {
 	@RequiresPermissions("weixin:weixinFans:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(WeixinFans weixinFans, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<WeixinFans> page = weixinFansService.findPage(new Pagination<WeixinFans>(request, response), weixinFans);
+		Page<WeixinFans> page = weixinFansService.findPage(new Page<WeixinFans>(request, response), weixinFans);
 		model.addAttribute("page", page);
 		return "modules/weixin/weixinFansList";
 	}

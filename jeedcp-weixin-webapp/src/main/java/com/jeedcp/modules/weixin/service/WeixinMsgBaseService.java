@@ -6,7 +6,7 @@ package com.jeedcp.modules.weixin.service;
 import java.util.List;
 
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.CrudService;
 import com.jeedcp.modules.weixin.entity.WeixinMsgBase;
 import com.jeedcp.modules.weixin.dao.WeixinMsgBaseDao;
@@ -32,7 +32,7 @@ public class WeixinMsgBaseService extends CrudService<WeixinMsgBaseDao, WeixinMs
 		return super.findList(weixinMsgBase);
 	}
 	
-	public Pagination<WeixinMsgBase> findPage(Pagination<WeixinMsgBase> page, WeixinMsgBase weixinMsgBase) {
+	public Page<WeixinMsgBase> findPage(Page<WeixinMsgBase> page, WeixinMsgBase weixinMsgBase) {
 		return super.findPage(page, weixinMsgBase);
 	}
 	

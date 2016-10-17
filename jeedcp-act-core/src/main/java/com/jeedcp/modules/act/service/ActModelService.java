@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.service.BaseService;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
@@ -51,16 +51,20 @@ public class ActModelService extends BaseService {
 	/**
 	 * 流程模型列表
 	 */
-	public Pagination<Model> modelList(Pagination<Model> page, String category) {
+	public Page<Model> modelList(Page<org.activiti.engine.repository.Model> page, String category) {
+
 		ModelQuery modelQuery = repositoryService.createModelQuery().latestVersion().orderByLastUpdateTime().desc();
+
 		if (StringUtils.isNotEmpty(category)){
 			modelQuery.modelCategory(category);
 		}
-		page.setTotal(modelQuery.count());
-		page.setList(modelQuery.listPage(page.getPageNum(), page.getPageSize()));
+
+		page.setCount(modelQuery.count());
+		page.setList(modelQuery.listPage(page.getFirstResult(), page.getMaxResults()));
 
 		return page;
 	}
+
 
 	/**
 	 * 创建模型

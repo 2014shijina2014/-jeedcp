@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.utils.DateUtils;
 import com.jeedcp.common.utils.StringUtils;
 import com.jeedcp.common.web.BaseController;
@@ -72,7 +72,7 @@ public class UserController extends BaseController {
 	@RequiresPermissions("sys:user:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(User user, HttpServletRequest request, HttpServletResponse response, Model model) {
-        Pagination<User> page = systemService.findUser(new Pagination<User>(request, response), user);
+        Page<User> page = systemService.findUser(new Page<User>(request, response), user);
         model.addAttribute("page", page);
 		return "modules/sys/userList";
 	}
@@ -165,7 +165,7 @@ public class UserController extends BaseController {
     public String exportFile(User user, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes) {
       try {
             String fileName = "用户数据"+ DateUtils.getDate("yyyyMMddHHmmss")+".xlsx";
-          Pagination<User> page = systemService.findUser(new Pagination<User>(1, 0), user);
+          Page<User> page = systemService.findUser(new Page<User>(1, 0), user);
     		new ExportExcel("用户数据", UserExcel.class).setDataList(page.getList()).write(response, fileName).dispose();
     		return null;
 		} catch (Exception e) {

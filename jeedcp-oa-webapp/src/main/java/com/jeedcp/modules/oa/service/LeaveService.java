@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.IdentityService;
@@ -132,7 +132,7 @@ public class LeaveService extends BaseService {
 		return results;
 	}
 
-	public Pagination<Leave> find(Pagination<Leave> page, Leave leave) {
+	public Page<Leave> find(Page<Leave> page, Leave leave) {
 
 		page.setList(leaveDao.findList(leave));
 		

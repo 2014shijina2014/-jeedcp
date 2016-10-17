@@ -58,7 +58,15 @@
             <groupId>com.dcp.jeedcp</groupId>
             <artifactId>jeedcp-sys-service</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-base-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dcp.jeedcp</groupId>
+            <artifactId>jeedcp-sys-dao</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <!--  打包时把resources下包内的XML配置文件也包含 -->

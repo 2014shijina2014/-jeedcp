@@ -29,7 +29,6 @@ public class Menu extends DataEntity<Menu> {
 	private Integer sort; 	// 排序
 	private String isShow; 	// 是否在菜单中显示（1：显示；0：不显示）
 	private String permission; // 权限标识
-	
 	private String userId;
 	
 	public Menu(){

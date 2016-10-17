@@ -6,7 +6,8 @@ package com.jeedcp.modules.oa.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
+import com.jeedcp.modules.sys.utils.CurrentUserUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +50,8 @@ public class OaNotifyController extends BaseController {
 	@RequiresPermissions("oa:oaNotify:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<OaNotify> page = oaNotifyService.findPage(new Pagination<OaNotify>(request, response), oaNotify);
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
+		Page<OaNotify> page = oaNotifyService.findPage(new Page<OaNotify>(request, response), oaNotify);
 		model.addAttribute("page", page);
 		return "modules/oa/oaNotifyList";
 	}
@@ -58,6 +60,7 @@ public class OaNotifyController extends BaseController {
 	@RequestMapping(value = "form")
 	public String form(OaNotify oaNotify, Model model) {
 		if (StringUtils.isNotBlank(oaNotify.getId())){
+			oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 			oaNotify = oaNotifyService.getRecordList(oaNotify);
 		}
 		model.addAttribute("oaNotify", oaNotify);
@@ -97,7 +100,8 @@ public class OaNotifyController extends BaseController {
 	@RequestMapping(value = "self")
 	public String selfList(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
 		oaNotify.setSelf(true);
-		Pagination<OaNotify> page = oaNotifyService.findPage(new Pagination<OaNotify>(request, response), oaNotify);
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
+		Page<OaNotify> page = oaNotifyService.findPage(new Page<OaNotify>(request, response), oaNotify);
 		model.addAttribute("page", page);
 		return "modules/oa/oaNotifyList";
 	}
@@ -108,9 +112,10 @@ public class OaNotifyController extends BaseController {
 	@RequiresPermissions("oa:oaNotify:view")
 	@RequestMapping(value = "selfData")
 	@ResponseBody
-	public Pagination<OaNotify> listData(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public Page<OaNotify> listData(OaNotify oaNotify, HttpServletRequest request, HttpServletResponse response, Model model) {
 		oaNotify.setSelf(true);
-		Pagination<OaNotify> page = oaNotifyService.findPage(new Pagination<OaNotify>(request, response), oaNotify);
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
+		Page<OaNotify> page = oaNotifyService.findPage(new Page<OaNotify>(request, response), oaNotify);
 		return page;
 	}
 	
@@ -121,6 +126,7 @@ public class OaNotifyController extends BaseController {
 	public String view(OaNotify oaNotify, Model model) {
 		if (StringUtils.isNotBlank(oaNotify.getId())){
 			oaNotifyService.updateReadFlag(oaNotify);
+			oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 			oaNotify = oaNotifyService.getRecordList(oaNotify);
 			model.addAttribute("oaNotify", oaNotify);
 			return "modules/oa/oaNotifyForm";
@@ -135,6 +141,7 @@ public class OaNotifyController extends BaseController {
 	@ResponseBody
 	public OaNotify viewData(OaNotify oaNotify, Model model) {
 		if (StringUtils.isNotBlank(oaNotify.getId())){
+			oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 			oaNotifyService.updateReadFlag(oaNotify);
 			return oaNotify;
 		}
@@ -148,6 +155,7 @@ public class OaNotifyController extends BaseController {
 	@ResponseBody
 	public OaNotify viewRecordData(OaNotify oaNotify, Model model) {
 		if (StringUtils.isNotBlank(oaNotify.getId())){
+			oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 			oaNotify = oaNotifyService.getRecordList(oaNotify);
 			return oaNotify;
 		}
@@ -162,6 +170,7 @@ public class OaNotifyController extends BaseController {
 	public String selfCount(OaNotify oaNotify, Model model) {
 		oaNotify.setSelf(true);
 		oaNotify.setReadFlag("0");
+		oaNotify.setUserId(CurrentUserUtils.getUser().getId());
 		return String.valueOf(oaNotifyService.findCount(oaNotify));
 	}
 }

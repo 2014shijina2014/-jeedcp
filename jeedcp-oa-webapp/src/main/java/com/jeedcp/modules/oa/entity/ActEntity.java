@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jeedcp.common.persistence.DataEntity;
+import com.jeedcp.modules.act.entity.Act;
 
 /**
  * Activiti Entity类

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.jeedcp.common.persistence.Pagination;
+import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.config.Global;
 import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.web.BaseController;
@@ -55,7 +55,7 @@ public class ${ClassName}Controller extends BaseController {
 	@RequiresPermissions("${permissionPrefix}:view")
 	@RequestMapping(value = {"list", ""})
 	public String list(${ClassName} ${className}, HttpServletRequest request, HttpServletResponse response, Model model) {
-		Pagination<${ClassName}> page = ${className}Service.findPage(new Pagination<${ClassName}>(request, response), ${className}); 
+		Page<${ClassName}> page = ${className}Service.findPage(new Page<${ClassName}>(request, response), ${className});
 		model.addAttribute("page", page);
 		return "${lastPackageName}/${viewPrefix}List";
 	}
