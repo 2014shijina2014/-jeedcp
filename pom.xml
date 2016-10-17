@@ -103,7 +103,8 @@
 		<module>jeedcp-mq</module> <!--阿里MQ操作模块，暂时没用 -->
 		<module>jeedcp-cache</module> <!--缓存模块，暂时没用 -->
 		<module>jeedcp-pay</module><!--支付模块，包含微信和支付宝，暂时没用 -->
-		<module>jeedcp-job</module><!--分布式任务模块，暂时没用 -->
+		<module>jeedcp-job</module>
+		<module>jeedcp-cms-webapp</module><!--分布式任务模块，暂时没用 -->
 
 	</modules>
 	<dependencyManagement>
@@ -150,6 +151,18 @@
 				<artifactId> jeedcp-log-webapp</artifactId>
 				<version>${dcp.jeedcp.version}</version>
 				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId> jeedcp-cms-webapp</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${dcp.jeedcp.groupId}</groupId>
+				<artifactId>jeedcp-act-core</artifactId>
+				<version>${dcp.jeedcp.version}</version>
+				<type>jar</type>
 			</dependency>
 			<dependency>
 				<groupId>${dcp.jeedcp.groupId}</groupId>
@@ -909,11 +922,6 @@
 				<groupId>org.apache.curator</groupId>
 				<artifactId>curator-recipes</artifactId>
 				<version>${curator.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.pagehelper</groupId>
-				<artifactId>pagehelper</artifactId>
-				<version>${mybatis-pagehelper.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.aopalliance</groupId>
