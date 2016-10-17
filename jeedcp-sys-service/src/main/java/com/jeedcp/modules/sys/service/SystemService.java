@@ -3,8 +3,6 @@
  */
 package com.jeedcp.modules.sys.service;
 
-import com.github.pagehelper.PageHelper;
-
 import com.jeedcp.common.cache.EhCacheServiceBean;
 import com.jeedcp.common.persistence.Page;
 import com.jeedcp.common.security.Digests;
