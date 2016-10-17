@@ -53,7 +53,6 @@
 		<rs.version>1.1.1</rs.version>
 
 		<kaptcha.version>0.0.9</kaptcha.version>
-		<mybatis-pagehelper.version>4.0.1</mybatis-pagehelper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
 	</properties>
