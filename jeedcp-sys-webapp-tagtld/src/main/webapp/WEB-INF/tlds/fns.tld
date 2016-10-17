@@ -47,7 +47,7 @@
     <example>${fns:getConst(key)}</example>
   </function>
   
-  <!-- CurrentUserUtils -->
+  <!-- UserUtils -->
   <function>
     <description>获取当前用户对象</description>
     <name>getUser</name>
@@ -80,20 +80,6 @@
     <example>${fns:getMenuList()}</example>  
   </function>
   
-    <function>
-    <description>获取当前用户的菜单对象列表</description>
-    <name>getTopMenu</name>
-    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
-    <function-signature>com.jeedcp.modules.sys.entity.Menu getTopMenu()</function-signature>
-    <example>${fns:getTopMenu()}</example>  
-  </function>
-   <function>
-    <description>获取当前时间与指定时间的差值</description>
-    <name>getTime</name>
-    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
-    <function-signature>java.util.Date getTime(java.util.Date)</function-signature>
-    <example>${fns:getTime(java.util.Date)}</example>  
-  </function>
   <function>
     <description>获取当前用户的区域对象列表</description>
     <name>getAreaList</name>
@@ -157,14 +143,6 @@
     <function-class>com.jeedcp.modules.sys.utils.DictUtils</function-class>
     <function-signature>java.lang.String getDictListJson(java.lang.String)</function-signature>
     <example>${fns:getDictListJson(type)}</example>  
-  </function>
-  
-  <function>
-    <description>获取对象的属性值</description>
-    <name>getValue</name>
-    <function-class>com.jeedcp.modules.sys.utils.DictUtils</function-class>
-    <function-signature>java.lang.String getValue(java.lang.Object, java.lang.String)</function-signature>
-    <example>${fns:getValue(obj, name)}</example>  
   </function>
   
   <!-- Encodes -->
@@ -256,13 +234,7 @@
     <function-signature>long pastDays(java.util.Date)</function-signature>
     <example>${fns:pastDays(date)}</example>  
   </function>
-  <function>
-    <description>将日期对象Date转为标准格式字符串yyyy-mm-dd hh:mm:ss显示</description>
-    <name>formatDateTime</name>
-    <function-class>com.jeedcp.common.utils.DateUtils</function-class>
-    <function-signature>java.lang.String formatDateTime(java.util.Date)</function-signature>
-    <example>${fns:formatDateTime(date)}</example>  
-  </function>
+  
   <!-- JsonMapper -->
   <function>
     <description>对象转换JSON字符串</description>
@@ -270,14 +242,6 @@
     <function-class>com.jeedcp.common.mapper.JsonMapper</function-class>
     <function-signature>java.lang.String toJsonString(java.lang.Object)</function-signature>
     <example>${fns:toJson(object)}</example>  
-  </function>
-  
-  <function>
-    <description>根据编码获取用户对象</description>
-    <name>getByLoginName</name>
-    <function-class>com.jeedcp.modules.sys.utils.CurrentUserUtils</function-class>
-    <function-signature>com.jeedcp.modules.sys.entity.User getByLoginName(java.lang.String)</function-signature>
-    <example>${fns:getByLoginName(loginName)}</example>  
   </function>
   
 </taglib>
