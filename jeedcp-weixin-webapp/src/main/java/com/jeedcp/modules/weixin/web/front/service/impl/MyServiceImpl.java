@@ -1,8 +1,6 @@
 package com.jeedcp.modules.weixin.web.front.service.impl;
 
 
-import com.jeedcp.common.utils.DateUtils;
-import com.jeedcp.common.utils.IdGen;
 import com.jeedcp.modules.weixin.dao.*;
 import com.jeedcp.modules.weixin.entity.*;
 import com.jeedcp.modules.weixin.web.front.process.*;
