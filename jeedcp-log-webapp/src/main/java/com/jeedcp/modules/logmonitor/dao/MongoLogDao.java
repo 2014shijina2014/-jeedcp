@@ -58,7 +58,7 @@ public class MongoLogDao extends CrudMongoDao {
             }
 
 //            Page<MongoLog> pagination = new Page<MongoLog>(mongoLogDto.getPageNum(),mongoLogDto.getPageSize());
-            Page<MongoLog> pagination = new Page(new ArrayList<MongoLog>());
+            Page<MongoLog> pagination = new Page();
 //            query.skip(pagination.getStartRow());
 //            pagination
             List<MongoLog> mongoLogList = paasLogsTemplate.find(query, MongoLog.class);
