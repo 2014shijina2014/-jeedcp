@@ -89,7 +89,6 @@
 		<module>jeedcp-gen-webapp</module> <!--代码生成模块 -->
 		<module>jeedcp-log-webapp</module> <!--日志模块 -->
 		<module>jeedcp-weixin-webapp</module><!--微信操作模块，支持公众号，包括管理平台 -->
-		<module>jeedcp-mobile-webapp</module><!--mobile服务端模块。支持token，验证码等 -->
 		<module>jeedcp-test</module> <!--单元测试支持 -->
 		<module>jeedcp-file-core</module> <!--阿里oss操作核心库 -->
 		<module>jeedcp-file-webapp</module> <!--阿里oss操作web -->
